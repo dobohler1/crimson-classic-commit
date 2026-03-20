@@ -142,7 +142,7 @@
 
   .lane-options {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
   }
 
@@ -329,19 +329,35 @@
         <label class="section-label">How Do You Want to Show Up?</label>
         <div class="lane-options">
           <label class="lane-option">
-            <input type="checkbox" name="commitment" value="Golf — Register to play">
+            <input type="checkbox" name="commitment" value="Team Captain — Coordinate a foursome ($1K)">
             <div class="lane-btn">
               <div class="lane-icon">&#9971;</div>
-              <div class="lane-name">Play</div>
-              <div class="lane-detail">$250/golfer &bull; $1K/foursome</div>
+              <div class="lane-name">Team Captain</div>
+              <div class="lane-detail">Coordinate a foursome &bull; $1K</div>
             </div>
           </label>
           <label class="lane-option">
-            <input type="checkbox" name="commitment" value="Sponsor — $500 hole or connect us with sponsors">
+            <input type="checkbox" name="commitment" value="Single Golfer — Register to play ($250)">
+            <div class="lane-btn">
+              <div class="lane-icon">&#9971;</div>
+              <div class="lane-name">Single Golfer</div>
+              <div class="lane-detail">$250 early bird</div>
+            </div>
+          </label>
+          <label class="lane-option">
+            <input type="checkbox" name="commitment" value="Hole Sponsor — $500 hole sponsorship">
             <div class="lane-btn">
               <div class="lane-icon">&#127775;</div>
-              <div class="lane-name">Sponsor</div>
-              <div class="lane-detail">$500 hole or make an intro</div>
+              <div class="lane-name">Hole Sponsor</div>
+              <div class="lane-detail">$500 hole sponsorship</div>
+            </div>
+          </label>
+          <label class="lane-option">
+            <input type="checkbox" name="commitment" value="Warm Intro — Connect us with a potential sponsor">
+            <div class="lane-btn">
+              <div class="lane-icon">&#129309;</div>
+              <div class="lane-name">Warm Intro</div>
+              <div class="lane-detail">Connect us with a sponsor</div>
             </div>
           </label>
           <label class="lane-option">
