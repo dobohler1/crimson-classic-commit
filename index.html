@@ -215,6 +215,11 @@
     background: var(--crimson-dark);
   }
 
+  .submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
   .footer {
     text-align: center;
     margin-top: 24px;
@@ -259,6 +264,31 @@
     justify-content: center;
     margin: 0 auto 20px auto;
   }
+
+  .stat {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e8e2d6;
+    display: inline-block;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--crimson);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
 </style>
 </head>
 <body>
@@ -279,27 +309,20 @@
 
   <!-- Form -->
   <div class="card" id="formCard">
-    <form action="https://formsubmit.co/dbohler@scienceonthecourt.com" method="POST" id="commitForm">
-      <!-- FormSubmit config -->
-      <input type="hidden" name="_subject" value="New Crimson Classic Commitment">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://dobohler1.github.io/crimson-classic-commit/thankyou.html">
-      <input type="text" name="_honey" style="display:none">
-
+    <form id="commitForm" onsubmit="return handleSubmit(event)">
       <div class="form-group">
         <label>Your Name</label>
-        <input type="text" name="name" required placeholder="First and Last">
+        <input type="text" name="name" id="fname" required placeholder="First and Last">
       </div>
 
       <div class="form-group">
         <label>Email</label>
-        <input type="email" name="email" required placeholder="you@example.com">
+        <input type="email" name="email" id="femail" required placeholder="you@example.com">
       </div>
 
       <div class="form-group">
         <label>Phone <span style="font-weight: 400; text-transform: none;">(optional)</span></label>
-        <input type="tel" name="phone" placeholder="(510) 555-1234">
+        <input type="tel" name="phone" id="fphone" placeholder="(510) 555-1234">
       </div>
 
       <div class="form-group lane-section">
@@ -342,11 +365,22 @@
 
       <div class="form-group">
         <label>Anything else? <span style="font-weight: 400; text-transform: none;">(optional)</span></label>
-        <textarea name="notes" placeholder="Names of people you'd like to connect us with, questions, ideas..."></textarea>
+        <textarea name="notes" id="fnotes" placeholder="Names of people you'd like to connect us with, questions, ideas..."></textarea>
       </div>
 
-      <button type="submit" class="submit-btn">I'm In</button>
+      <button type="submit" class="submit-btn" id="submitBtn">I'm In</button>
     </form>
+  </div>
+
+  <!-- Thank You (shown after submit) -->
+  <div class="card thank-you" id="thankYou">
+    <div class="check-circle">&#10003;</div>
+    <h2>You're In.</h2>
+    <p>Thank you for committing to the 5th Annual Crimson & Cream Golf Classic. Dorian will follow up with next steps.</p>
+    <div class="stat">
+      <div class="stat-number">$147K</div>
+      <div class="stat-label">Scholarships awarded — and counting</div>
+    </div>
   </div>
 
   <div class="footer">
@@ -354,6 +388,85 @@
     Questions? dbohler@scienceonthecourt.com
   </div>
 </div>
+
+<!-- Firebase SDK (modular, from CDN) -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js';
+  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB9CNRmJ8qU3u2HWgoznzm3a9rzb1_zGyQ",
+    authDomain: "crimson-classic-2026.firebaseapp.com",
+    projectId: "crimson-classic-2026",
+    storageBucket: "crimson-classic-2026.firebasestorage.app",
+    messagingSenderId: "563149410849",
+    appId: "1:563149410849:web:cf818587a9742575fac960"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Make handleSubmit available globally
+  window.handleSubmit = async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const notes = document.getElementById('fnotes').value.trim();
+
+    // Gather selected commitments
+    const checks = document.querySelectorAll('input[name="commitment"]:checked');
+    const commitments = Array.from(checks).map(c => c.value);
+
+    const data = {
+      name,
+      email,
+      phone: phone || '',
+      commitments,
+      notes: notes || '',
+      submittedAt: serverTimestamp(),
+      source: 'chapter-meeting'
+    };
+
+    try {
+      // 1. Save to Firestore
+      await addDoc(collection(db, 'commitments'), data);
+
+      // 2. Send email notification via FormSubmit
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone || 'Not provided');
+      formData.append('commitments', commitments.join(', ') || 'None selected');
+      formData.append('notes', notes || 'None');
+      formData.append('_subject', 'New Crimson Classic Commitment: ' + name);
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+
+      fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', {
+        method: 'POST',
+        body: formData
+      }).catch(() => {}); // Email is best-effort; Firestore is the source of truth
+
+      // Show thank you
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('thankYou').classList.add('show');
+
+    } catch (err) {
+      console.error('Submit error:', err);
+      btn.disabled = false;
+      btn.textContent = "I'm In";
+      alert('Something went wrong. Please try again.');
+    }
+
+    return false;
+  };
+</script>
 
 </body>
 </html>
