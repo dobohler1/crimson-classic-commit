@@ -85,27 +85,6 @@
 
   .container { max-width: 800px; margin: 0 auto; padding: 32px 20px 48px 20px; }
 
-  /* Personalization bar */
-  .personal-bar {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 28px;
-    border: 1px solid #e8e2d6;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    text-align: center;
-    display: none;
-  }
-
-  .personal-bar.show { display: block; }
-
-  .personal-bar .name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--crimson);
-  }
-
   /* Photo gallery */
   .photo-strip {
     display: grid;
@@ -452,19 +431,12 @@
 
 <div class="container">
 
-  <!-- Personalized greeting (shown via URL params) -->
-  <div class="personal-bar" id="personalBar">
-    <p style="font-size: 0.85rem; color: var(--gray);">Prepared for</p>
-    <p class="name" id="personalName"></p>
-    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 4px;">Thank you for your interest in sponsoring the Crimson Classic.</p>
-  </div>
-
   <!-- Photo strip -->
   <div class="photo-strip">
-    <img src="../charitygolf_photo25/IMG_0029.JPG" alt="Foursome on course">
-    <img src="../charitygolf_photo25/IMG_0268.JPG" alt="Golfer portrait">
-    <img src="../charitygolf_photo25/IMG_0735.JPG" alt="Foursome posing">
-    <img src="../charitygolf_photo25/IMG_9934.JPG" alt="Brothers in golf cart">
+    <img src="photos/IMG_0029.JPG" alt="Foursome on course">
+    <img src="photos/IMG_0268.JPG" alt="Golfer portrait">
+    <img src="photos/IMG_0735.JPG" alt="Foursome posing">
+    <img src="photos/IMG_9934.JPG" alt="Brothers in golf cart">
   </div>
 
   <!-- ===== ON-COURSE SPONSORSHIPS ===== -->
@@ -504,8 +476,8 @@
 
   <!-- Photo break -->
   <div class="photo-strip" style="grid-template-columns: 1fr 1fr; margin: 24px 0;">
-    <img src="../charitygolf_photo25/IMG_1373.JPG" alt="D9 brothers on course" style="height: 200px;">
-    <img src="../charitygolf_photo25/IMG_0536.JPG" alt="Golfer in crimson" style="height: 200px;">
+    <img src="photos/IMG_1373.JPG" alt="D9 brothers on course" style="height: 200px;">
+    <img src="photos/IMG_0536.JPG" alt="Golfer in crimson" style="height: 200px;">
   </div>
 
   <!-- ===== CONTEST SPONSORSHIPS ===== -->
@@ -557,8 +529,8 @@
 
   <!-- Photo break -->
   <div class="photo-strip" style="grid-template-columns: 1fr 1fr; margin: 24px 0;">
-    <img src="../charitygolf_photo25/IMG_9751.JPG" alt="Golfer on putting green" style="height: 200px;">
-    <img src="../charitygolf_photo25/IMG_1105.JPG" alt="Foursome on course" style="height: 200px;">
+    <img src="photos/IMG_9751.JPG" alt="Golfer on putting green" style="height: 200px;">
+    <img src="photos/IMG_1105.JPG" alt="Foursome on course" style="height: 200px;">
   </div>
 
   <!-- ===== EXPERIENCE SPONSORSHIPS ===== -->
@@ -617,7 +589,7 @@
 
   <!-- Delta photo -->
   <div class="photo-strip" style="grid-template-columns: 1fr; margin-bottom: 20px;">
-    <img src="../charitygolf_photo25/IMG_1695.JPG" alt="Delta Sigma Theta volunteers" style="height: 220px; object-position: center top;">
+    <img src="photos/IMG_1695.JPG" alt="Delta Sigma Theta volunteers" style="height: 220px; object-position: center top;">
   </div>
 
   <div class="category"><span class="category-icon">&#127873;</span><span class="category-label">Gift Bag Items — Real Costs</span></div>
@@ -826,17 +798,6 @@
 </script>
 
 <script>
-  // Personalization via URL params
-  const params = new URLSearchParams(window.location.search);
-  const sponsorName = params.get('name');
-  if (sponsorName) {
-    document.getElementById('personalBar').classList.add('show');
-    document.getElementById('personalName').textContent = sponsorName;
-    document.getElementById('coName').value = sponsorName;
-    const company = params.get('company');
-    if (company) document.getElementById('coCompany').value = company;
-  }
-
   // Card selection
   function toggleCard(el) {
     el.classList.toggle('selected');
