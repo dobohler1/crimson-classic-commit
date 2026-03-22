@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hole Sponsorship — Crimson & Cream Golf Classic 2026</title>
+<title>Sponsor the Crimson Classic 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --crimson: #C41E3A;
     --crimson-dark: #8B0000;
     --cream: #FAF6EE;
+    --cream-dark: #F0E8D8;
     --gold: #C5A55A;
     --charcoal: #1E1E1E;
     --gray: #555;
+    --light-gray: #999;
+    --green: #2d8a4e;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,25 +27,30 @@
     min-height: 100vh;
   }
 
-  .top-bar {
-    height: 5px;
-    background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%);
-  }
+  .top-bar { height: 5px; background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%); }
 
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 32px 20px 48px 20px;
-  }
-
-  .logo-area {
+  .hero {
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+    color: #fff;
+    padding: 48px 20px;
     text-align: center;
-    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .badge {
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('') center/cover;
+    opacity: 0.1;
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+  .hero .badge {
     display: inline-block;
-    background: var(--gold);
+    background: rgba(255,255,255,0.15);
     color: #fff;
     font-size: 0.65rem;
     font-weight: 700;
@@ -51,195 +59,376 @@
     padding: 5px 16px;
     border-radius: 20px;
     margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.3);
   }
 
-  h1 {
+  .hero h1 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 2.4rem;
     line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero .subtitle { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 20px; }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+  }
+
+  .hero-stat { text-align: center; }
+  .hero-stat .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; }
+  .hero-stat .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 32px 20px 48px 20px; }
+
+  /* Personalization bar */
+  .personal-bar {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    border: 1px solid #e8e2d6;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     text-align: center;
+    display: none;
+  }
+
+  .personal-bar.show { display: block; }
+
+  .personal-bar .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--crimson);
+  }
+
+  /* Photo gallery */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .photo-strip img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Section headers */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
     margin-bottom: 8px;
   }
 
-  .subtitle {
-    font-size: 0.95rem;
+  .section-subtitle {
+    font-size: 0.9rem;
     color: var(--gray);
-    text-align: center;
-    line-height: 1.6;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
+    line-height: 1.5;
   }
 
-  .card {
+  .section-divider {
+    width: 50px;
+    height: 3px;
+    background: var(--crimson);
+    margin: 32px 0 24px 0;
+  }
+
+  /* Sponsorship cards */
+  .sponsor-card {
     background: #fff;
     border-radius: 12px;
-    padding: 32px 28px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border: 1px solid #e8e2d6;
-    margin-bottom: 20px;
-  }
-
-  .price-hero {
-    text-align: center;
-    padding: 28px 20px;
-    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
-    border-radius: 12px;
-    color: #fff;
-    margin-bottom: 24px;
-  }
-
-  .price-hero .amount {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    line-height: 1;
-  }
-
-  .price-hero .label {
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-top: 8px;
-    color: rgba(255,255,255,0.8);
-  }
-
-  .section-header {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--crimson);
+    border: 2px solid #e8e2d6;
+    overflow: hidden;
     margin-bottom: 16px;
+    transition: all 0.2s;
+    cursor: pointer;
   }
 
-  .benefit {
+  .sponsor-card:hover { border-color: var(--crimson); box-shadow: 0 4px 16px rgba(196,30,58,0.1); }
+  .sponsor-card.selected { border-color: var(--crimson); box-shadow: 0 0 0 2px var(--crimson); }
+  .sponsor-card.selected .card-header { background: var(--crimson); color: #fff; }
+  .sponsor-card.selected .card-header .card-price { color: #fff; }
+  .sponsor-card.selected .card-check { background: var(--crimson); color: #fff; border-color: var(--crimson); }
+
+  .card-header {
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #f0ece4;
-  }
-
-  .benefit:last-child {
-    border-bottom: none;
-  }
-
-  .benefit-icon {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
     background: var(--cream);
+    transition: all 0.2s;
+  }
+
+  .card-header-left { display: flex; align-items: center; gap: 14px; }
+  .card-check {
+    width: 28px; height: 28px;
+    border: 2px solid #ccc;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.85rem;
-    margin-top: 2px;
+    flex-shrink: 0;
+    transition: all 0.2s;
   }
 
-  .benefit-text {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--charcoal);
+  .card-name { font-weight: 700; font-size: 1rem; }
+  .card-price { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.3rem; color: var(--crimson); transition: color 0.2s; }
+
+  .card-body { padding: 16px 20px; font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+  .card-body ul { list-style: none; }
+  .card-body li { padding: 4px 0; padding-left: 20px; position: relative; }
+  .card-body li::before { content: ''; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+  /* Category headers */
+  .category {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    margin-top: 8px;
   }
 
-  .benefit-text strong {
-    color: var(--crimson);
+  .category-icon { font-size: 1.4rem; }
+  .category-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--crimson); }
+
+  /* Gift bag breakdown */
+  .gift-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
   }
 
-  .impact-bar {
-    background: var(--cream);
-    border-radius: 10px;
-    padding: 20px 24px;
-    text-align: center;
-    margin-bottom: 24px;
-    border-left: 4px solid var(--gold);
+  .gift-table th {
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    border-bottom: 2px solid var(--charcoal);
   }
 
-  .impact-bar .number {
+  .gift-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e8e2d6;
+  }
+
+  .gift-table .num { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .gift-table .total td { font-weight: 700; border-top: 2px solid var(--crimson); border-bottom: none; color: var(--crimson); }
+
+  /* Cart summary */
+  .cart {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    border-top: 2px solid var(--crimson);
+    padding: 16px 20px;
+    display: none;
+    z-index: 100;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  }
+
+  .cart.show { display: block; }
+
+  .cart-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .cart-total {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 900;
     color: var(--crimson);
   }
 
-  .impact-bar .text {
-    font-size: 0.85rem;
-    color: var(--gray);
-    margin-top: 4px;
-  }
+  .cart-items { font-size: 0.85rem; color: var(--gray); }
 
-  .pay-btn {
-    display: block;
-    width: 100%;
-    padding: 18px;
+  .cart-btn {
+    padding: 14px 32px;
     background: var(--crimson);
     color: #fff;
     border: none;
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
     cursor: pointer;
-    text-align: center;
-    text-decoration: none;
     transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
   }
 
-  .pay-btn:hover {
-    background: var(--crimson-dark);
+  .cart-btn:hover { background: var(--crimson-dark); }
+
+  /* Checkout overlay */
+  .checkout-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
   }
 
-  .secure-note {
-    text-align: center;
-    margin-top: 12px;
-    font-size: 0.75rem;
-    color: var(--gray);
+  .checkout-overlay.show { display: flex; }
+
+  .checkout-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
   }
 
-  .event-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 24px;
+  .checkout-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px; height: 32px;
+    border: none;
+    background: var(--cream);
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .event-detail {
-    text-align: center;
-  }
-
-  .event-detail .label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gold);
+  .checkout-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
     margin-bottom: 4px;
   }
 
-  .event-detail .value {
-    font-size: 0.9rem;
+  .checkout-box .form-group { margin-bottom: 16px; }
+
+  .checkout-box label {
+    display: block;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-bottom: 4px;
   }
+
+  .checkout-box input[type="text"],
+  .checkout-box input[type="email"],
+  .checkout-box input[type="tel"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #e0d8c8;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    background: var(--cream);
+  }
+
+  .checkout-box input:focus { outline: none; border-color: var(--crimson); }
+
+  .logo-upload {
+    border: 2px dashed #d0c8b8;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    background: var(--cream);
+  }
+
+  .logo-upload:hover { border-color: var(--crimson); }
+  .logo-upload.has-file { border-color: var(--green); border-style: solid; background: #f0f8f0; }
+
+  .logo-upload-icon { font-size: 2rem; margin-bottom: 8px; }
+  .logo-upload-text { font-size: 0.85rem; color: var(--gray); }
+  .logo-upload-text strong { color: var(--crimson); }
+
+  .checkout-summary {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 0.85rem;
+  }
+
+  .checkout-summary .line {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+  }
+
+  .checkout-summary .line.total {
+    border-top: 2px solid var(--crimson);
+    margin-top: 8px;
+    padding-top: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--crimson);
+  }
+
+  .pay-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--crimson);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+
+  .pay-btn:hover { background: var(--crimson-dark); }
+
+  .secure-note { text-align: center; margin-top: 8px; font-size: 0.7rem; color: var(--light-gray); }
 
   .footer {
     text-align: center;
-    margin-top: 24px;
+    margin-top: 32px;
+    padding-bottom: 80px;
     font-size: 0.75rem;
-    color: #999;
+    color: var(--light-gray);
     line-height: 1.5;
   }
 
-  .sponsor-packet-link {
-    display: block;
-    text-align: center;
-    margin-top: 16px;
-    font-size: 0.85rem;
-    color: var(--gold);
-    text-decoration: underline;
+  .footer a { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip img { height: 120px; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero-stats { gap: 20px; }
+    .hero-stat .num { font-size: 1.5rem; }
+    .cart-inner { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -247,73 +436,507 @@
 
 <div class="top-bar"></div>
 
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="badge">5th Annual &bull; October 19, 2026</div>
+    <h1>Become a Sponsor</h1>
+    <p class="subtitle">Every sponsorship directly funds scholarships, test prep, and athletic training for Bay Area youth. Choose what to sponsor — from a hole to the whole gift bag.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">$147K</div><div class="label">Scholarships Awarded</div></div>
+      <div class="hero-stat"><div class="num">100+</div><div class="label">Golfers Expected</div></div>
+      <div class="hero-stat"><div class="num">25</div><div class="label">Scholarships Target</div></div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <div class="logo-area">
-    <div class="badge">Hole Sponsorship</div>
-    <h1>Crimson & Cream<br>Golf Classic 2026</h1>
-    <p class="subtitle">Thank you for your commitment to sponsor a hole at the 5th Annual Crimson & Cream Charity Golf Classic. Your sponsorship directly funds scholarships for Bay Area students.</p>
+
+  <!-- Personalized greeting (shown via URL params) -->
+  <div class="personal-bar" id="personalBar">
+    <p style="font-size: 0.85rem; color: var(--gray);">Prepared for</p>
+    <p class="name" id="personalName"></p>
+    <p style="font-size: 0.85rem; color: var(--gray); margin-top: 4px;">Thank you for your interest in sponsoring the Crimson Classic.</p>
   </div>
 
-  <div class="event-details">
-    <div class="event-detail">
-      <div class="label">Date</div>
-      <div class="value">October 19, 2026</div>
-    </div>
-    <div class="event-detail">
-      <div class="label">Venue</div>
-      <div class="value">Stonebrae CC</div>
-    </div>
-    <div class="event-detail">
-      <div class="label">Format</div>
-      <div class="value">Shotgun Start</div>
-    </div>
+  <!-- Photo strip -->
+  <div class="photo-strip">
+    <img src="../charitygolf_photo25/IMG_0029.JPG" alt="Foursome on course">
+    <img src="../charitygolf_photo25/IMG_0268.JPG" alt="Golfer portrait">
+    <img src="../charitygolf_photo25/IMG_0735.JPG" alt="Foursome posing">
+    <img src="../charitygolf_photo25/IMG_9934.JPG" alt="Brothers in golf cart">
   </div>
 
-  <div class="card">
-    <div class="price-hero">
-      <div class="amount">$500</div>
-      <div class="label">Hole Sponsorship</div>
-    </div>
+  <!-- ===== ON-COURSE SPONSORSHIPS ===== -->
+  <div class="section-title">On-Course Sponsorships</div>
+  <div class="section-subtitle">Your name or logo displayed on the course all day — seen by every golfer.</div>
 
-    <div class="section-header">What You Get</div>
-    <div class="benefit">
-      <div class="benefit-icon">&#9971;</div>
-      <div class="benefit-text"><strong>Your name or company displayed</strong> on a custom sign at your sponsored hole for 100+ golfers to see throughout the day</div>
+  <div class="category"><span class="category-icon">&#9971;</span><span class="category-label">Course Signage</span></div>
+
+  <div class="sponsor-card" data-name="Hole Sponsorship" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Hole Sponsorship</div></div>
+      <div class="card-price">$500</div>
     </div>
-    <div class="benefit">
-      <div class="benefit-icon">&#128247;</div>
-      <div class="benefit-text"><strong>Photo of your sign on the course</strong> shared with you after the event for your own social media and marketing</div>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">&#128220;</div>
-      <div class="benefit-text"><strong>Recognition in the banquet program</strong> during the evening awards dinner and Black art auction gala</div>
-    </div>
-    <div class="benefit">
-      <div class="benefit-icon">&#10084;</div>
-      <div class="benefit-text"><strong>100% of proceeds fund scholarships</strong> for Bay Area students through Bay Area Community Projects</div>
+    <div class="card-body">
+      <ul>
+        <li>Custom sign with your name/logo at a designated hole</li>
+        <li>Seen by 100+ golfers throughout the day</li>
+        <li>Photo of your sign shared after the event</li>
+        <li>Recognition in the banquet program</li>
+      </ul>
     </div>
   </div>
 
-  <div class="impact-bar">
-    <div class="number">$147,000</div>
-    <div class="text">in scholarships awarded over 4 years — your $500 adds to this legacy</div>
+  <div class="sponsor-card" data-name="Golf Cart Sponsor" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Golf Cart Sponsor</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Your logo displayed in every golf cart on course</li>
+        <li>Maximum visibility — every golfer sees it all day</li>
+        <li>Recognition in the banquet program</li>
+      </ul>
+    </div>
   </div>
 
-  <!-- TODO: Replace with BACP Stripe payment link -->
-  <a href="https://buy.stripe.com/14A14ngKk4Go4PY4ig3AY03" class="pay-btn">
-    Pay $500 — Sponsor a Hole
-  </a>
-  <div class="secure-note">Secure payment powered by Stripe</div>
+  <!-- Photo break -->
+  <div class="photo-strip" style="grid-template-columns: 1fr 1fr; margin: 24px 0;">
+    <img src="../charitygolf_photo25/IMG_1373.JPG" alt="D9 brothers on course" style="height: 200px;">
+    <img src="../charitygolf_photo25/IMG_0536.JPG" alt="Golfer in crimson" style="height: 200px;">
+  </div>
 
-  <a href="https://drive.google.com/file/d/12liVbz5sWU08CbYkQFTirk9PCBGEnGXb/view?usp=sharing" class="sponsor-packet-link" target="_blank">
-    Interested in a larger sponsorship? View the full sponsorship packet
-  </a>
+  <!-- ===== CONTEST SPONSORSHIPS ===== -->
+  <div class="section-divider"></div>
+  <div class="section-title">Contest & Game Sponsorships</div>
+  <div class="section-subtitle">"[Contest] presented by [Your Name/Company]" — announced on the tee box, printed in the program, and called out at the awards banquet.</div>
+
+  <div class="category"><span class="category-icon">&#127942;</span><span class="category-label">Competitions</span></div>
+
+  <div class="sponsor-card" data-name="Longest Drive Contest" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Longest Drive Contest</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body"><ul><li>"Longest Drive presented by [You]" — signage at the tee box + banquet announcement</li></ul></div>
+  </div>
+
+  <div class="sponsor-card" data-name="Closest to Pin Contest" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Closest to Pin Contest</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body"><ul><li>"Closest to the Pin presented by [You]" — signage at the hole + banquet announcement</li></ul></div>
+  </div>
+
+  <div class="sponsor-card" data-name="Putting Contest" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Putting Contest</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body"><ul><li>"Putting Contest presented by [You]" — signage at the green + banquet announcement</li></ul></div>
+  </div>
+
+  <div class="sponsor-card" data-name="Hole-in-One Contest" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Hole-in-One Contest</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body"><ul><li>"Hole-in-One Challenge presented by [You]" — premium signage + banquet announcement</li></ul></div>
+  </div>
+
+  <div class="sponsor-card" data-name="Mulligan Sponsor" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Mulligan Sponsor</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body"><ul><li>Your logo printed on every mulligan card sold — golfers hold it in their hand all round</li></ul></div>
+  </div>
+
+  <!-- Photo break -->
+  <div class="photo-strip" style="grid-template-columns: 1fr 1fr; margin: 24px 0;">
+    <img src="../charitygolf_photo25/IMG_9751.JPG" alt="Golfer on putting green" style="height: 200px;">
+    <img src="../charitygolf_photo25/IMG_1105.JPG" alt="Foursome on course" style="height: 200px;">
+  </div>
+
+  <!-- ===== EXPERIENCE SPONSORSHIPS ===== -->
+  <div class="section-divider"></div>
+  <div class="section-title">Experience Sponsorships</div>
+  <div class="section-subtitle">Elevate the event atmosphere while getting premium brand exposure.</div>
+
+  <div class="category"><span class="category-icon">&#127863;</span><span class="category-label">Premium Experiences</span></div>
+
+  <div class="sponsor-card" data-name="Cigar Lounge Sponsor" data-price="2000" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Cigar Lounge Sponsor</div></div>
+      <div class="card-price">$2,000</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Branded cigar lounge on course — high-traffic gathering spot</li>
+        <li>Exclusive signage and brand placement</li>
+        <li>Premium recognition at banquet</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Cocktail Station Sponsor" data-price="1000" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Cocktail / Beverage Station</div></div>
+      <div class="card-price">$1,000</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Branded beverage station on course — your product or brand featured</li>
+        <li>Signage and sampling opportunity</li>
+        <li>Recognition in banquet program</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Wellness Station Sponsor" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Wellness Station</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Branded wellness/stretch station on course (chiropractic, massage, etc.)</li>
+        <li>Direct access to 100+ affluent, health-conscious golfers</li>
+        <li>Recognition in banquet program</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== GIFT BAG SPONSORSHIP ===== -->
+  <div class="section-divider"></div>
+  <div class="section-title">Gift Bag Sponsorship</div>
+  <div class="section-subtitle">Every golfer receives a premium gift bag. Sponsor an item and your brand goes home with every player.</div>
+
+  <!-- Delta photo -->
+  <div class="photo-strip" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+    <img src="../charitygolf_photo25/IMG_1695.JPG" alt="Delta Sigma Theta volunteers" style="height: 220px; object-position: center top;">
+  </div>
+
+  <div class="category"><span class="category-icon">&#127873;</span><span class="category-label">Gift Bag Items — Real Costs</span></div>
+
+  <div class="sponsor-card" data-name="Gift Bag: Pro V1 Golf Balls (2-pack x 144)" data-price="750" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Titleist Pro V1 — 2-Pack Sleeve</div></div>
+      <div class="card-price">$750</div>
+    </div>
+    <div class="card-body">
+      <table class="gift-table">
+        <tr><th>Item</th><th>Qty</th><th class="num">Unit</th><th class="num">Total</th></tr>
+        <tr><td>Pro V1 2-pack sleeve</td><td>144</td><td class="num">$5.12</td><td class="num">$738</td></tr>
+        <tr class="total"><td colspan="3">Sponsorship covers</td><td class="num">$750</td></tr>
+      </table>
+      <p style="margin-top: 8px;">Premium golf balls in every bag — your brand associated with the best in the game.</p>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Gift Bag: Custom Golf Tees (10-pack x 144)" data-price="250" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Custom Printed Golf Tees — 10-Pack</div></div>
+      <div class="card-price">$250</div>
+    </div>
+    <div class="card-body">
+      <table class="gift-table">
+        <tr><th>Item</th><th>Qty</th><th class="num">Unit</th><th class="num">Total</th></tr>
+        <tr><td>Custom wooden tees (10/bag)</td><td>144</td><td class="num">$1.00</td><td class="num">$144</td></tr>
+        <tr class="total"><td colspan="3">Sponsorship covers</td><td class="num">$250</td></tr>
+      </table>
+      <p style="margin-top: 8px;">Custom printed tees with event branding — used on every tee box all day.</p>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Gift Bag: Divot Tool (x 144)" data-price="350" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Custom Divot Repair Tool</div></div>
+      <div class="card-price">$350</div>
+    </div>
+    <div class="card-body">
+      <table class="gift-table">
+        <tr><th>Item</th><th>Qty</th><th class="num">Unit</th><th class="num">Total</th></tr>
+        <tr><td>Divot tool w/ ball marker</td><td>144</td><td class="num">$2.00</td><td class="num">$288</td></tr>
+        <tr class="total"><td colspan="3">Sponsorship covers</td><td class="num">$350</td></tr>
+      </table>
+      <p style="margin-top: 8px;">Premium metal divot tool with removable ball marker — a keepsake golfers use for years.</p>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Gift Bag: Golf Towel (x 144)" data-price="500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Custom Embroidered Golf Towel</div></div>
+      <div class="card-price">$500</div>
+    </div>
+    <div class="card-body">
+      <table class="gift-table">
+        <tr><th>Item</th><th>Qty</th><th class="num">Unit</th><th class="num">Total</th></tr>
+        <tr><td>Microfiber towel, embroidered</td><td>144</td><td class="num">$3.50</td><td class="num">$504</td></tr>
+        <tr class="total"><td colspan="3">Sponsorship covers</td><td class="num">$500</td></tr>
+      </table>
+      <p style="margin-top: 8px;">High-quality embroidered towel that clips to every golfer's bag — brand exposure for years.</p>
+    </div>
+  </div>
+
+  <!-- ===== PREMIUM TIERS ===== -->
+  <div class="section-divider"></div>
+  <div class="section-title">Premium Sponsorship Packages</div>
+  <div class="section-subtitle">Comprehensive packages for businesses that want maximum visibility and impact.</div>
+
+  <div class="category"><span class="category-icon">&#11088;</span><span class="category-label">Title Sponsorships</span></div>
+
+  <div class="sponsor-card" data-name="Bronze Sponsorship" data-price="1000" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Bronze Sponsor</div></div>
+      <div class="card-price">$1,000</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Hole sponsorship signage on course</li>
+        <li>Logo in banquet program</li>
+        <li>Recognition from the podium at awards dinner</li>
+        <li>Post-event impact report with your logo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Silver Sponsorship" data-price="2500" onclick="toggleCard(this)">
+    <div class="card-header">
+      <div class="card-header-left"><div class="card-check">&#10003;</div><div class="card-name">Silver Sponsor</div></div>
+      <div class="card-price">$2,500</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Everything in Bronze</li>
+        <li>Complimentary foursome ($1,000 value)</li>
+        <li>Premium signage placement</li>
+        <li>Logo on event marketing materials</li>
+        <li>VIP table at banquet for your team</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sponsor-card" data-name="Gold Sponsorship" data-price="5000" onclick="toggleCard(this)">
+    <div class="card-header" style="background: linear-gradient(135deg, #C5A55A 0%, #d4b96a 100%); color: #fff;">
+      <div class="card-header-left"><div class="card-check" style="border-color: #fff;">&#10003;</div><div class="card-name">Gold Sponsor</div></div>
+      <div class="card-price" style="color: #fff;">$5,000</div>
+    </div>
+    <div class="card-body">
+      <ul>
+        <li>Everything in Silver</li>
+        <li>Title-level visibility — "The Crimson Classic presented in part by [You]"</li>
+        <li>Speaking mention at banquet</li>
+        <li>Logo on all email campaigns and web presence</li>
+        <li>Exclusive VIP table + premium gift bag</li>
+        <li>Year-round recognition in BACP communications</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sponsor packet link -->
+  <div style="text-align: center; margin-top: 24px;">
+    <a href="https://drive.google.com/file/d/12liVbz5sWU08CbYkQFTirk9PCBGEnGXb/view?usp=sharing" target="_blank" style="color: var(--gold); font-size: 0.9rem; text-decoration: underline;">Download the full sponsorship packet (PDF)</a>
+  </div>
 
   <div class="footer">
     Bay Area Community Project Inc & Berkeley Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.<br>
-    Questions? dbohler@scienceonthecourt.com
+    Stonebrae Country Club &bull; Hayward, CA &bull; October 19, 2026<br>
+    Questions? <a href="mailto:dbohler@scienceonthecourt.com">dbohler@scienceonthecourt.com</a>
   </div>
 </div>
+
+<!-- Sticky Cart -->
+<div class="cart" id="cart">
+  <div class="cart-inner">
+    <div>
+      <div class="cart-items" id="cartItems">0 items selected</div>
+      <div class="cart-total" id="cartTotal">$0</div>
+    </div>
+    <button class="cart-btn" onclick="openCheckout()">Continue to Checkout</button>
+  </div>
+</div>
+
+<!-- Checkout Overlay -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-box">
+    <button class="checkout-close" onclick="closeCheckout()">&times;</button>
+    <h2>Finalize Your Sponsorship</h2>
+    <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 20px;">We'll follow up to collect your logo and materials after payment.</p>
+
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="coName" placeholder="First and Last">
+    </div>
+
+    <div class="form-group">
+      <label>Company / Organization <span style="font-weight: 400; text-transform: none;">(if applicable)</span></label>
+      <input type="text" id="coCompany" placeholder="Company name">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="coEmail" placeholder="you@example.com">
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" id="coPhone" placeholder="(510) 555-1234">
+    </div>
+
+    <div class="form-group">
+      <label>Upload Logo <span style="font-weight: 400; text-transform: none;">(optional — you can send later)</span></label>
+      <div class="logo-upload" id="logoUpload" onclick="document.getElementById('logoFile').click()">
+        <div class="logo-upload-icon">&#128196;</div>
+        <div class="logo-upload-text" id="logoText"><strong>Click to upload</strong> or drag and drop<br>PNG, JPG, or PDF</div>
+      </div>
+      <input type="file" id="logoFile" accept=".png,.jpg,.jpeg,.pdf" style="display:none" onchange="handleLogo(this)">
+    </div>
+
+    <div class="checkout-summary" id="checkoutSummary"></div>
+
+    <!-- TODO: Replace with BACP Stripe payment link -->
+    <button class="pay-btn" id="payBtn" onclick="submitSponsor()">Complete Sponsorship</button>
+    <div class="secure-note">Secure payment powered by Stripe &bull; Bay Area Community Projects</div>
+  </div>
+</div>
+
+<!-- Firebase -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js';
+  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
+
+  const app = initializeApp({
+    apiKey: "AIzaSyB9CNRmJ8qU3u2HWgoznzm3a9rzb1_zGyQ",
+    authDomain: "crimson-classic-2026.firebaseapp.com",
+    projectId: "crimson-classic-2026",
+    storageBucket: "crimson-classic-2026.firebasestorage.app",
+    messagingSenderId: "563149410849",
+    appId: "1:563149410849:web:cf818587a9742575fac960"
+  });
+
+  const db = getFirestore(app);
+  window._db = db;
+  window._collection = collection;
+  window._addDoc = addDoc;
+  window._serverTimestamp = serverTimestamp;
+</script>
+
+<script>
+  // Personalization via URL params
+  const params = new URLSearchParams(window.location.search);
+  const sponsorName = params.get('name');
+  if (sponsorName) {
+    document.getElementById('personalBar').classList.add('show');
+    document.getElementById('personalName').textContent = sponsorName;
+    document.getElementById('coName').value = sponsorName;
+    const company = params.get('company');
+    if (company) document.getElementById('coCompany').value = company;
+  }
+
+  // Card selection
+  function toggleCard(el) {
+    el.classList.toggle('selected');
+    updateCart();
+  }
+
+  function getSelected() {
+    return Array.from(document.querySelectorAll('.sponsor-card.selected')).map(c => ({
+      name: c.dataset.name,
+      price: parseInt(c.dataset.price)
+    }));
+  }
+
+  function updateCart() {
+    const items = getSelected();
+    const total = items.reduce((s, i) => s + i.price, 0);
+    const cart = document.getElementById('cart');
+    if (items.length > 0) {
+      cart.classList.add('show');
+      document.getElementById('cartItems').textContent = items.length + ' item' + (items.length > 1 ? 's' : '') + ' selected';
+      document.getElementById('cartTotal').textContent = '$' + total.toLocaleString();
+    } else {
+      cart.classList.remove('show');
+    }
+  }
+
+  function openCheckout() {
+    const items = getSelected();
+    const total = items.reduce((s, i) => s + i.price, 0);
+    let html = '';
+    items.forEach(i => {
+      html += '<div class="line"><span>' + i.name + '</span><span>$' + i.price.toLocaleString() + '</span></div>';
+    });
+    html += '<div class="line total"><span>Total</span><span>$' + total.toLocaleString() + '</span></div>';
+    document.getElementById('checkoutSummary').innerHTML = html;
+    document.getElementById('checkoutOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckout() {
+    document.getElementById('checkoutOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  function handleLogo(input) {
+    if (input.files.length > 0) {
+      const upload = document.getElementById('logoUpload');
+      upload.classList.add('has-file');
+      document.getElementById('logoText').innerHTML = '<strong>' + input.files[0].name + '</strong><br>File selected';
+    }
+  }
+
+  async function submitSponsor() {
+    const btn = document.getElementById('payBtn');
+    btn.disabled = true;
+    btn.textContent = 'Processing...';
+
+    const items = getSelected();
+    const total = items.reduce((s, i) => s + i.price, 0);
+
+    const data = {
+      name: document.getElementById('coName').value.trim(),
+      company: document.getElementById('coCompany').value.trim(),
+      email: document.getElementById('coEmail').value.trim(),
+      phone: document.getElementById('coPhone').value.trim(),
+      sponsorships: items.map(i => i.name),
+      total: total,
+      hasLogo: document.getElementById('logoFile').files.length > 0,
+      submittedAt: window._serverTimestamp(),
+      source: 'sponsor-page'
+    };
+
+    try {
+      await window._addDoc(window._collection(window._db, 'sponsorships'), data);
+
+      // Email notification
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('company', data.company || 'N/A');
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('sponsorships', data.sponsorships.join(', '));
+      formData.append('total', '$' + total.toLocaleString());
+      formData.append('_subject', 'New Sponsorship: ' + data.name + ' — $' + total.toLocaleString());
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+      fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: formData }).catch(() => {});
+
+      // Redirect to Stripe payment
+      // TODO: Replace with BACP Stripe payment link
+      window.location.href = 'https://buy.stripe.com/14A14ngKk4Go4PY4ig3AY03';
+
+    } catch (err) {
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = 'Complete Sponsorship';
+      alert('Something went wrong. Please try again.');
+    }
+  }
+</script>
 
 </body>
 </html>
