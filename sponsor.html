@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hole Sponsorship — Crimson & Cream Golf Classic 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #C41E3A;
+    --crimson-dark: #8B0000;
+    --cream: #FAF6EE;
+    --gold: #C5A55A;
+    --charcoal: #1E1E1E;
+    --gray: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+  }
+
+  .top-bar {
+    height: 5px;
+    background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%);
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 32px 20px 48px 20px;
+  }
+
+  .logo-area {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    color: var(--gray);
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8e2d6;
+    margin-bottom: 20px;
+  }
+
+  .price-hero {
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+    border-radius: 12px;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+
+  .price-hero .amount {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .price-hero .label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .section-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0ece4;
+  }
+
+  .benefit:last-child {
+    border-bottom: none;
+  }
+
+  .benefit-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .benefit-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--charcoal);
+  }
+
+  .benefit-text strong {
+    color: var(--crimson);
+  }
+
+  .impact-bar {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--gold);
+  }
+
+  .impact-bar .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--crimson);
+  }
+
+  .impact-bar .text {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  .pay-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: var(--crimson);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .pay-btn:hover {
+    background: var(--crimson-dark);
+  }
+
+  .secure-note {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  .event-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .event-detail {
+    text-align: center;
+  }
+
+  .event-detail .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .event-detail .value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.75rem;
+    color: #999;
+    line-height: 1.5;
+  }
+
+  .sponsor-packet-link {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="container">
+  <div class="logo-area">
+    <div class="badge">Hole Sponsorship</div>
+    <h1>Crimson & Cream<br>Golf Classic 2026</h1>
+    <p class="subtitle">Thank you for your commitment to sponsor a hole at the 5th Annual Crimson & Cream Charity Golf Classic. Your sponsorship directly funds scholarships for Bay Area students.</p>
+  </div>
+
+  <div class="event-details">
+    <div class="event-detail">
+      <div class="label">Date</div>
+      <div class="value">October 19, 2026</div>
+    </div>
+    <div class="event-detail">
+      <div class="label">Venue</div>
+      <div class="value">Stonebrae CC</div>
+    </div>
+    <div class="event-detail">
+      <div class="label">Format</div>
+      <div class="value">Shotgun Start</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="price-hero">
+      <div class="amount">$500</div>
+      <div class="label">Hole Sponsorship</div>
+    </div>
+
+    <div class="section-header">What You Get</div>
+    <div class="benefit">
+      <div class="benefit-icon">&#9971;</div>
+      <div class="benefit-text"><strong>Your name or company displayed</strong> on a custom sign at your sponsored hole for 100+ golfers to see throughout the day</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#128247;</div>
+      <div class="benefit-text"><strong>Photo of your sign on the course</strong> shared with you after the event for your own social media and marketing</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#128220;</div>
+      <div class="benefit-text"><strong>Recognition in the banquet program</strong> during the evening awards dinner and Black art auction gala</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">&#10084;</div>
+      <div class="benefit-text"><strong>100% of proceeds fund scholarships</strong> for Bay Area students through Bay Area Community Projects</div>
+    </div>
+  </div>
+
+  <div class="impact-bar">
+    <div class="number">$147,000</div>
+    <div class="text">in scholarships awarded over 4 years — your $500 adds to this legacy</div>
+  </div>
+
+  <!-- TODO: Replace with BACP Stripe payment link -->
+  <a href="https://buy.stripe.com/14A14ngKk4Go4PY4ig3AY03" class="pay-btn">
+    Pay $500 — Sponsor a Hole
+  </a>
+  <div class="secure-note">Secure payment powered by Stripe</div>
+
+  <a href="https://drive.google.com/file/d/12liVbz5sWU08CbYkQFTirk9PCBGEnGXb/view?usp=sharing" class="sponsor-packet-link" target="_blank">
+    Interested in a larger sponsorship? View the full sponsorship packet
+  </a>
+
+  <div class="footer">
+    Bay Area Community Project Inc & Berkeley Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.<br>
+    Questions? dbohler@scienceonthecourt.com
+  </div>
+</div>
+
+</body>
+</html>
