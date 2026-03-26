@@ -510,21 +510,63 @@
   </div>
 </div>
 
-<!-- AUCTION CALLOUT -->
-<div class="auction">
-  <div class="auction-inner">
-    <div class="badge">Exclusive Auction Item</div>
-    <h2>A Round of Golf with<br>Province Polemarch Fred Roots</h2>
-    <p>One winning bid. 18 holes at Stonebrae Country Club with the Polemarch of the Western Province. Proceeds fund scholarships for Bay Area youth.</p>
+<!-- AUCTION CARD (same as email) -->
+<div style="max-width: 600px; margin: 0 auto; padding: 0 20px;">
+  <img src="https://i.imgur.com/TXAFca5.png" width="600" alt="Exclusive Auction Item — A Round of Golf with Province Polemarch Fred Roots" style="width: 100%; height: auto; display: block; border-radius: 0 0 10px 10px;">
+</div>
+
+<!-- LIVE BIDDING -->
+<div style="max-width: 520px; margin: 0 auto; padding: 24px 20px;">
+  <div style="background: #fff; border: 2px solid var(--crimson); border-radius: 12px; overflow: hidden;">
+    <div style="background: var(--crimson); padding: 14px 20px; text-align: center;">
+      <span style="font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Current High Bid</span>
+      <div id="currentBid" style="font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: #fff; line-height: 1; margin-top: 4px;">$1,000</div>
+      <div id="bidderInfo" style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 4px;">Minimum opening bid</div>
+    </div>
+    <div style="padding: 24px 20px;" id="bidFormArea">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <span style="font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--gray);">Place your bid — minimum <strong id="minBidText" style="color: var(--crimson);">$1,000</strong></span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+        <div>
+          <label style="display: block; font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-bottom: 4px;">Your Name</label>
+          <input type="text" id="bidName" placeholder="First and Last" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; background: var(--cream);">
+        </div>
+        <div>
+          <label style="display: block; font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-bottom: 4px;">Email</label>
+          <input type="email" id="bidEmail" placeholder="you@example.com" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.9rem; background: var(--cream);">
+        </div>
+      </div>
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-bottom: 4px;">Your Bid Amount</label>
+        <div style="position: relative;">
+          <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--charcoal);">$</span>
+          <input type="number" id="bidAmount" min="1000" step="100" placeholder="1,000" style="width: 100%; padding: 12px 12px 12px 28px; border: 2px solid var(--crimson); border-radius: 8px; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; background: #fff; color: var(--charcoal);">
+        </div>
+      </div>
+      <button id="bidBtn" onclick="placeBid()" style="width: 100%; padding: 14px; background: var(--crimson); color: #fff; border: none; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s;">Place My Bid</button>
+      <p style="text-align: center; margin-top: 8px; font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--light-gray);">Winning bidder pays after the auction closes. No payment due now.</p>
+    </div>
+    <div id="bidSuccess" style="display: none; padding: 28px 20px; text-align: center;">
+      <div style="font-size: 2rem; margin-bottom: 8px;">&#10003;</div>
+      <div style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--crimson); margin-bottom: 6px;">Bid Placed!</div>
+      <p style="font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--gray);">We'll notify you if you're outbid. Good luck.</p>
+    </div>
   </div>
 </div>
 
-<!-- PHOTOS -->
-<div class="photo-row">
-  <img src="photos/IMG_0029.JPG" alt="Foursome on course">
-  <img src="photos/IMG_0735.JPG" alt="Foursome posing">
-  <img src="photos/IMG_9934.JPG" alt="Golf cart">
-  <img src="photos/IMG_1373.JPG" alt="On course">
+<!-- SCHOLAR PHOTOS (matching email) -->
+<div style="max-width: 600px; margin: 0 auto; padding: 16px 20px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+    <div>
+      <img src="https://i.imgur.com/MNsSalx.jpeg" alt="Kappa League scholars receiving awards" style="width: 100%; height: auto; border-radius: 8px 8px 0 0; display: block;">
+      <div style="background: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.65rem; color: #fff; text-align: center; padding: 6px 4px; border-radius: 0 0 8px 8px;">Kappa League Awards, 2016</div>
+    </div>
+    <div>
+      <img src="https://i.imgur.com/P5IIlVh.jpeg" alt="Alexander Wiley at SJSU graduation" style="width: 100%; height: auto; border-radius: 8px 8px 0 0; display: block;">
+      <div style="background: var(--charcoal); font-family: 'Inter', sans-serif; font-size: 0.65rem; color: #fff; text-align: center; padding: 6px 4px; border-radius: 0 0 8px 8px;">SJSU Graduation, 2025</div>
+    </div>
+  </div>
 </div>
 
 <!-- IMPACT + SCHOLAR -->
@@ -668,7 +710,7 @@
 <!-- FIREBASE -->
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js';
-  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
+  import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, limit, getDocs } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
   const app = initializeApp({
     apiKey: "AIzaSyB9CNRmJ8qU3u2HWgoznzm3a9rzb1_zGyQ",
     authDomain: "crimson-classic-2026.firebaseapp.com",
@@ -681,6 +723,35 @@
   window._col = collection;
   window._add = addDoc;
   window._ts = serverTimestamp;
+  window._query = query;
+  window._orderBy = orderBy;
+  window._limit = limit;
+  window._getDocs = getDocs;
+
+  // Load current high bid on page load
+  async function loadHighBid() {
+    try {
+      const q = query(collection(getFirestore(app), 'auction_bids'), orderBy('amount', 'desc'), limit(1));
+      const snap = await getDocs(q);
+      if (!snap.empty) {
+        const top = snap.docs[0].data();
+        const amt = top.amount;
+        const firstName = top.name ? top.name.split(' ')[0] : 'Anonymous';
+        document.getElementById('currentBid').textContent = '$' + amt.toLocaleString();
+        document.getElementById('bidderInfo').textContent = firstName + ' — current leader';
+        document.getElementById('bidAmount').min = amt + 100;
+        document.getElementById('bidAmount').placeholder = (amt + 100).toLocaleString();
+        document.getElementById('minBidText').textContent = '$' + (amt + 100).toLocaleString();
+        window._currentHigh = amt;
+      } else {
+        window._currentHigh = 900; // so minimum bid is $1000
+      }
+    } catch (e) {
+      console.error('Error loading bids:', e);
+      window._currentHigh = 900;
+    }
+  }
+  loadHighBid();
 </script>
 
 <script>
@@ -726,6 +797,52 @@
       alert('Something went wrong. Please try again.');
     }
     return false;
+  };
+
+  window.placeBid = async function() {
+    const name = document.getElementById('bidName').value.trim();
+    const email = document.getElementById('bidEmail').value.trim();
+    const amount = parseInt(document.getElementById('bidAmount').value);
+    const minBid = (window._currentHigh || 900) + 100;
+
+    if (!name || !email) { alert('Please enter your name and email.'); return; }
+    if (!amount || amount < minBid) { alert('Minimum bid is $' + minBid.toLocaleString()); return; }
+
+    const btn = document.getElementById('bidBtn');
+    btn.disabled = true;
+    btn.textContent = 'Placing bid...';
+
+    try {
+      await window._add(window._col(window._db, 'auction_bids'), {
+        name: name,
+        email: email,
+        amount: amount,
+        submittedAt: window._ts(),
+        source: 'western-province'
+      });
+
+      // Email notification
+      const fd = new FormData();
+      fd.append('name', name);
+      fd.append('email', email);
+      fd.append('bid', '$' + amount.toLocaleString());
+      fd.append('_subject', 'NEW BID: $' + amount.toLocaleString() + ' from ' + name + ' — Polemarch Round Auction');
+      fd.append('_captcha', 'false');
+      fd.append('_template', 'table');
+      fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd }).catch(() => {});
+
+      // Update display
+      document.getElementById('currentBid').textContent = '$' + amount.toLocaleString();
+      document.getElementById('bidderInfo').textContent = name.split(' ')[0] + ' — current leader';
+      document.getElementById('bidFormArea').style.display = 'none';
+      document.getElementById('bidSuccess').style.display = 'block';
+      window._currentHigh = amount;
+    } catch (err) {
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = 'Place My Bid';
+      alert('Something went wrong. Please try again.');
+    }
   };
 </script>
 
