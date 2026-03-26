@@ -505,8 +505,8 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="eyebrow">Western Province &bull; Kappa Alpha Psi Fraternity, Inc.</div>
-    <h1>The Berkeley Alumni Chapter<br>Invites You</h1>
-    <p>Five years ago we hosted our first charity golf classic. Since then, we've awarded $147,000 in scholarships to Bay Area students. This October, we're doing it again — and this time, we want the entire Western Province in the room.</p>
+    <h1>The Crimson & Cream<br>Charity Golf Classic</h1>
+    <p>The Berkeley Alumni Chapter invites the entire Western Province to join us on the course this fall. Over five years, the Classic has put <strong style="color: var(--gold);">$147,000 in scholarships</strong> into the hands of Bay Area students — and year five is our biggest yet.</p>
   </div>
 </div>
 
@@ -529,8 +529,8 @@
 
 <!-- IMPACT + SCHOLAR -->
 <div class="section">
-  <h2>This Is What Showing Up Looks Like</h2>
-  <p class="sub">Alexander Wiley joined our Kappa League as an 8th grader. Five years of mentorship and over $4,000 in scholarships later — SJSU Mechanical Engineering, two SLAC research internships, Rivian, and recently married. Your support writes the next story.</p>
+  <h2>Kappa Leaguer Turned Engineer</h2>
+  <p class="sub">Alexander Wiley joined our Kappa League as an 8th grader. Five years of mentorship and over $4,000 in scholarships later — San Jose State University Mechanical Engineering, Stanford research internships, Rivian, recently married. <strong style="color: var(--crimson);">Your support writes the next story.</strong></p>
 
   <div class="stats">
     <div class="stat"><div class="num">$147K</div><div class="label">Scholarships Funded</div></div>
@@ -544,7 +544,7 @@
     <p class="wp-sub">Fly into the Bay Area and play three of Northern California's finest courses.</p>
     <div class="day">
       <div class="day-label">Saturday</div>
-      <div class="day-content"><strong>Napa Golf Course</strong> — Wine country golf<span class="day-perk">Free passes for WP brothers</span></div>
+      <div class="day-content"><strong>Napa Golf Course</strong> — Wine country golf<span class="day-perk">Free passes for WP</span></div>
     </div>
     <div class="day">
       <div class="day-label">Sunday</div>
@@ -594,8 +594,23 @@
 <!-- INTEREST FORM -->
 <div class="form-section">
   <div class="form-inner">
-    <h2>Register Your Interest</h2>
-    <p class="form-sub">Drop your info and we'll send you updates, early access, and details on the Western Province golf weekend.</p>
+    <h2>Two Ways to Get Involved</h2>
+    <p class="form-sub" style="margin-bottom: 16px;">Nothing due today. Just tell us you're interested.</p>
+
+    <div style="max-width: 480px; margin: 0 auto 24px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div style="background: #fff; border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+        <div style="font-size: 1.6rem; margin-bottom: 6px;">&#127942;</div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--charcoal); margin-bottom: 4px;">Place Your Bid</div>
+        <div style="font-size: 0.8rem; color: var(--gray); line-height: 1.4;">Starting at $1,000 for a foursome with the Province Polemarch. Highest bid wins.</div>
+      </div>
+      <div style="background: #fff; border: 1.5px solid var(--border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+        <div style="font-size: 1.6rem; margin-bottom: 6px;">&#9971;</div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--charcoal); margin-bottom: 4px;">Enter the Giveaway</div>
+        <div style="font-size: 0.8rem; color: var(--gray); line-height: 1.4;">Say you're interested and you're automatically entered to win a free foursome in Napa Valley.</div>
+      </div>
+    </div>
+
+    <p class="form-sub" style="font-size: 0.85rem;">Either way, we'll follow up with early bird pricing at $250/person — available through April 16 only.</p>
 
     <div class="form-card" id="formCard">
       <form id="interestForm" onsubmit="return handleSubmit(event)">
@@ -618,12 +633,12 @@
         <div class="fg">
           <label>I'm Interested In</label>
           <div class="interest-options">
-            <label class="int-opt"><input type="checkbox" name="interest" value="Golf"><div class="int-btn">Golf ($250)</div></label>
-            <label class="int-opt"><input type="checkbox" name="interest" value="Banquet"><div class="int-btn">Banquet ($125)</div></label>
-            <label class="int-opt"><input type="checkbox" name="interest" value="Golf Weekend"><div class="int-btn">Golf Weekend Trip</div></label>
-            <label class="int-opt"><input type="checkbox" name="interest" value="Sponsor"><div class="int-btn">Sponsor ($1K+)</div></label>
-            <label class="int-opt"><input type="checkbox" name="interest" value="D9 Championship"><div class="int-btn">D9 Championship</div></label>
-            <label class="int-opt"><input type="checkbox" name="interest" value="Auction"><div class="int-btn">Polemarch Auction</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Bid on Polemarch Round"><div class="int-btn">Bid on Polemarch Round</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Napa Giveaway"><div class="int-btn">Napa Giveaway</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Golf ($250)"><div class="int-btn">Golf ($250)</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Banquet ($125)"><div class="int-btn">Banquet ($125)</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Golf Weekend Trip"><div class="int-btn">Golf Weekend Trip</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Sponsor ($1K+)"><div class="int-btn">Sponsor ($1K+)</div></label>
           </div>
         </div>
         <button type="submit" class="form-submit" id="submitBtn">Count Me In</button>
@@ -632,7 +647,7 @@
 
     <div class="thank-you" id="thankYou">
       <h2>You're On the List.</h2>
-      <p>We'll be in touch with details on the Western Province golf weekend and early access to registration. Yo.</p>
+      <p>We'll be in touch with early bird pricing, golf weekend details, and auction updates. See you on the course.</p>
     </div>
   </div>
 </div>
