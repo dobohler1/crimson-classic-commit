@@ -514,13 +514,13 @@
 </div>
 
 <!-- AUCTION CARD + LIVE BIDDING SIDE BY SIDE -->
-<div class="auction-grid" style="max-width: 900px; margin: 0 auto; padding: 0 20px 24px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch;">
+<div class="auction-grid" style="max-width: 900px; margin: 0 auto; padding: 24px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch;">
   <!-- Left: Fred's card -->
-  <div style="border-radius: 12px 0 0 12px; overflow: hidden;">
-    <img src="https://i.imgur.com/TXAFca5.png" width="450" alt="Exclusive Auction Item — A Round of Golf with Province Polemarch Fred Roots" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  <div style="border-radius: 12px; overflow: hidden; border: 2px solid var(--border);">
+    <img src="https://i.imgur.com/TXAFca5.png" width="450" alt="Exclusive Auction Item — A Round of Golf with Province Polemarch Fred Roots" style="width: 100%; height: 100%; object-fit: contain; display: block; background: #1E1E1E;">
   </div>
   <!-- Right: Bidding -->
-  <div style="background: #fff; border: 2px solid var(--crimson); border-left: none; border-radius: 0 12px 12px 0; overflow: hidden; display: flex; flex-direction: column;">
+  <div style="background: #fff; border: 2px solid var(--crimson); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
     <div style="background: var(--crimson); padding: 16px 20px; text-align: center;">
       <span style="font-family: 'Inter', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Current High Bid</span>
       <div id="currentBid" style="font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: #fff; line-height: 1; margin-top: 4px;">$1,000</div>
