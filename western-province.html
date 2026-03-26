@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Western Province — Crimson Classic 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #C41E3A;
+    --crimson-dark: #8B0000;
+    --cream: #FAF6EE;
+    --gold: #C5A55A;
+    --charcoal: #1E1E1E;
+    --gray: #555;
+    --light-gray: #999;
+    --border: #e8e2d6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: var(--charcoal);
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--charcoal);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+  }
+
+  .hero-inner { max-width: 640px; margin: 0 auto; }
+
+  .hero .eyebrow {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* AUCTION CALLOUT */
+  .auction {
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+    padding: 40px 24px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .auction-inner { max-width: 560px; margin: 0 auto; }
+
+  .auction .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .auction h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .auction p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  /* PHOTOS */
+  .photo-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .photo-row img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .section .sub {
+    font-size: 0.95rem;
+    color: var(--gray);
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* IMPACT STATS */
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--crimson);
+  }
+
+  .stat .label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* WEEKEND PACKAGE */
+  .weekend {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 32px 28px;
+    margin-bottom: 32px;
+  }
+
+  .weekend h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--crimson);
+  }
+
+  .weekend .wp-sub {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+
+  .day {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .day:last-child { border-bottom: none; }
+
+  .day-label {
+    flex-shrink: 0;
+    width: 80px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+
+  .day-content {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .day-content strong { color: var(--charcoal); }
+
+  .day-perk {
+    display: inline-block;
+    background: var(--crimson);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* THREE LANES */
+  .lanes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .lane {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .lane:hover {
+    border-color: var(--crimson);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .lane-icon { font-size: 1.8rem; margin-bottom: 8px; }
+
+  .lane h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .lane .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--crimson);
+    margin-bottom: 4px;
+  }
+
+  .lane .detail {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  .lane-cta {
+    display: block;
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--crimson);
+    border: 1.5px solid var(--crimson);
+    transition: all 0.2s;
+  }
+
+  .lane-cta:hover { background: var(--crimson); color: #fff; }
+
+  /* D9 TEASER */
+  .d9 {
+    background: var(--charcoal);
+    color: #fff;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .d9-inner { max-width: 520px; margin: 0 auto; }
+
+  .d9 .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+
+  .d9 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  .d9 p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  /* INTEREST FORM */
+  .form-section {
+    background: var(--cream);
+    padding: 48px 24px;
+  }
+
+  .form-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .form-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .form-inner .form-sub {
+    font-size: 0.9rem;
+    color: var(--gray);
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .form-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+  }
+
+  .fg { margin-bottom: 14px; }
+
+  .fg label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .fg input, .fg select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    background: var(--cream);
+    appearance: none;
+  }
+
+  .fg input:focus, .fg select:focus { outline: none; border-color: var(--crimson); }
+
+  .interest-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .int-opt {
+    position: relative;
+  }
+
+  .int-opt input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .int-opt .int-btn {
+    display: block;
+    text-align: center;
+    padding: 10px 8px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray);
+    transition: all 0.2s;
+    background: #fff;
+  }
+
+  .int-opt input:checked + .int-btn {
+    border-color: var(--crimson);
+    background: #fdf2f4;
+    color: var(--crimson);
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--crimson);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .form-submit:hover { background: var(--crimson-dark); }
+  .form-submit:disabled { background: #ccc; cursor: not-allowed; }
+
+  /* THANK YOU */
+  .thank-you {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .thank-you.show { display: block; }
+
+  .thank-you h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--crimson);
+    margin-bottom: 8px;
+  }
+
+  .thank-you p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .footer-details {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 16px;
+  }
+
+  .footer-detail .fl { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); }
+  .footer-detail .fv { font-size: 0.85rem; font-weight: 600; color: var(--charcoal); margin-top: 2px; }
+
+  .footer .org {
+    font-size: 0.7rem;
+    color: var(--light-gray);
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+
+  .footer .org a { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .photo-row { grid-template-columns: 1fr 1fr; }
+    .photo-row img { height: 140px; }
+    .lanes { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto 32px auto; }
+    .stats { gap: 24px; }
+    .stat .num { font-size: 1.5rem; }
+    .interest-options { grid-template-columns: 1fr; }
+    .footer-details { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Western Province &bull; Kappa Alpha Psi Fraternity, Inc.</div>
+    <h1>The Berkeley Alumni Chapter<br>Invites You</h1>
+    <p>Five years ago we hosted our first charity golf classic. Since then, we've awarded $147,000 in scholarships to Bay Area students. This October, we're doing it again — and this time, we want the entire Western Province in the room.</p>
+  </div>
+</div>
+
+<!-- AUCTION CALLOUT -->
+<div class="auction">
+  <div class="auction-inner">
+    <div class="badge">Exclusive Auction Item</div>
+    <h2>A Round of Golf with<br>Province Polemarch Fred Roots</h2>
+    <p>One winning bid. 18 holes at Stonebrae Country Club with the Polemarch of the Western Province. Proceeds fund scholarships for Bay Area youth.</p>
+  </div>
+</div>
+
+<!-- PHOTOS -->
+<div class="photo-row">
+  <img src="photos/IMG_0029.JPG" alt="Foursome on course">
+  <img src="photos/IMG_0735.JPG" alt="Foursome posing">
+  <img src="photos/IMG_9934.JPG" alt="Golf cart">
+  <img src="photos/IMG_1373.JPG" alt="On course">
+</div>
+
+<!-- IMPACT + SCHOLAR -->
+<div class="section">
+  <h2>This Is What Showing Up Looks Like</h2>
+  <p class="sub">Alexander Wiley joined our Kappa League as an 8th grader. Five years of mentorship and over $4,000 in scholarships later — SJSU Mechanical Engineering, two SLAC research internships, Rivian, and recently married. Your support writes the next story.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">$147K</div><div class="label">Scholarships Funded</div></div>
+    <div class="stat"><div class="num">25</div><div class="label">Target This Year</div></div>
+    <div class="stat"><div class="num">5th</div><div class="label">Year</div></div>
+  </div>
+
+  <!-- WEEKEND PACKAGE -->
+  <div class="weekend">
+    <h3>Make It a Weekend — Western Province Golf Trip</h3>
+    <p class="wp-sub">Fly into the Bay Area and play three of Northern California's finest courses.</p>
+    <div class="day">
+      <div class="day-label">Saturday</div>
+      <div class="day-content"><strong>Napa Golf Course</strong> — Wine country golf<span class="day-perk">Free passes for WP brothers</span></div>
+    </div>
+    <div class="day">
+      <div class="day-label">Sunday</div>
+      <div class="day-content"><strong>Half Moon Bay Golf Links</strong> — Ocean views on the Pacific coast</div>
+    </div>
+    <div class="day">
+      <div class="day-label">Monday</div>
+      <div class="day-content"><strong>Stonebrae Country Club</strong> — The Crimson Classic. Shotgun start + banquet gala + Black art auction</div>
+    </div>
+  </div>
+
+  <!-- THREE LANES -->
+  <div class="lanes">
+    <div class="lane">
+      <div class="lane-icon">&#9971;</div>
+      <h4>Golf</h4>
+      <div class="price">$250</div>
+      <div class="detail">Early bird &bull; $1K/foursome</div>
+      <a href="https://www.zeffy.com/en-US/ticketing/5th-annual-crimson-and-cream-charity-golf-classic" class="lane-cta" target="_blank">Register</a>
+    </div>
+    <div class="lane">
+      <div class="lane-icon">&#127864;</div>
+      <h4>Banquet</h4>
+      <div class="price">$125</div>
+      <div class="detail">GA &bull; $175 VIP</div>
+      <a href="https://www.zeffy.com/en-US/ticketing/5th-annual-crimson-and-cream-charity-golf-classic" class="lane-cta" target="_blank">Get Tickets</a>
+    </div>
+    <div class="lane">
+      <div class="lane-icon">&#127775;</div>
+      <h4>Sponsor</h4>
+      <div class="price">$1,000<span style="font-size:0.8rem;font-weight:400;color:var(--gray);">+</span></div>
+      <div class="detail">Brand visibility + impact</div>
+      <a href="sponsor-v2.html" class="lane-cta">View Packages</a>
+    </div>
+  </div>
+</div>
+
+<!-- D9 CHAMPIONSHIP -->
+<div class="d9">
+  <div class="d9-inner">
+    <div class="badge">Coming Year 5</div>
+    <h2>The First-Ever D9 Golf Championship</h2>
+    <p>We're launching a new tradition — a Divine Nine interchapter golf championship. All nine NPHC organizations. One course. One trophy. The Crimson Classic is where it begins. Stay tuned for details.</p>
+  </div>
+</div>
+
+<!-- INTEREST FORM -->
+<div class="form-section">
+  <div class="form-inner">
+    <h2>Register Your Interest</h2>
+    <p class="form-sub">Drop your info and we'll send you updates, early access, and details on the Western Province golf weekend.</p>
+
+    <div class="form-card" id="formCard">
+      <form id="interestForm" onsubmit="return handleSubmit(event)">
+        <div class="fg">
+          <label>Name</label>
+          <input type="text" id="fName" required placeholder="First and Last">
+        </div>
+        <div class="fg">
+          <label>Email</label>
+          <input type="email" id="fEmail" required placeholder="you@example.com">
+        </div>
+        <div class="fg">
+          <label>Phone <span style="font-weight:400;text-transform:none;">(optional)</span></label>
+          <input type="tel" id="fPhone" placeholder="(510) 555-1234">
+        </div>
+        <div class="fg">
+          <label>Chapter</label>
+          <input type="text" id="fChapter" placeholder="e.g. Berkeley Alumni, Los Angeles Alumni">
+        </div>
+        <div class="fg">
+          <label>I'm Interested In</label>
+          <div class="interest-options">
+            <label class="int-opt"><input type="checkbox" name="interest" value="Golf"><div class="int-btn">Golf ($250)</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Banquet"><div class="int-btn">Banquet ($125)</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Golf Weekend"><div class="int-btn">Golf Weekend Trip</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Sponsor"><div class="int-btn">Sponsor ($1K+)</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="D9 Championship"><div class="int-btn">D9 Championship</div></label>
+            <label class="int-opt"><input type="checkbox" name="interest" value="Auction"><div class="int-btn">Polemarch Auction</div></label>
+          </div>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">Count Me In</button>
+      </form>
+    </div>
+
+    <div class="thank-you" id="thankYou">
+      <h2>You're On the List.</h2>
+      <p>We'll be in touch with details on the Western Province golf weekend and early access to registration. Yo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-details">
+    <div class="footer-detail"><div class="fl">Date</div><div class="fv">October 19, 2026</div></div>
+    <div class="footer-detail"><div class="fl">Venue</div><div class="fv">Stonebrae Country Club</div></div>
+    <div class="footer-detail"><div class="fl">Contact</div><div class="fv">dbohler@scienceonthecourt.com</div></div>
+  </div>
+  <p class="org">
+    Bay Area Community Project Inc<br>Berkeley Alumni Chapter of Kappa Alpha Psi Fraternity, Inc.<br>
+    <a href="mailto:dbohler@scienceonthecourt.com">dbohler@scienceonthecourt.com</a>
+  </p>
+</div>
+
+<!-- FIREBASE -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js';
+  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
+  const app = initializeApp({
+    apiKey: "AIzaSyB9CNRmJ8qU3u2HWgoznzm3a9rzb1_zGyQ",
+    authDomain: "crimson-classic-2026.firebaseapp.com",
+    projectId: "crimson-classic-2026",
+    storageBucket: "crimson-classic-2026.firebasestorage.app",
+    messagingSenderId: "563149410849",
+    appId: "1:563149410849:web:cf818587a9742575fac960"
+  });
+  window._db = getFirestore(app);
+  window._col = collection;
+  window._add = addDoc;
+  window._ts = serverTimestamp;
+</script>
+
+<script>
+  window.handleSubmit = async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const checks = document.querySelectorAll('input[name="interest"]:checked');
+    const interests = Array.from(checks).map(c => c.value);
+
+    const data = {
+      name: document.getElementById('fName').value.trim(),
+      email: document.getElementById('fEmail').value.trim(),
+      phone: document.getElementById('fPhone').value.trim(),
+      chapter: document.getElementById('fChapter').value.trim(),
+      interests: interests,
+      submittedAt: window._ts(),
+      source: 'western-province'
+    };
+
+    try {
+      await window._add(window._col(window._db, 'western_province'), data);
+
+      // Email notification
+      const fd = new FormData();
+      fd.append('name', data.name);
+      fd.append('email', data.email);
+      fd.append('chapter', data.chapter || 'Not specified');
+      fd.append('interests', interests.join(', ') || 'None selected');
+      fd.append('_subject', 'Western Province Interest: ' + data.name + ' (' + (data.chapter || 'no chapter') + ')');
+      fd.append('_captcha', 'false');
+      fd.append('_template', 'table');
+      fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd }).catch(() => {});
+
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('thankYou').classList.add('show');
+    } catch (err) {
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = 'Count Me In';
+      alert('Something went wrong. Please try again.');
+    }
+    return false;
+  };
+</script>
+
+</body>
+</html>
