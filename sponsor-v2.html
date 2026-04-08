@@ -594,9 +594,47 @@
     .community-row { flex-direction: column; text-align: center; }
     .footer-details { flex-direction: column; gap: 12px; }
   }
+
+  /* shared nav (matches index.html) */
+  nav.site-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(30,30,30,0.96);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.05rem;
+    color: #fff; text-decoration: none; }
+  .nav-brand .amp { color: var(--gold); margin: 0 2px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem;
+    font-weight: 500; transition: color 0.15s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: var(--crimson); color: #fff !important; padding: 9px 18px;
+    border-radius: 6px; font-weight: 700 !important; }
+  .nav-cta:hover { background: var(--crimson-dark); }
+  @media (max-width: 720px) {
+    .nav-links { gap: 14px; }
+    .nav-links li:not(:last-child) { display: none; }
+    .nav-brand { font-size: 0.95rem; }
+  }
 </style>
 </head>
 <body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Crimson <span class="amp">&amp;</span> Cream Classic</a>
+    <ul class="nav-links">
+      <li><a href="/#play">Play</a></li>
+      <li><a href="/#sponsor">Sponsor</a></li>
+      <li><a href="/#banquet">Banquet</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#play" class="nav-cta">Register</a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- HERO -->
 <div class="hero">
@@ -814,6 +852,13 @@
 </script>
 
 <script>
+  // Maps tier name → BACP Stripe Payment Link
+  const STRIPE_LINKS = {
+    'Featured Sponsor': 'https://buy.stripe.com/9B66oHbNsbdyaSM1SU0Jq05',
+    'Impact Partner':   'https://buy.stripe.com/fZu5kD3gW5Te3qk7de0Jq06',
+    'Community Sponsor':'https://buy.stripe.com/00wdR9g3I1CYf9269a0Jq04'
+  };
+
   let tier = '', amt = 0;
 
   function selectTier(t, a) {
@@ -857,8 +902,7 @@
       fd.append('_captcha', 'false');
       fd.append('_template', 'table');
       fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd }).catch(() => {});
-      // TODO: Replace with BACP Stripe payment link
-      window.location.href = 'https://buy.stripe.com/14A14ngKk4Go4PY4ig3AY03';
+      window.location.href = STRIPE_LINKS[tier] || STRIPE_LINKS['Featured Sponsor'];
     } catch (e) {
       console.error(e);
       btn.disabled = false;
