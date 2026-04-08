@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you — Crimson & Cream Golf Classic 2026</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://crimsonclassic.org/thanks.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #C41E3A;
+    --crimson-dark: #8B0000;
+    --cream: #FAF6EE;
+    --gold: #C5A55A;
+    --charcoal: #1E1E1E;
+    --gray: #555;
+    --border: #e8e2d6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%);
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+    text-align: center;
+  }
+
+  .check {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--crimson);
+    color: #fff;
+    font-size: 2.6rem;
+    line-height: 88px;
+    margin: 0 auto 32px;
+    box-shadow: 0 12px 36px rgba(196, 30, 58, 0.3);
+    animation: pop 0.5s ease-out;
+  }
+
+  @keyframes pop {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  h1 .gold { color: var(--gold); font-style: italic; }
+
+  .lede {
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 32px;
+    text-align: left;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  }
+
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .next-steps {
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .next-steps li {
+    counter-increment: step;
+    padding: 14px 0 14px 56px;
+    position: relative;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--charcoal);
+  }
+
+  .next-steps li:first-child { border-top: none; padding-top: 4px; }
+  .next-steps li:last-child { padding-bottom: 4px; }
+
+  .next-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--crimson);
+    color: var(--crimson);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 32px;
+  }
+
+  .next-steps li:first-child::before { top: 0; }
+
+  .next-steps strong { color: var(--charcoal); }
+
+  .impact {
+    background: var(--charcoal);
+    color: #fff;
+    padding: 32px 28px;
+    border-radius: 14px;
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  .impact .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .impact .label {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 16px;
+  }
+
+  .impact .body {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    min-width: 180px;
+  }
+
+  .btn-primary {
+    background: var(--crimson);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: var(--crimson-dark); }
+
+  .btn-secondary {
+    background: #fff;
+    color: var(--charcoal);
+    border: 2px solid var(--charcoal);
+  }
+
+  .btn-secondary:hover { background: var(--charcoal); color: #fff; }
+
+  .share-row {
+    background: #fff;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 32px;
+  }
+
+  .share-row p {
+    font-size: 0.92rem;
+    color: var(--gray);
+    margin-bottom: 14px;
+  }
+
+  .share-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .share-links a {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 6px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--charcoal);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .share-links a:hover {
+    background: var(--crimson);
+    color: #fff;
+    border-color: var(--crimson);
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #999;
+    line-height: 1.7;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer .org {
+    color: var(--charcoal);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 2.1rem; }
+    .wrap { padding: 40px 20px 60px; }
+    .card { padding: 24px 22px; }
+    .impact .num { font-size: 2.4rem; }
+    .btn { width: 100%; min-width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<div class="wrap">
+  <div class="check">✓</div>
+
+  <div class="eyebrow">Confirmation</div>
+  <h1>You're <span class="gold">in.</span></h1>
+  <p class="lede">Thank you for committing to the 5th Annual Crimson &amp; Cream Golf Classic. Your contribution funds scholarships for Bay Area students — and we couldn't do this without you.</p>
+
+  <!-- Impact -->
+  <div class="impact">
+    <div class="num">25</div>
+    <div class="label"><strong>scholarships</strong> · our Year 5 goal</div>
+    <p class="body">Every commitment moves us closer. Your contribution today brings the next student one step closer to college, an internship, or a graduation stage.</p>
+  </div>
+
+  <!-- What happens next -->
+  <div class="card">
+    <h2>What happens next</h2>
+    <ol class="next-steps">
+      <li><strong>Receipt in your inbox.</strong> Stripe will email you a payment receipt right away. Keep it for your tax records — Bay Area Community Project Inc. is a 501(c)(3) and your contribution is tax-deductible.</li>
+      <li><strong>A note from Dorian.</strong> Within 48 hours you'll get a personal follow-up from <a href="mailto:dbohler@scienceonthecourt.com">Dorian Bohler</a> with event details, what to bring, and next steps specific to your commitment.</li>
+      <li><strong>October 19, 2026.</strong> Mark your calendar. Stonebrae Country Club, Hayward CA. Shotgun start in the morning, banquet in the evening.</li>
+    </ol>
+  </div>
+
+  <!-- Share -->
+  <div class="share-row">
+    <p>Know someone who'd love this day? Send them the flyer.</p>
+    <div class="share-links">
+      <a href="mailto:?subject=Crimson%20%26%20Cream%20Golf%20Classic%20%E2%80%94%20October%2019%2C%202026&body=I%20just%20signed%20up%20for%20the%20Crimson%20%26%20Cream%20Golf%20Classic%20at%20Stonebrae%20Country%20Club.%20All%20proceeds%20fund%20scholarships%20for%20Bay%20Area%20students.%20Check%20it%20out%3A%20https%3A%2F%2Fcrimsonclassic.org">📧 Email</a>
+      <a href="sms:?body=Crimson%20%26%20Cream%20Golf%20Classic%20%E2%80%94%20Oct%2019%2C%202026%20at%20Stonebrae%20CC.%20All%20proceeds%20fund%20Bay%20Area%20scholarships.%20https%3A%2F%2Fcrimsonclassic.org">💬 Text</a>
+      <a href="downloads/crimson-classic-2026-flyer.png" download>📌 Get the flyer</a>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="/" class="btn btn-primary">← Back to Homepage</a>
+    <a href="mailto:dbohler@scienceonthecourt.com?subject=Crimson%20Classic%20%E2%80%94%20Question" class="btn btn-secondary">Email Dorian</a>
+  </div>
+
+  <div class="footer">
+    <div class="org">Bay Area Community Project Inc.</div>
+    A 501(c)(3) nonprofit · in partnership with Berkeley Alumni Chapter of Kappa Alpha Psi<br>
+    and Oakland East Bay Alumnae Chapter of Delta Sigma Theta
+  </div>
+</div>
+
+</body>
+</html>
