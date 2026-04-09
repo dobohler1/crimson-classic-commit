@@ -686,7 +686,7 @@
   }
 
   .tier-banquet::before {
-    content: 'OUR BANQUET SPONSOR';
+    content: 'HOSPITALITY ANCHOR';
     position: absolute;
     top: -12px;
     left: 50%;
@@ -799,6 +799,189 @@
       border-top: 1px solid rgba(197, 165, 90, 0.25);
       padding-top: 24px;
     }
+  }
+
+  /* ===== GOLD SPONSOR (second anchor tier) ===== */
+  .tier-gold {
+    background: linear-gradient(135deg, #fffcf2 0%, #fff 100%);
+    color: var(--charcoal);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 36px 40px 32px;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 32px;
+    align-items: center;
+    position: relative;
+  }
+
+  .tier-gold .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  .tier-gold .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .tier-gold .tagline {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    max-width: 520px;
+  }
+
+  .tier-gold ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tier-gold ul li {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding: 5px 0 5px 22px;
+    position: relative;
+    color: var(--charcoal);
+  }
+
+  .tier-gold ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dark);
+    font-weight: 700;
+  }
+
+  .tier-gold .cta-side {
+    text-align: center;
+    padding-left: 24px;
+    border-left: 1px solid var(--border);
+  }
+
+  .tier-gold .cta-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .tier-gold .cta {
+    display: inline-block;
+    background: var(--charcoal);
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tier-gold .cta:hover {
+    background: #333;
+    transform: translateY(-1px);
+  }
+
+  .tier-gold .deductible-banquet {
+    margin-top: 12px;
+    font-size: 0.68rem;
+    color: var(--light-gray);
+    letter-spacing: 0.3px;
+  }
+
+  @media (max-width: 760px) {
+    .tier-gold {
+      grid-template-columns: 1fr;
+      padding: 28px 24px 24px;
+      gap: 20px;
+    }
+    .tier-gold .price { font-size: 2.2rem; }
+    .tier-gold .cta-side {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+  }
+
+  /* ===== TITLE SPONSOR ROW (inline, contact-only) ===== */
+  .title-sponsor-row {
+    background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+    color: #fff;
+    border-radius: 12px;
+    margin-bottom: 36px;
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 8px 28px rgba(196, 30, 58, 0.18);
+  }
+
+  .title-sponsor-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .title-sponsor-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 6px;
+    flex-shrink: 0;
+  }
+
+  .title-sponsor-tagline {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    max-width: 560px;
+    flex: 1;
+  }
+
+  .title-sponsor-cta {
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .title-sponsor-cta:hover {
+    background: #d4b86a;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 760px) {
+    .title-sponsor-row { padding: 24px 22px; }
+    .title-sponsor-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .title-sponsor-tagline { max-width: none; }
   }
 
   /* ===== SPONSOR TIERS ===== */
@@ -1424,7 +1607,18 @@
       <p>Your sponsorship is a marketing investment that doubles as a tax-deductible gift. You'll meet 100+ affluent Bay Area golfers — and fund students for years to come.</p>
     </div>
 
-    <!-- Banquet Sponsor ($7,500) — primary anchor tier -->
+    <!-- Title Sponsor ($15K) — custom, contact-only, top of the ladder -->
+    <div class="title-sponsor-row">
+      <div class="title-sponsor-inner">
+        <div>
+          <div class="title-sponsor-label">TITLE SPONSOR · $15,000</div>
+          <div class="title-sponsor-tagline">Presented-by billing, category exclusivity, and a bespoke partnership tailored to your brand. Custom by conversation.</div>
+        </div>
+        <a href="mailto:dbohler@scienceonthecourt.com?subject=Title%20Sponsor%20Inquiry%20%E2%80%94%20Crimson%20Classic" class="title-sponsor-cta">Let's Talk →</a>
+      </div>
+    </div>
+
+    <!-- Banquet Sponsor ($7,500) — hospitality anchor tier -->
     <div class="tier-banquet">
       <div>
         <div class="label">Banquet Sponsor</div>
@@ -1440,15 +1634,55 @@
       </div>
       <div class="cta-side">
         <div class="cta-amount">Investment</div>
-        <a href="mailto:dbohler@scienceonthecourt.com?subject=Banquet%20Sponsor%20Inquiry%20%E2%80%94%20Crimson%20Classic" class="cta">Inquire — $7,500</a>
+        <a href="https://buy.stripe.com/00wbJ13gW6XiaSMdBC0Jq08" class="cta">Sponsor for $7,500</a>
+        <div class="deductible-banquet">🧾 Tax-deductible · BACP 501(c)(3)</div>
+      </div>
+    </div>
+
+    <!-- Gold Sponsor ($5K) — above the Bronze/Silver grid -->
+    <div class="tier-gold">
+      <div>
+        <div class="label">Gold Sponsor</div>
+        <div class="price">$5,000</div>
+        <div class="tagline">Expanded brand placement across tournament and banquet, premium on-course activation, 2 comped foursomes.</div>
+        <ul>
+          <li><strong>Everything in Silver Sponsor, plus:</strong></li>
+          <li>Prominent brand placement across event signage</li>
+          <li>Premium on-course activation (branded hole)</li>
+          <li>2 comped foursomes (8 golfers)</li>
+          <li>Reserved premium banquet table for 8</li>
+          <li>Headline recognition in the scholarship program</li>
+        </ul>
+      </div>
+      <div class="cta-side">
+        <div class="cta-amount">Investment</div>
+        <a href="https://buy.stripe.com/28E5kDg3I3L66Cw69a0Jq07" class="cta">Sponsor for $5,000</a>
         <div class="deductible-banquet">🧾 Tax-deductible · BACP 501(c)(3)</div>
       </div>
     </div>
 
     <div class="tiers">
-      <!-- Featured ($1K) -->
+      <!-- Silver Sponsor ($2.5K) — packet name; same dollar amount as prior Impact Sponsor -->
+      <div class="tier premium">
+        <div class="label">Silver Sponsor</div>
+        <div class="price">$2,500</div>
+        <div class="tagline">Headline recognition + a foursome.</div>
+        <div class="divider"></div>
+        <ul>
+          <li><strong>Everything in Bronze Sponsor, plus:</strong></li>
+          <li>A full foursome of golfers (your team)</li>
+          <li>VIP banquet seating for 4</li>
+          <li>Headline recognition in all event materials</li>
+          <li>Named scholarship in your honor</li>
+          <li>Co-branded photo with the scholarship recipient</li>
+        </ul>
+        <a href="https://buy.stripe.com/fZu5kD3gW5Te3qk7de0Jq06" class="cta">Sponsor for $2,500 →</a>
+        <div class="deductible-wrap"><span class="deductible-badge">🧾 Tax-deductible · BACP 501(c)(3)</span></div>
+      </div>
+
+      <!-- Bronze Sponsor ($1K) — packet name; same dollar amount as prior Featured Sponsor -->
       <div class="tier featured">
-        <div class="label">Featured Sponsor</div>
+        <div class="label">Bronze Sponsor</div>
         <div class="price">$1,000</div>
         <div class="tagline">Premium hole activation &amp; spotlight.</div>
         <div class="divider"></div>
@@ -1462,25 +1696,8 @@
         <a href="https://buy.stripe.com/9B66oHbNsbdyaSM1SU0Jq05" class="cta">Sponsor for $1,000 →</a>
         <div class="deductible-wrap"><span class="deductible-badge">🧾 Tax-deductible · BACP 501(c)(3)</span></div>
       </div>
-
-      <!-- Premium ($2.5K) -->
-      <div class="tier premium">
-        <div class="label">Impact Sponsor</div>
-        <div class="price">$2,500</div>
-        <div class="tagline">Headline recognition + a foursome.</div>
-        <div class="divider"></div>
-        <ul>
-          <li><strong>Everything in Featured Sponsor, plus:</strong></li>
-          <li>A full foursome of golfers (your team)</li>
-          <li>VIP banquet seating for 4</li>
-          <li>Headline recognition in all event materials</li>
-          <li>Named scholarship in your honor</li>
-          <li>Co-branded photo with the scholarship recipient</li>
-        </ul>
-        <a href="https://buy.stripe.com/fZu5kD3gW5Te3qk7de0Jq06" class="cta">Sponsor for $2,500 →</a>
-        <div class="deductible-wrap"><span class="deductible-badge">🧾 Tax-deductible · BACP 501(c)(3)</span></div>
-      </div>
     </div>
+
 
     <p class="sponsor-extras">
       Looking for something custom — title sponsor, in-kind, or a multi-year partnership? <a href="mailto:dbohler@scienceonthecourt.com?subject=Crimson%20Classic%20Sponsorship">Let's talk.</a>
