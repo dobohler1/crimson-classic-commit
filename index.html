@@ -670,6 +670,137 @@
     .play-grid { grid-template-columns: 1fr; gap: 20px; }
   }
 
+  /* ===== BANQUET SPONSOR (anchor tier) ===== */
+  .tier-banquet {
+    background: linear-gradient(135deg, #1E1E1E 0%, #2a2a2a 100%);
+    color: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 40px 44px 36px;
+    margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 36px;
+    align-items: center;
+    position: relative;
+  }
+
+  .tier-banquet::before {
+    content: 'OUR BANQUET SPONSOR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 18px;
+    border-radius: 12px;
+  }
+
+  .tier-banquet .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .tier-banquet .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+
+  .tier-banquet .tagline {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    max-width: 520px;
+  }
+
+  .tier-banquet ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tier-banquet ul li {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 5px 0 5px 22px;
+    position: relative;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .tier-banquet ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .tier-banquet .cta-side {
+    text-align: center;
+    padding-left: 24px;
+    border-left: 1px solid rgba(197, 165, 90, 0.25);
+  }
+
+  .tier-banquet .cta-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+
+  .tier-banquet .cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    padding: 16px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tier-banquet .cta:hover {
+    background: #d4b86a;
+    transform: translateY(-1px);
+  }
+
+  .tier-banquet .deductible-banquet {
+    margin-top: 14px;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.3px;
+  }
+
+  @media (max-width: 760px) {
+    .tier-banquet {
+      grid-template-columns: 1fr;
+      padding: 32px 24px 28px;
+      gap: 24px;
+    }
+    .tier-banquet .price { font-size: 2.6rem; }
+    .tier-banquet .cta-side {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid rgba(197, 165, 90, 0.25);
+      padding-top: 24px;
+    }
+  }
+
   /* ===== SPONSOR TIERS ===== */
   .tiers {
     display: grid;
@@ -1291,6 +1422,27 @@
       <div class="eyebrow">Become a sponsor</div>
       <h2>Put your name on a scholarship.</h2>
       <p>Your sponsorship is a marketing investment that doubles as a tax-deductible gift. You'll meet 100+ affluent Bay Area golfers — and fund students for years to come.</p>
+    </div>
+
+    <!-- Banquet Sponsor ($7,500) — primary anchor tier -->
+    <div class="tier-banquet">
+      <div>
+        <div class="label">Banquet Sponsor</div>
+        <div class="price">$7,500</div>
+        <div class="tagline">Underwrite the cocktail hour, dinner banquet, and live art auction. The natural anchor for hospitality and beverage partners.</div>
+        <ul>
+          <li>"Banquet Sponsor" billing on banquet program &amp; signage</li>
+          <li>Co-branded signature cocktail at the cocktail hour</li>
+          <li>Stage recognition by both co-chairs during the scholarship program</li>
+          <li>VIP banquet seating for 4 + a comped foursome of golfers</li>
+          <li>Featured placement on this homepage through 2026</li>
+        </ul>
+      </div>
+      <div class="cta-side">
+        <div class="cta-amount">Investment</div>
+        <a href="mailto:dbohler@scienceonthecourt.com?subject=Banquet%20Sponsor%20Inquiry%20%E2%80%94%20Crimson%20Classic" class="cta">Inquire — $7,500</a>
+        <div class="deductible-banquet">🧾 Tax-deductible · BACP 501(c)(3)</div>
+      </div>
     </div>
 
     <div class="tiers">
