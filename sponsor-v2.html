@@ -818,7 +818,7 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <h2 id="mTitle">Become a Sponsor</h2>
-    <p class="modal-sub">We'll follow up to collect your logo and materials.</p>
+    <p class="modal-sub">After payment, you'll upload your logo &amp; marketing materials on the next page — no email back-and-forth.</p>
     <div class="fg"><label>Your Name</label><input type="text" id="mName" placeholder="First and Last"></div>
     <div class="fg"><label>Company / Organization</label><input type="text" id="mCompany" placeholder="Company name"></div>
     <div class="fg"><label>Email</label><input type="email" id="mEmail" placeholder="you@example.com"></div>
@@ -828,7 +828,7 @@
       <span class="ms-price" id="mTierPrice"></span>
     </div>
     <button class="modal-pay" id="mPayBtn" onclick="submit()">Complete Sponsorship</button>
-    <div class="modal-secure">Secure payment powered by Stripe</div>
+    <div class="modal-secure">Secure payment powered by Stripe &middot; Logo upload after payment</div>
     <p class="modal-contact">Want a custom package? <a href="mailto:dbohler@scienceonthecourt.com">Email us</a></p>
   </div>
 </div>
@@ -890,7 +890,13 @@
       source: 'sponsor-v2'
     };
     try {
-      await window._add(window._col(window._db, 'sponsorships'), data);
+      const docRef = await window._add(window._col(window._db, 'sponsorships'), data);
+      try {
+        sessionStorage.setItem('cc_sponsor_id', docRef.id);
+        sessionStorage.setItem('cc_sponsor_email', data.email);
+        sessionStorage.setItem('cc_sponsor_company', data.company);
+        sessionStorage.setItem('cc_sponsor_tier', tier);
+      } catch (_) {}
       const fd = new FormData();
       fd.append('name', data.name);
       fd.append('company', data.company || 'N/A');

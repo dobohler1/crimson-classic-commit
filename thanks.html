@@ -273,6 +273,156 @@
     .impact .num { font-size: 2.4rem; }
     .btn { width: 100%; min-width: 0; }
   }
+
+  /* ===== UPLOAD WIDGET ===== */
+  .upload-card {
+    background: #fff;
+    border: 2px solid var(--crimson);
+    border-radius: 14px;
+    padding: 32px 32px;
+    text-align: left;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 24px rgba(196, 30, 58, 0.08);
+  }
+  .upload-card .eyebrow {
+    margin-bottom: 8px;
+    text-align: left;
+    display: block;
+  }
+  .upload-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+  .upload-card .sub {
+    font-size: 0.92rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.55;
+  }
+  .upload-identify {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+  .upload-identify strong { color: var(--charcoal); }
+  .upload-identify a {
+    color: var(--crimson);
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .field-group { margin-bottom: 16px; }
+  .field-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 6px;
+  }
+  .field-group input,
+  .field-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    background: #fff;
+    color: var(--charcoal);
+  }
+  .field-group input:focus,
+  .field-group textarea:focus { outline: none; border-color: var(--crimson); }
+  .field-group textarea { resize: vertical; min-height: 80px; }
+  .field-hint {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+  .file-drop {
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--cream);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .file-drop:hover { border-color: var(--crimson); background: #fff; }
+  .file-drop.has-file { border-color: var(--crimson); background: #fff; }
+  .file-drop .filename {
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+  .file-drop .hint {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+  .file-drop input[type="file"] { display: none; }
+  .upload-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--crimson);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .upload-submit:hover { background: var(--crimson-dark); }
+  .upload-submit:disabled {
+    background: var(--light-gray, #999);
+    cursor: not-allowed;
+  }
+  .upload-status {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    display: none;
+  }
+  .upload-status.show { display: block; }
+  .upload-status.error { background: #fde7eb; color: var(--crimson-dark); }
+  .upload-status.success { background: #e9f7ef; color: #1e7e3c; }
+  .upload-status.progress { background: var(--cream); color: var(--charcoal); }
+  .upload-done {
+    text-align: center;
+    padding: 24px;
+    display: none;
+  }
+  .upload-done.show { display: block; }
+  .upload-done .check-mini {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #1e7e3c;
+    color: #fff;
+    line-height: 48px;
+    font-size: 1.4rem;
+    margin: 0 auto 12px;
+  }
+  .upload-done h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .upload-done p {
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
 </style>
 </head>
 <body>
@@ -291,6 +441,73 @@
     <div class="num">25</div>
     <div class="label"><strong>scholarships</strong> · our Year 5 goal</div>
     <p class="body">Every commitment moves us closer. Your contribution today brings the next student one step closer to college, an internship, or a graduation stage.</p>
+  </div>
+
+  <!-- Upload materials -->
+  <div class="upload-card" id="uploadCard">
+    <div class="eyebrow">One last step</div>
+    <h2>Upload Your Logo &amp; Materials</h2>
+    <p class="sub">Send us everything we need to get your brand on signage, in the program, and across our emails — right here, no email back-and-forth.</p>
+
+    <div class="upload-identify" id="identifyBox">
+      <span id="identifyText">Linking your upload to your sponsorship&hellip;</span>
+    </div>
+
+    <form id="uploadForm" onsubmit="return false;">
+      <!-- Email fallback (only shown if sessionStorage missing) -->
+      <div class="field-group" id="fallbackEmailGroup" style="display:none;">
+        <label for="fbEmail">Email Used at Checkout</label>
+        <input type="email" id="fbEmail" placeholder="you@example.com">
+        <div class="field-hint">We'll match your upload to your sponsorship.</div>
+      </div>
+      <div class="field-group" id="fallbackCompanyGroup" style="display:none;">
+        <label for="fbCompany">Company / Organization</label>
+        <input type="text" id="fbCompany" placeholder="Company name">
+      </div>
+
+      <div class="field-group">
+        <label>Logo</label>
+        <label class="file-drop" id="logoDrop">
+          <input type="file" id="logoFile" accept="image/png,image/jpeg,image/svg+xml,application/pdf">
+          <div class="filename" id="logoName">Click to upload your logo</div>
+          <div class="hint">PNG, JPG, SVG, or PDF &middot; up to 25 MB</div>
+        </label>
+        <div class="field-hint">Vector (SVG / PDF) is best for signage. PNG with transparent background also works.</div>
+      </div>
+
+      <div class="field-group">
+        <label for="blurb">Company Blurb</label>
+        <textarea id="blurb" placeholder="1–2 sentences about your company — used in our event program and follow-up emails."></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="website">Website</label>
+        <input type="url" id="website" placeholder="https://yourcompany.com">
+      </div>
+
+      <div class="field-group">
+        <label for="socials">Social Handles (optional)</label>
+        <input type="text" id="socials" placeholder="@yourcompany on IG / LinkedIn URL / etc.">
+      </div>
+
+      <div class="field-group">
+        <label>Hole Sign Mockup or Other Materials (optional)</label>
+        <label class="file-drop" id="extraDrop">
+          <input type="file" id="extraFile" accept="image/png,image/jpeg,application/pdf">
+          <div class="filename" id="extraName">Click to upload (optional)</div>
+          <div class="hint">PDF, PNG, or JPG &middot; up to 25 MB</div>
+        </label>
+      </div>
+
+      <button type="button" class="upload-submit" id="uploadBtn" onclick="submitUpload()">Send Materials</button>
+      <div class="upload-status" id="uploadStatus"></div>
+    </form>
+
+    <div class="upload-done" id="uploadDone">
+      <div class="check-mini">✓</div>
+      <h3>Materials received.</h3>
+      <p>Dorian will be in touch within 48 hours. You can close this page.</p>
+    </div>
   </div>
 
   <!-- What happens next -->
@@ -324,6 +541,252 @@
     and Oakland East Bay Alumnae Chapter of Delta Sigma Theta
   </div>
 </div>
+
+<!-- Firebase + upload handler -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js';
+  import { getFirestore, doc, updateDoc, collection, query, where, orderBy, limit, getDocs, serverTimestamp }
+    from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js';
+  import { getStorage, ref, uploadBytes, getDownloadURL }
+    from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js';
+
+  const app = initializeApp({
+    apiKey: "AIzaSyB9CNRmJ8qU3u2HWgoznzm3a9rzb1_zGyQ",
+    authDomain: "crimson-classic-2026.firebaseapp.com",
+    projectId: "crimson-classic-2026",
+    storageBucket: "crimson-classic-2026.firebasestorage.app",
+    messagingSenderId: "563149410849",
+    appId: "1:563149410849:web:cf818587a9742575fac960"
+  });
+
+  window._fb = {
+    db: getFirestore(app),
+    storage: getStorage(app),
+    doc, updateDoc, collection, query, where, orderBy, limit, getDocs, serverTimestamp,
+    ref, uploadBytes, getDownloadURL
+  };
+
+  document.dispatchEvent(new Event('fb-ready'));
+</script>
+
+<script>
+  // ===== Identify the sponsor (sessionStorage → Firestore email lookup fallback) =====
+  let sponsorId = null;
+  let sponsorEmail = null;
+  let sponsorCompany = null;
+  let sponsorTier = null;
+
+  function tryFromSession() {
+    try {
+      sponsorId = sessionStorage.getItem('cc_sponsor_id');
+      sponsorEmail = sessionStorage.getItem('cc_sponsor_email');
+      sponsorCompany = sessionStorage.getItem('cc_sponsor_company');
+      sponsorTier = sessionStorage.getItem('cc_sponsor_tier');
+    } catch (_) {}
+  }
+
+  function setIdentifyMessage() {
+    const box = document.getElementById('identifyText');
+    if (sponsorId && sponsorEmail) {
+      box.innerHTML = 'Uploading for <strong>' + (sponsorCompany || sponsorEmail) + '</strong>' +
+        (sponsorTier ? ' &middot; ' + sponsorTier : '') +
+        ' &middot; <a onclick="resetIdentity()">not you?</a>';
+      document.getElementById('fallbackEmailGroup').style.display = 'none';
+      document.getElementById('fallbackCompanyGroup').style.display = 'none';
+    } else {
+      box.innerHTML = '<strong>New session?</strong> Enter the email you used at checkout below and we\'ll match you up.';
+      document.getElementById('fallbackEmailGroup').style.display = '';
+      document.getElementById('fallbackCompanyGroup').style.display = '';
+    }
+  }
+
+  function resetIdentity() {
+    sponsorId = sponsorEmail = sponsorCompany = sponsorTier = null;
+    try {
+      sessionStorage.removeItem('cc_sponsor_id');
+      sessionStorage.removeItem('cc_sponsor_email');
+      sessionStorage.removeItem('cc_sponsor_company');
+      sessionStorage.removeItem('cc_sponsor_tier');
+    } catch (_) {}
+    setIdentifyMessage();
+  }
+  window.resetIdentity = resetIdentity;
+
+  // ===== File select UI =====
+  function wireFileInput(inputId, dropId, nameId, defaultText) {
+    const input = document.getElementById(inputId);
+    const drop = document.getElementById(dropId);
+    const name = document.getElementById(nameId);
+    input.addEventListener('change', () => {
+      if (input.files && input.files[0]) {
+        name.textContent = input.files[0].name;
+        drop.classList.add('has-file');
+      } else {
+        name.textContent = defaultText;
+        drop.classList.remove('has-file');
+      }
+    });
+  }
+
+  // ===== Lookup sponsor doc by email (fallback path) =====
+  async function lookupSponsorByEmail(email) {
+    const fb = window._fb;
+    const q = fb.query(
+      fb.collection(fb.db, 'sponsorships'),
+      fb.where('email', '==', email.toLowerCase()),
+      fb.orderBy('submittedAt', 'desc'),
+      fb.limit(1)
+    );
+    let snap;
+    try {
+      snap = await fb.getDocs(q);
+    } catch (e) {
+      // Index missing? fall back to a non-ordered query.
+      const q2 = fb.query(fb.collection(fb.db, 'sponsorships'), fb.where('email', '==', email.toLowerCase()));
+      snap = await fb.getDocs(q2);
+    }
+    if (snap.empty) return null;
+    // Pick newest if multiple
+    let best = null;
+    snap.forEach(d => {
+      const data = d.data();
+      const ts = (data.submittedAt && data.submittedAt.toMillis) ? data.submittedAt.toMillis() : 0;
+      if (!best || ts > best.ts) best = { id: d.id, data, ts };
+    });
+    return best;
+  }
+
+  // ===== Submit handler =====
+  async function submitUpload() {
+    const btn = document.getElementById('uploadBtn');
+    const status = document.getElementById('uploadStatus');
+    const showStatus = (msg, kind) => {
+      status.textContent = msg;
+      status.className = 'upload-status show ' + (kind || 'progress');
+    };
+
+    const logoFile = document.getElementById('logoFile').files[0];
+    const extraFile = document.getElementById('extraFile').files[0];
+    const blurb = document.getElementById('blurb').value.trim();
+    const website = document.getElementById('website').value.trim();
+    const socials = document.getElementById('socials').value.trim();
+
+    if (!logoFile) {
+      showStatus('Please attach your logo file.', 'error');
+      return;
+    }
+
+    btn.disabled = true;
+
+    // Resolve sponsor identity
+    if (!sponsorId) {
+      const fbEmail = (document.getElementById('fbEmail').value || '').trim().toLowerCase();
+      const fbCompany = (document.getElementById('fbCompany').value || '').trim();
+      if (!fbEmail) {
+        showStatus('Enter the email you used at checkout.', 'error');
+        btn.disabled = false;
+        return;
+      }
+      showStatus('Matching your sponsorship…', 'progress');
+      const found = await lookupSponsorByEmail(fbEmail);
+      if (found) {
+        sponsorId = found.id;
+        sponsorEmail = found.data.email || fbEmail;
+        sponsorCompany = found.data.company || fbCompany;
+        sponsorTier = (found.data.sponsorships && found.data.sponsorships[0]) || null;
+      } else {
+        // No matching sponsorship doc — still let them upload (we tag by email)
+        sponsorId = 'unknown_' + Date.now();
+        sponsorEmail = fbEmail;
+        sponsorCompany = fbCompany || '(unknown)';
+      }
+    }
+
+    try {
+      showStatus('Uploading logo…', 'progress');
+      const fb = window._fb;
+      const stamp = Date.now();
+
+      // Logo upload
+      const logoExt = (logoFile.name.split('.').pop() || 'bin').toLowerCase();
+      const logoPath = 'sponsor-materials/' + sponsorId + '/logo_' + stamp + '.' + logoExt;
+      const logoRef = fb.ref(fb.storage, logoPath);
+      await fb.uploadBytes(logoRef, logoFile, { contentType: logoFile.type });
+      const logoUrl = await fb.getDownloadURL(logoRef);
+
+      // Optional extra upload
+      let extraUrl = null, extraPath = null;
+      if (extraFile) {
+        showStatus('Uploading additional file…', 'progress');
+        const extraExt = (extraFile.name.split('.').pop() || 'bin').toLowerCase();
+        extraPath = 'sponsor-materials/' + sponsorId + '/extra_' + stamp + '.' + extraExt;
+        const extraRef = fb.ref(fb.storage, extraPath);
+        await fb.uploadBytes(extraRef, extraFile, { contentType: extraFile.type });
+        extraUrl = await fb.getDownloadURL(extraRef);
+      }
+
+      // Update Firestore sponsorship doc (best-effort — skip if synthetic ID)
+      const materials = {
+        logo_url: logoUrl,
+        logo_filename: logoFile.name,
+        extra_url: extraUrl,
+        extra_filename: extraFile ? extraFile.name : null,
+        blurb: blurb || null,
+        website: website || null,
+        socials: socials || null,
+        uploaded_at: fb.serverTimestamp()
+      };
+
+      if (!sponsorId.startsWith('unknown_')) {
+        showStatus('Saving your details…', 'progress');
+        try {
+          await fb.updateDoc(fb.doc(fb.db, 'sponsorships', sponsorId), {
+            materials_uploaded: true,
+            materials: materials
+          });
+        } catch (e) {
+          console.warn('Firestore update failed (non-fatal):', e);
+        }
+      }
+
+      // Notification email to Dorian (mirror the pattern from sponsor-v2.html)
+      const fd = new FormData();
+      fd.append('sponsor_id', sponsorId);
+      fd.append('email', sponsorEmail || '(unknown)');
+      fd.append('company', sponsorCompany || '(unknown)');
+      fd.append('tier', sponsorTier || '(unknown)');
+      fd.append('logo_url', logoUrl);
+      if (extraUrl) fd.append('extra_url', extraUrl);
+      fd.append('blurb', blurb || '(none)');
+      fd.append('website', website || '(none)');
+      fd.append('socials', socials || '(none)');
+      fd.append('_subject', 'Sponsor Materials Uploaded: ' + (sponsorCompany || sponsorEmail || sponsorId));
+      fd.append('_captcha', 'false');
+      fd.append('_template', 'table');
+      fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd })
+        .catch(() => {});
+
+      // Done
+      document.getElementById('uploadForm').style.display = 'none';
+      document.getElementById('identifyBox').style.display = 'none';
+      document.getElementById('uploadStatus').classList.remove('show');
+      document.getElementById('uploadDone').classList.add('show');
+    } catch (e) {
+      console.error(e);
+      showStatus('Upload failed. Please try again or email dbohler@scienceonthecourt.com.', 'error');
+      btn.disabled = false;
+    }
+  }
+  window.submitUpload = submitUpload;
+
+  // ===== Init =====
+  document.addEventListener('fb-ready', () => {
+    tryFromSession();
+    setIdentifyMessage();
+    wireFileInput('logoFile', 'logoDrop', 'logoName', 'Click to upload your logo');
+    wireFileInput('extraFile', 'extraDrop', 'extraName', 'Click to upload (optional)');
+  });
+</script>
 
 </body>
 </html>
