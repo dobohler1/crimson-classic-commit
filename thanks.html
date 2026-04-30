@@ -506,7 +506,7 @@
     <div class="upload-done" id="uploadDone">
       <div class="check-mini">✓</div>
       <h3>Materials received.</h3>
-      <p>Dorian will be in touch within 48 hours. You can close this page.</p>
+      <p>Dorian will follow up with next steps. You can close this page.</p>
       <div id="uploadDoneThumb" style="margin-top: 18px;"></div>
     </div>
   </div>
@@ -516,7 +516,7 @@
     <h2>What happens next</h2>
     <ol class="next-steps">
       <li><strong>Receipt in your inbox.</strong> Stripe will email you a payment receipt right away. Keep it for your tax records — Bay Area Community Project Inc. is a 501(c)(3) and your contribution is tax-deductible.</li>
-      <li><strong>A note from Dorian.</strong> Within 48 hours you'll get a personal follow-up from <a href="mailto:dbohler@scienceonthecourt.com">Dorian Bohler</a> with event details, what to bring, and next steps specific to your commitment.</li>
+      <li><strong>A note from Dorian.</strong> You'll get a personal follow-up from <a href="mailto:dbohler@scienceonthecourt.com">Dorian Bohler</a> with event details, what to bring, and next steps specific to your commitment.</li>
       <li><strong>October 19, 2026.</strong> Mark your calendar. Stonebrae Country Club, Hayward CA. Shotgun start in the morning, banquet in the evening.</li>
     </ol>
   </div>
@@ -578,11 +578,13 @@
   let sponsorTier = null;
 
   function tryFromSession() {
+    // sessionStorage wins (current-tab signal), then fall back to localStorage
+    // for the come-back-later case (sponsor closed Stripe tab, returned in a fresh tab).
     try {
-      sponsorId = sessionStorage.getItem('cc_sponsor_id');
-      sponsorEmail = sessionStorage.getItem('cc_sponsor_email');
-      sponsorCompany = sessionStorage.getItem('cc_sponsor_company');
-      sponsorTier = sessionStorage.getItem('cc_sponsor_tier');
+      sponsorId = sessionStorage.getItem('cc_sponsor_id') || localStorage.getItem('cc_sponsor_id');
+      sponsorEmail = sessionStorage.getItem('cc_sponsor_email') || localStorage.getItem('cc_sponsor_email');
+      sponsorCompany = sessionStorage.getItem('cc_sponsor_company') || localStorage.getItem('cc_sponsor_company');
+      sponsorTier = sessionStorage.getItem('cc_sponsor_tier') || localStorage.getItem('cc_sponsor_tier');
     } catch (_) {}
   }
 
@@ -608,6 +610,10 @@
       sessionStorage.removeItem('cc_sponsor_email');
       sessionStorage.removeItem('cc_sponsor_company');
       sessionStorage.removeItem('cc_sponsor_tier');
+      localStorage.removeItem('cc_sponsor_id');
+      localStorage.removeItem('cc_sponsor_email');
+      localStorage.removeItem('cc_sponsor_company');
+      localStorage.removeItem('cc_sponsor_tier');
     } catch (_) {}
     setIdentifyMessage();
   }
@@ -783,6 +789,14 @@
       } catch (e) {
         console.error('FormSubmit fetch failed:', e);
       }
+
+      // Clear localStorage so the next sponsor on a shared browser starts fresh.
+      try {
+        localStorage.removeItem('cc_sponsor_id');
+        localStorage.removeItem('cc_sponsor_email');
+        localStorage.removeItem('cc_sponsor_company');
+        localStorage.removeItem('cc_sponsor_tier');
+      } catch (_) {}
 
       // Done — show success state with logo thumbnail and scroll into view
       document.getElementById('uploadForm').style.display = 'none';

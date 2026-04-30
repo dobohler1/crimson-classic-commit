@@ -896,6 +896,12 @@
         sessionStorage.setItem('cc_sponsor_email', data.email);
         sessionStorage.setItem('cc_sponsor_company', data.company);
         sessionStorage.setItem('cc_sponsor_tier', tier);
+        // Mirror to localStorage for the come-back-later flow (different tab, same browser).
+        // Cleared by thanks.html after a successful materials upload.
+        localStorage.setItem('cc_sponsor_id', docRef.id);
+        localStorage.setItem('cc_sponsor_email', data.email);
+        localStorage.setItem('cc_sponsor_company', data.company);
+        localStorage.setItem('cc_sponsor_tier', tier);
       } catch (_) {}
       const fd = new FormData();
       fd.append('name', data.name);
