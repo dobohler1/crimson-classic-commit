@@ -507,6 +507,7 @@
       <div class="check-mini">✓</div>
       <h3>Materials received.</h3>
       <p>Dorian will be in touch within 48 hours. You can close this page.</p>
+      <div id="uploadDoneThumb" style="margin-top: 18px;"></div>
     </div>
   </div>
 
@@ -663,6 +664,7 @@
     const showStatus = (msg, kind) => {
       status.textContent = msg;
       status.className = 'upload-status show ' + (kind || 'progress');
+      btn.textContent = msg;
     };
 
     const logoFile = document.getElementById('logoFile').files[0];
@@ -766,14 +768,27 @@
       fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd })
         .catch(() => {});
 
-      // Done
+      // Done — show success state with logo thumbnail and scroll into view
       document.getElementById('uploadForm').style.display = 'none';
       document.getElementById('identifyBox').style.display = 'none';
       document.getElementById('uploadStatus').classList.remove('show');
-      document.getElementById('uploadDone').classList.add('show');
+      const thumb = document.getElementById('uploadDoneThumb');
+      const isImage = /\.(png|jpe?g|svg)$/i.test(logoFile.name);
+      if (isImage) {
+        thumb.innerHTML =
+          '<div style="font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;">Your uploaded logo</div>' +
+          '<img src="' + logoUrl + '" alt="Your logo" style="max-width:220px;max-height:140px;border-radius:8px;border:1px solid var(--border);padding:10px;background:#fff;">';
+      } else {
+        thumb.innerHTML =
+          '<a href="' + logoUrl + '" target="_blank" rel="noopener" style="color:var(--crimson);font-size:0.9rem;font-weight:600;text-decoration:underline;">View uploaded file: ' + logoFile.name + '</a>';
+      }
+      const done = document.getElementById('uploadDone');
+      done.classList.add('show');
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (e) {
       console.error(e);
       showStatus('Upload failed. Please try again or email dbohler@scienceonthecourt.com.', 'error');
+      btn.textContent = 'Send Materials';
       btn.disabled = false;
     }
   }
