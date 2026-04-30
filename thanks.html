@@ -738,7 +738,9 @@
         extraUrl = await fb.getDownloadURL(extraRef);
       }
 
-      // Update Firestore sponsorship doc (best-effort — skip if synthetic ID)
+      // Update Firestore sponsorship doc (best-effort — skip if synthetic ID).
+      // Avoid serverTimestamp() inside a nested map; rule evaluation against the
+      // sentinel value is unreliable. Use a client ISO timestamp instead.
       const materials = {
         logo_url: logoUrl,
         logo_filename: logoFile.name,
@@ -747,7 +749,7 @@
         blurb: blurb || null,
         website: website || null,
         socials: socials || null,
-        uploaded_at: fb.serverTimestamp()
+        uploaded_at: new Date().toISOString()
       };
 
       if (!sponsorId.startsWith('unknown_')) {
@@ -758,7 +760,7 @@
             materials: materials
           });
         } catch (e) {
-          console.warn('Firestore update failed (non-fatal):', e);
+          console.error('Firestore update failed:', e);
         }
       }
 
