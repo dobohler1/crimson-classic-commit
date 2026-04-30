@@ -630,31 +630,36 @@
   }
 
   // ===== Lookup sponsor doc by email (fallback path) =====
+  // Best-effort: returns null on any failure (rules-denied reads, network, etc.)
+  // so the upload proceeds as an orphan that Dorian can match by email manually.
   async function lookupSponsorByEmail(email) {
-    const fb = window._fb;
-    const q = fb.query(
-      fb.collection(fb.db, 'sponsorships'),
-      fb.where('email', '==', email.toLowerCase()),
-      fb.orderBy('submittedAt', 'desc'),
-      fb.limit(1)
-    );
-    let snap;
     try {
-      snap = await fb.getDocs(q);
+      const fb = window._fb;
+      const q = fb.query(
+        fb.collection(fb.db, 'sponsorships'),
+        fb.where('email', '==', email.toLowerCase()),
+        fb.orderBy('submittedAt', 'desc'),
+        fb.limit(1)
+      );
+      let snap;
+      try {
+        snap = await fb.getDocs(q);
+      } catch (e) {
+        const q2 = fb.query(fb.collection(fb.db, 'sponsorships'), fb.where('email', '==', email.toLowerCase()));
+        snap = await fb.getDocs(q2);
+      }
+      if (snap.empty) return null;
+      let best = null;
+      snap.forEach(d => {
+        const data = d.data();
+        const ts = (data.submittedAt && data.submittedAt.toMillis) ? data.submittedAt.toMillis() : 0;
+        if (!best || ts > best.ts) best = { id: d.id, data, ts };
+      });
+      return best;
     } catch (e) {
-      // Index missing? fall back to a non-ordered query.
-      const q2 = fb.query(fb.collection(fb.db, 'sponsorships'), fb.where('email', '==', email.toLowerCase()));
-      snap = await fb.getDocs(q2);
+      console.warn('Sponsor lookup failed (proceeding as orphan upload):', e.message || e);
+      return null;
     }
-    if (snap.empty) return null;
-    // Pick newest if multiple
-    let best = null;
-    snap.forEach(d => {
-      const data = d.data();
-      const ts = (data.submittedAt && data.submittedAt.toMillis) ? data.submittedAt.toMillis() : 0;
-      if (!best || ts > best.ts) best = { id: d.id, data, ts };
-    });
-    return best;
   }
 
   // ===== Submit handler =====
