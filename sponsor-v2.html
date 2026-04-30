@@ -216,12 +216,6 @@
     line-height: 1.4;
   }
 
-  .tier-spots {
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
   .tier-cta {
     display: block;
     width: 100%;
@@ -245,7 +239,6 @@
 
   .tier.featured .tier-label { color: var(--crimson); }
   .tier.featured .tier-price { color: var(--crimson); }
-  .tier.featured .tier-spots { color: var(--crimson); }
   .tier.featured .tier-benefits li::before { color: var(--crimson); }
 
   .tier.featured .tier-cta {
@@ -264,7 +257,6 @@
 
   .tier.premium .tier-label { color: var(--gold-dark); }
   .tier.premium .tier-price { color: var(--charcoal); }
-  .tier.premium .tier-spots { color: var(--gold-dark); }
   .tier.premium .tier-benefits li::before { color: var(--gold); }
 
   .tier.premium .tier-cta {
@@ -274,121 +266,30 @@
 
   .tier.premium .tier-cta:hover { background: #333; }
 
-  /* Community ($500) — small, below */
-  .community-row {
-    max-width: 480px;
-    margin: 0 auto;
+  /* Community ($500) — full card below the premium grid, visually muted */
+  .community-wrap {
+    max-width: 540px;
+    margin: 28px auto 0;
+  }
+
+  .tier.community {
+    border-color: #d8d2c4;
     background: var(--cream);
-    border-radius: 10px;
-    padding: 24px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
   }
 
-  .community-left .comm-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--light-gray);
-    margin-bottom: 4px;
-  }
+  .tier.community .tier-label { color: #8b7e62; }
+  .tier.community .tier-price { color: var(--charcoal); }
+  .tier.community .tier-benefits li::before { color: #8b7e62; }
 
-  .community-left .comm-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 900;
-    color: var(--gray);
-  }
-
-  .community-left .comm-desc {
-    font-size: 0.8rem;
-    color: var(--light-gray);
-    margin-top: 2px;
-  }
-
-  .community-left .comm-spots {
-    font-size: 0.7rem;
-    color: var(--crimson);
-    font-weight: 600;
-    margin-top: 6px;
-  }
-
-  .community-cta {
-    padding: 10px 24px;
-    border: 1.5px solid #ccc;
-    border-radius: 6px;
+  .tier.community .tier-cta {
     background: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--gray);
-    cursor: pointer;
-    transition: all 0.2s;
-    flex-shrink: 0;
+    color: var(--charcoal);
+    border: 2px solid var(--charcoal);
   }
 
-  .community-cta:hover { border-color: var(--charcoal); color: var(--charcoal); }
-
-  /* ===== PROOF ===== */
-  .proof {
-    background: var(--cream);
-    padding: 48px 24px;
-  }
-
-  .proof-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .proof-inner h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    margin-bottom: 24px;
-  }
-
-  .proof-stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    margin-bottom: 28px;
-  }
-
-  .proof-stat .num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: var(--crimson);
-  }
-
-  .proof-stat .label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--gray);
-    margin-top: 4px;
-  }
-
-  .proof-quote {
-    max-width: 520px;
-    margin: 0 auto;
-    font-family: Georgia, serif;
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--gray);
-    line-height: 1.7;
-  }
-
-  .proof-quote .attr {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    font-style: normal;
-    color: var(--light-gray);
-    margin-top: 8px;
+  .tier.community .tier-cta:hover {
+    background: var(--charcoal);
+    color: #fff;
   }
 
   /* ===== TITLE TEASER ===== */
@@ -590,8 +491,6 @@
     .hero h1 { font-size: 2rem; }
     .hero-stats { gap: 28px; }
     .hero-stat .num { font-size: 1.5rem; }
-    .proof-stats { gap: 28px; }
-    .community-row { flex-direction: column; text-align: center; }
     .footer-details { flex-direction: column; gap: 12px; }
   }
 
@@ -662,7 +561,7 @@
 <div class="section">
   <div class="section-header">
     <h2>Choose Your Level of Impact</h2>
-    <p>Two ways to put your brand in the room — and your name behind the mission.</p>
+    <p>Pick the level that fits — every dollar funds Bay Area scholars.</p>
   </div>
 
   <div class="tiers">
@@ -684,9 +583,8 @@
         <li>Photo package from event day</li>
       </ul>
       <div class="tier-note">
-        <strong>Early sponsor pricing:</strong> Only 3 sponsors get activation + email exposure at $1,000. After these spots fill, this package moves to the $2,500 level.
+        <strong>Early sponsor pricing.</strong> This package moves to the $2,500 level once early commitments are in.
       </div>
-      <div class="tier-spots">3 early spots at this price</div>
       <button class="tier-cta" onclick="selectTier('Featured Sponsor', 1000)">Lock In Your Spot — $1,000</button>
     </div>
 
@@ -705,31 +603,27 @@
         <li>Logo on all email campaigns and event materials</li>
         <li>Year-round recognition in BACP communications</li>
       </ul>
-      <div class="tier-spots">2 spots available</div>
       <button class="tier-cta" onclick="selectTier('Impact Partner', 2500)">Become an Impact Partner — $2,500</button>
     </div>
 
   </div>
 
-  <!-- COMMUNITY $500 — below, compact -->
-  <div class="community-row">
-    <div class="community-left">
-      <div class="comm-label">Community Sponsor</div>
-      <div class="comm-price">$500</div>
-      <div class="comm-desc">Standard hole signage. Name in program.</div>
-      <div class="comm-spots">Only 2 spots left</div>
-    </div>
-    <button class="community-cta" onclick="selectTier('Community Sponsor', 500)">Select</button>
-  </div>
-</div>
-
-<!-- SOCIAL PROOF -->
-<div class="proof">
-  <div class="proof-inner">
-    <h2>Momentum Is Building</h2>
-    <div class="proof-stats">
-      <div class="proof-stat"><div class="num">7</div><div class="label">Hole Sponsors</div></div>
-      <div class="proof-stat"><div class="num">5</div><div class="label">Auction Pledges</div></div>
+  <!-- COMMUNITY $500 — full card, visually muted -->
+  <div class="community-wrap">
+    <div class="tier community">
+      <div class="tier-label">Community Hole Sponsor</div>
+      <div class="tier-price">$500</div>
+      <div class="tier-tagline">Put your name on a hole. Fund a scholar.</div>
+      <div class="tier-line"></div>
+      <ul class="tier-benefits">
+        <li>Hole signage at the tournament</li>
+        <li>Name in the event program</li>
+        <li>Sponsor recognition on crimsonclassic.org</li>
+        <li>Social media thank-you with event photos</li>
+        <li>Photo of your sign on event day</li>
+        <li>501(c)(3) tax-deductible receipt</li>
+      </ul>
+      <button class="tier-cta" onclick="selectTier('Community Sponsor', 500)">Sponsor a Hole — $500</button>
     </div>
   </div>
 </div>
