@@ -757,16 +757,27 @@
       fd.append('email', sponsorEmail || '(unknown)');
       fd.append('company', sponsorCompany || '(unknown)');
       fd.append('tier', sponsorTier || '(unknown)');
-      fd.append('logo_url', logoUrl);
-      if (extraUrl) fd.append('extra_url', extraUrl);
+      fd.append('logo_filename', logoFile.name);
+      fd.append('logo_link', logoUrl);
+      if (extraUrl) fd.append('extra_link', extraUrl);
       fd.append('blurb', blurb || '(none)');
       fd.append('website', website || '(none)');
       fd.append('socials', socials || '(none)');
+      fd.append('firebase_console', 'https://console.firebase.google.com/project/crimson-classic-2026/storage');
       fd.append('_subject', 'Sponsor Materials Uploaded: ' + (sponsorCompany || sponsorEmail || sponsorId));
       fd.append('_captcha', 'false');
       fd.append('_template', 'table');
-      fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd })
-        .catch(() => {});
+      try {
+        const r = await fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd });
+        if (!r.ok) {
+          console.error('FormSubmit non-OK response:', r.status, r.statusText);
+        } else {
+          const body = await r.json().catch(() => null);
+          console.log('FormSubmit ok:', body);
+        }
+      } catch (e) {
+        console.error('FormSubmit fetch failed:', e);
+      }
 
       // Done — show success state with logo thumbnail and scroll into view
       document.getElementById('uploadForm').style.display = 'none';
