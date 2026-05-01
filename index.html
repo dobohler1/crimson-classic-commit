@@ -666,11 +666,205 @@
 
   .early-bird-banner strong { color: var(--crimson); }
 
+  .pricing-schedule {
+    margin-top: 32px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .pricing-schedule-header {
+    background: var(--crimson);
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .pricing-schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pricing-tier {
+    padding: 20px 18px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .pricing-tier:last-child { border-right: none; }
+  .pricing-tier.current {
+    background: var(--cream);
+  }
+  .pricing-tier-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+  .pricing-tier.current .pricing-tier-label { color: var(--crimson); }
+  .pricing-tier-dates {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+  .pricing-tier-prices {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+  .pricing-tier-prices strong { font-size: 1.05rem; }
+  .pricing-tier .now-badge {
+    display: inline-block;
+    background: var(--crimson);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 680px) {
+    .pricing-schedule-grid { grid-template-columns: 1fr; }
+    .pricing-tier { border-right: none; border-bottom: 1px solid var(--border); }
+    .pricing-tier:last-child { border-bottom: none; }
+  }
+
   @media (max-width: 880px) {
     .play-grid { grid-template-columns: 1fr; gap: 20px; }
   }
 
   /* ===== BANQUET SPONSOR (anchor tier) ===== */
+  /* Pearl Sponsor — sits between Title and Banquet */
+  .tier-pearl {
+    background: linear-gradient(135deg, #fdfaf2 0%, #f5ecd8 100%);
+    color: var(--charcoal);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 40px 44px 36px;
+    margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 36px;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 6px 28px rgba(197, 165, 90, 0.18);
+  }
+
+  .tier-pearl::before {
+    content: 'INSTITUTIONAL TIER';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--crimson);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 18px;
+    border-radius: 12px;
+  }
+
+  .tier-pearl .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 10px;
+  }
+
+  .tier-pearl .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+
+  .tier-pearl .tagline {
+    font-size: 1rem;
+    color: var(--gray);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    max-width: 520px;
+  }
+
+  .tier-pearl ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tier-pearl ul li {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 5px 0 5px 22px;
+    position: relative;
+    color: var(--charcoal);
+  }
+
+  .tier-pearl ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .tier-pearl .cta-side {
+    text-align: center;
+    padding-left: 24px;
+    border-left: 1px solid rgba(197, 165, 90, 0.4);
+  }
+
+  .tier-pearl .cta-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .tier-pearl .cta {
+    display: inline-block;
+    background: var(--crimson);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tier-pearl .cta:hover {
+    background: var(--crimson-dark);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 760px) {
+    .tier-pearl {
+      grid-template-columns: 1fr;
+      padding: 32px 24px 28px;
+      gap: 24px;
+    }
+    .tier-pearl .price { font-size: 2.6rem; }
+    .tier-pearl .cta-side {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid rgba(197, 165, 90, 0.4);
+      padding-top: 24px;
+    }
+  }
+
   .tier-banquet {
     background: linear-gradient(135deg, #1E1E1E 0%, #2a2a2a 100%);
     color: #fff;
@@ -921,52 +1115,108 @@
   .title-sponsor-row {
     background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
     color: #fff;
-    border-radius: 12px;
-    margin-bottom: 36px;
-    padding: 28px 36px;
-    display: flex;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    padding: 48px 52px 44px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 40px;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    box-shadow: 0 8px 28px rgba(196, 30, 58, 0.18);
+    box-shadow: 0 12px 40px rgba(196, 30, 58, 0.28);
+    position: relative;
   }
 
-  .title-sponsor-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    width: 100%;
+  .title-sponsor-row::before {
+    content: 'TOP OF THE LADDER · SINGLE-FILL';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 18px;
+    border-radius: 12px;
   }
 
   .title-sponsor-label {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 3px;
     color: var(--gold);
-    margin-bottom: 6px;
-    flex-shrink: 0;
+    margin-bottom: 10px;
+  }
+
+  .title-sponsor-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 14px;
   }
 
   .title-sponsor-tagline {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1.05rem;
+    line-height: 1.55;
     color: rgba(255,255,255,0.85);
-    max-width: 560px;
-    flex: 1;
+    max-width: 580px;
+    margin-bottom: 18px;
+  }
+
+  .title-sponsor-row ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .title-sponsor-row ul li {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    padding: 5px 0 5px 24px;
+    position: relative;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .title-sponsor-row ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .title-sponsor-row ul li strong {
+    color: #fff;
+  }
+
+  .title-sponsor-cta-side {
+    text-align: center;
+    padding-left: 28px;
+    border-left: 1px solid rgba(197, 165, 90, 0.35);
+  }
+
+  .title-sponsor-cta-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 8px;
   }
 
   .title-sponsor-cta {
+    display: inline-block;
     background: var(--gold);
     color: var(--charcoal);
-    padding: 12px 24px;
-    border-radius: 6px;
+    padding: 18px 34px;
+    border-radius: 8px;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     text-decoration: none;
     white-space: nowrap;
     transition: all 0.2s;
-    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
   }
 
   .title-sponsor-cta:hover {
@@ -974,14 +1224,28 @@
     transform: translateY(-1px);
   }
 
+  .title-sponsor-cta-note {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.45;
+    letter-spacing: 0.3px;
+    font-style: italic;
+  }
+
   @media (max-width: 760px) {
-    .title-sponsor-row { padding: 24px 22px; }
-    .title-sponsor-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
+    .title-sponsor-row {
+      grid-template-columns: 1fr;
+      padding: 36px 26px 32px;
+      gap: 26px;
     }
-    .title-sponsor-tagline { max-width: none; }
+    .title-sponsor-price { font-size: 2.8rem; }
+    .title-sponsor-cta-side {
+      padding-left: 0;
+      padding-top: 24px;
+      border-left: none;
+      border-top: 1px solid rgba(197, 165, 90, 0.35);
+    }
   }
 
   /* ===== SPONSOR TIERS ===== */
@@ -1549,9 +1813,9 @@
   <div class="play-grid">
     <!-- Foursome -->
     <div class="play-card featured">
-      <div class="label">Team Captain</div>
+      <div class="label">Team Captain · Early Bird</div>
       <div class="price">$1,000</div>
-      <div class="price-sub">Foursome · $250 / golfer</div>
+      <div class="price-sub">Foursome · $250 / golfer · through May 15</div>
       <p class="desc">Bring your crew. Best value per golfer and the easiest way to build a great day on the course.</p>
       <ul>
         <li>4 golfers · greens fees + cart</li>
@@ -1566,7 +1830,7 @@
     <div class="play-card">
       <div class="label">Single Golfer · Early Bird</div>
       <div class="price">$250</div>
-      <div class="price-sub">Through May 15 · then $300</div>
+      <div class="price-sub">Through May 15 · rates rise after</div>
       <p class="desc">Solo? No problem. We'll match you with a foursome and you'll meet some great people.</p>
       <ul>
         <li>1 spot in a foursome</li>
@@ -1594,7 +1858,38 @@
   </div>
 
   <div class="early-bird-banner">
-    <strong>⏰ Early bird ends May 15, 2026.</strong> &nbsp; After that, single golfers move to $300. Lock in $250 now.
+    <strong>⏰ Early bird ends May 15, 2026.</strong> &nbsp; Rates rise in tiers after that — lock in $250 now.
+  </div>
+
+  <div class="pricing-schedule">
+    <div class="pricing-schedule-header">Pricing Schedule</div>
+    <div class="pricing-schedule-grid">
+      <div class="pricing-tier current">
+        <div class="pricing-tier-label">Early Bird</div>
+        <div class="pricing-tier-dates">Through May 15</div>
+        <div class="pricing-tier-prices">
+          <strong>$250</strong> / single<br>
+          <strong>$1,000</strong> / foursome
+        </div>
+        <div class="now-badge">You are here</div>
+      </div>
+      <div class="pricing-tier">
+        <div class="pricing-tier-label">Regular</div>
+        <div class="pricing-tier-dates">May 16 – Aug 31</div>
+        <div class="pricing-tier-prices">
+          <strong>$350</strong> / single<br>
+          <strong>$1,300</strong> / foursome
+        </div>
+      </div>
+      <div class="pricing-tier">
+        <div class="pricing-tier-label">Late</div>
+        <div class="pricing-tier-dates">Sep 1 – event</div>
+        <div class="pricing-tier-prices">
+          <strong>$450</strong> / single<br>
+          <strong>$1,700</strong> / foursome
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1607,14 +1902,47 @@
       <p>Your sponsorship is a marketing investment that doubles as a tax-deductible gift. You'll meet 100+ affluent Bay Area golfers — and fund students for years to come.</p>
     </div>
 
-    <!-- Title Sponsor ($15K) — custom, contact-only, top of the ladder -->
+    <!-- Title Sponsor ($15K) — single-fill, top of the ladder, custom by conversation -->
     <div class="title-sponsor-row">
-      <div class="title-sponsor-inner">
-        <div>
-          <div class="title-sponsor-label">TITLE SPONSOR · $15,000</div>
-          <div class="title-sponsor-tagline">Presented-by billing, category exclusivity, and a bespoke partnership tailored to your brand. Custom by conversation.</div>
-        </div>
+      <div>
+        <div class="title-sponsor-label">TITLE SPONSOR</div>
+        <div class="title-sponsor-price">$15,000</div>
+        <div class="title-sponsor-tagline">Presented-by billing, category exclusivity, and a bespoke partnership tailored to your brand. Single-fill — only one Title slot exists for the year.</div>
+        <ul>
+          <li><strong>Presented-by billing</strong> — "The Crimson Classic, presented by [Your Brand]" on event name, signage, and all collateral</li>
+          <li><strong>Category exclusivity</strong> — sole partner in your industry vertical for the full event year</li>
+          <li><strong>3 comped foursomes (12 entries)</strong> — for guests, donors, recruits, or board</li>
+          <li><strong>Hole #12 activation</strong> — the iconic on-course hole, with branded signage and on-site activation rights</li>
+          <li>Banquet stage opening + speaking slot during the scholarship program</li>
+          <li>Premier placement on signage, banquet program, website, sponsor packet, and a dedicated digital + social campaign</li>
+          <li>First right of refusal for the 2027 Title slot</li>
+        </ul>
+      </div>
+      <div class="title-sponsor-cta-side">
+        <div class="title-sponsor-cta-amount">Investment</div>
         <a href="mailto:dbohler@scienceonthecourt.com?subject=Title%20Sponsor%20Inquiry%20%E2%80%94%20Crimson%20Classic" class="title-sponsor-cta">Let's Talk →</a>
+        <div class="title-sponsor-cta-note">Custom partnership by conversation</div>
+      </div>
+    </div>
+
+    <!-- Pearl Sponsor ($10,000) — institutional tier -->
+    <div class="tier-pearl">
+      <div>
+        <div class="label">Pearl Sponsor</div>
+        <div class="price">$10,000</div>
+        <div class="tagline">Institutional partnership tier — designed for healthcare systems, foundations, and corporate philanthropy programs investing in Bay Area youth-development outcomes.</div>
+        <ul>
+          <li>2 comped foursomes (8 entries) for your guests, donors, or recruits</li>
+          <li>Banquet stage speaking slot during the scholarship program</li>
+          <li>Premium hole assignment with branded signage</li>
+          <li>Recognition on event signage, banquet program, and website</li>
+          <li>Dedicated digital + social channel recognition</li>
+          <li>First right of refusal for the 2027 Pearl tier</li>
+        </ul>
+      </div>
+      <div class="cta-side">
+        <div class="cta-amount">Investment</div>
+        <a href="https://buy.stripe.com/3cI3cv3gWa9ud0UfJK0Jq09" class="cta">Sponsor for $10,000</a>
       </div>
     </div>
 
@@ -1842,7 +2170,7 @@
     </details>
     <details>
       <summary>I want to play but don't have a foursome.</summary>
-      <p>That's what the single golfer registration is for. Sign up solo and we'll pair you with a foursome that day. <a href="#play">Single golfer is $250 through May 15.</a></p>
+      <p>That's what the single golfer registration is for. Sign up solo and we'll pair you with a foursome that day. <a href="#play">Single golfer is $250 through May 15, then $350 through August, then $450.</a></p>
     </details>
     <details>
       <summary>Is my sponsorship tax-deductible?</summary>
