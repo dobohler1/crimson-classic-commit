@@ -201,6 +201,18 @@
   .premium-card.featured .card-benefits li::before { background: var(--gold); }
   .premium-card.featured .card-benefits { color: rgba(255,255,255,0.9); }
 
+  .premium-card.institutional {
+    background: linear-gradient(135deg, #fdfaf2 0%, #f5ecd8 100%);
+    border-color: var(--gold);
+    box-shadow: 0 6px 24px rgba(197, 165, 90, 0.18);
+  }
+
+  .premium-card.institutional .card-eyebrow { color: var(--crimson); }
+  .premium-card.institutional .card-price .amount { color: var(--charcoal); }
+  .premium-card.institutional .card-benefits li::before { background: var(--gold); }
+
+  .premium-card.full-width { grid-column: 1 / -1; }
+
   .card-eyebrow {
     font-size: 0.7rem;
     font-weight: 700;
@@ -588,20 +600,40 @@
     <div class="premium-card featured">
       <div class="card-eyebrow">Title Sponsor</div>
       <div class="card-title">Tournament Naming Rights</div>
-      <p class="card-tagline">Become the face of a milestone 5th Annual tournament at a premier Bay Area venue.</p>
+      <p class="card-tagline">Become the face of a milestone 5th Annual tournament at a premier Bay Area venue. Single-fill — only one Title slot exists.</p>
       <div class="card-price">
         <div class="amount">$15,000</div>
-        <div class="label">Exclusive</div>
+        <div class="label">Single-fill &middot; Exclusive</div>
       </div>
       <ul class="card-benefits">
-        <li>"Crimson &amp; Cream Classic presented by [Your Company]"</li>
-        <li>Top billing on all signage, digital, and print</li>
-        <li>2-minute speaking slot at awards dinner</li>
-        <li>VIP foursome + 10 banquet tickets</li>
-        <li>Custom on-course activation</li>
-        <li>Year-round recognition on crimsonclassic.org</li>
+        <li><strong>Presented-by billing</strong> &mdash; "Crimson Classic, presented by [Your Brand]"</li>
+        <li><strong>Category exclusivity</strong> &mdash; sole partner in your industry vertical</li>
+        <li><strong>3 comped foursomes (12 entries)</strong> for guests, donors, recruits</li>
+        <li><strong>Hole #12 activation</strong> &mdash; the iconic on-course hole, with branded signage</li>
+        <li>Banquet stage opening + speaking slot during the scholarship program</li>
+        <li>Premier placement on signage, banquet program, website + dedicated digital + social campaign</li>
+        <li>First right of refusal for the 2027 Title slot</li>
       </ul>
       <a href="mailto:bohler.physics@gmail.com?subject=Crimson Classic 2026 — Title Sponsor Inquiry" class="card-cta">Inquire About Title Sponsorship &rarr;</a>
+    </div>
+
+    <div class="premium-card institutional">
+      <div class="card-eyebrow">Pearl Sponsor</div>
+      <div class="card-title">Institutional Partnership</div>
+      <p class="card-tagline">Designed for healthcare systems, foundations, and corporate philanthropy programs investing in Bay Area youth-development outcomes.</p>
+      <div class="card-price">
+        <div class="amount">$10,000</div>
+        <div class="label">Institutional Tier</div>
+      </div>
+      <ul class="card-benefits">
+        <li>2 comped foursomes (8 entries) for guests, donors, or recruits</li>
+        <li>Banquet stage speaking slot during the scholarship program</li>
+        <li>Premium hole assignment with branded signage</li>
+        <li>Recognition on event signage, banquet program, and website</li>
+        <li>Dedicated digital + social channel recognition</li>
+        <li>First right of refusal for the 2027 Pearl tier</li>
+      </ul>
+      <a href="mailto:bohler.physics@gmail.com?subject=Crimson Classic 2026 — Pearl Sponsor Inquiry" class="card-cta">Inquire About Pearl Sponsorship &rarr;</a>
     </div>
 
     <div class="premium-card">
@@ -639,7 +671,7 @@
       <a href="mailto:bohler.physics@gmail.com?subject=Crimson Classic 2026 — Cart Sponsor Inquiry" class="card-cta">Inquire About Cart Sponsorship &rarr;</a>
     </div>
 
-    <div class="premium-card">
+    <div class="premium-card full-width">
       <div class="card-eyebrow">Culture &amp; Community</div>
       <div class="card-title">Art Auction Sponsor</div>
       <p class="card-tagline">Co-brand the Black Art Auction &mdash; a signature evening centerpiece.</p>
