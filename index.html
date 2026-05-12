@@ -1705,6 +1705,164 @@
     font-size: 0.78rem;
     color: rgba(255,255,255,0.4);
   }
+
+  /* ===== PARTNERS / SPONSOR WALL ===== */
+  .partners-section .section-header { margin-bottom: 40px; }
+
+  .partner-tier {
+    margin-bottom: 44px;
+  }
+
+  .partner-tier:last-child { margin-bottom: 0; }
+
+  .partner-tier-label {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .partner-tier-sub {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 18px;
+  }
+
+  .partner-grid {
+    display: grid;
+    gap: 18px;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  /* Tier-sized grids: larger logos for higher tiers */
+  .partner-grid.tier-xl {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  }
+  .partner-grid.tier-lg {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 270px));
+  }
+  .partner-grid.tier-md {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 210px));
+  }
+  .partner-grid.tier-sm {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 160px));
+  }
+
+  .partner-card {
+    background: transparent;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 16px 18px 16px;
+    gap: 12px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .partner-card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+  }
+
+  .partner-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+
+  /* Card heights — bumped to accommodate +25% larger logos plus name text */
+  .partner-grid.tier-xl .partner-card { min-height: 175px; }
+  .partner-grid.tier-lg .partner-card { min-height: 150px; }
+  .partner-grid.tier-md .partner-card { min-height: 120px; }
+  .partner-grid.tier-sm .partner-card { min-height: 100px; padding: 18px 12px 14px 12px; }
+
+  .partner-card img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Tier logo sizes — 25% larger than original spec */
+  .partner-grid.tier-xl .partner-card img { max-height: 125px; }
+  .partner-grid.tier-lg .partner-card img { max-height: 100px; }
+  .partner-grid.tier-md .partner-card img { max-height: 75px; }
+  .partner-grid.tier-sm .partner-card img { max-height: 55px; }
+
+  .partner-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+  }
+
+  /* Placeholder card — quiet, intentional, no broken-image icon */
+  .partner-card.placeholder {
+    background: #fff;
+    border: 1px dashed var(--gold);
+    color: var(--light-gray);
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    padding: 14px;
+  }
+
+  .partner-card.placeholder a {
+    color: var(--crimson);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .partner-card.placeholder a:hover { text-decoration: underline; }
+
+  .partners-footnote {
+    margin-top: 36px;
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .partners-footnote a {
+    color: var(--crimson);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .partners-footnote a:hover { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .partner-grid.tier-xl,
+    .partner-grid.tier-lg {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    .partner-grid.tier-md {
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+    .partner-grid.tier-sm {
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    }
+    .partner-tier { margin-bottom: 32px; }
+  }
 </style>
 </head>
 <body>
@@ -2188,6 +2346,81 @@
       <summary>I just want to commit without paying yet.</summary>
       <p>If you're at a chapter meeting or event, <a href="commit.html">use the commitment form</a> — we'll follow up to lock in the details.</p>
     </details>
+  </div>
+</section>
+
+<!-- ============= OUR 2026 PARTNERS =============
+     Tiers are added as we get sponsors at that level. Tier sizes:
+       tier-xl  Title / Pearl / Banquet  ($7.5K+)
+       tier-lg  Cart / Gold / Art Auction ($3.5K-$5K)
+       tier-md  Silver / Bronze  ($1K-$2.5K)
+       tier-sm  Community  ($500)
+     See the inline template comment in the Community Sponsors block below
+     for the markup pattern (partner-tier > partner-grid > partner-card).
+============================================== -->
+<section id="partners" class="section-cream partners-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Our 2026 Partners</div>
+      <h2>Standing with us this year.</h2>
+      <p>The companies and families below are putting their names on scholarships for Bay Area students. We're grateful — and we're saving room for more. The wall is being built; new logos are joining each week.</p>
+    </div>
+
+    <!-- ===== COMMUNITY SPONSORS ($500) =====
+         Add tiers above this one (Bronze, Silver, Gold, etc.) as those
+         sponsors complete payment + upload logos. Each tier follows this
+         pattern:
+
+           <div class="partner-tier">
+             <div class="partner-tier-label">TIER NAME</div>
+             <div class="partner-tier-sub">$AMOUNT</div>
+             <div class="partner-grid tier-XX">  (xl, lg, md, or sm)
+               <div class="partner-card">
+                 <a href="SPONSOR_WEBSITE" target="_blank" rel="noopener">
+                   <img src="LOGO_URL" alt="SPONSOR NAME">
+                   <div class="partner-name">SPONSOR NAME</div>
+                 </a>
+               </div>
+             </div>
+           </div>
+    ============================================== -->
+    <div class="partner-tier">
+      <div class="partner-tier-label">Bronze Sponsors</div>
+      <div class="partner-tier-sub">$1,000</div>
+      <div class="partner-grid tier-md">
+        <div class="partner-card">
+          <a href="https://ldmgroup.org" target="_blank" rel="noopener">
+            <img src="partners/ldm-group.jpg" alt="LDM Education Group">
+            <div class="partner-name">LDM Education Group</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-tier">
+      <div class="partner-tier-label">Community Sponsors</div>
+      <div class="partner-tier-sub">$500</div>
+      <div class="partner-grid tier-sm">
+        <div class="partner-card">
+          <a href="https://www.foconinc.com" target="_blank" rel="noopener">
+            <img src="https://firebasestorage.googleapis.com/v0/b/crimson-classic-2026.firebasestorage.app/o/sponsor-materials%2FyrPRidkdJpfu2Ur3IgzF%2Flogo_1778280109202.png?alt=media&amp;token=f8258165-fbb6-4619-9238-3d8a7fad0abe" alt="Focon Inc">
+            <div class="partner-name">Focon Inc</div>
+          </a>
+        </div>
+        <div class="partner-card">
+          <a href="https://www.proximospirits.com" target="_blank" rel="noopener">
+            <img src="https://firebasestorage.googleapis.com/v0/b/crimson-classic-2026.firebasestorage.app/o/sponsor-materials%2FQCVsKuhHnYTijRv6B76S%2Flogo_1778106689321.jpg?alt=media&amp;token=eac36848-f7e2-4f49-b830-def790a57837" alt="Proximo Spirits / Bushmills">
+            <div class="partner-name">Proximo Spirits</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="partners-footnote">
+      Logos are added as sponsors complete payment and upload their brand assets.
+      Want to be on this wall? <a href="sponsor-v2.html">Choose a sponsorship</a> or
+      <a href="mailto:dbohler@scienceonthecourt.com?subject=Crimson%20Classic%20Sponsorship">email Dorian</a> for a custom partnership.
+    </p>
   </div>
 </section>
 
