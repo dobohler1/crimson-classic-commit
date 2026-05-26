@@ -1,0 +1,13 @@
+{
+  "earlybird": {
+    "sold": 0,
+    "limit": 10,
+    "remaining": 10
+  },
+  "standard": {
+    "sold": 0,
+    "limit": 30,
+    "remaining": 30
+  },
+  "updated": "2026-05-26T16:22:59Z"
+}
