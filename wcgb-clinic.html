@@ -88,6 +88,45 @@
   .partner-strip p { max-width: 640px; margin: 0 auto; color: var(--gray); font-size: 1rem; line-height: 1.65; }
   .partner-strip strong { color: var(--charcoal); }
 
+  /* THE CAUSE */
+  .cause-intro { text-align: center; max-width: 660px; margin: 0 auto 40px; color: var(--gray); font-size: 1.05rem; line-height: 1.7; }
+  .cause-intro strong { color: var(--charcoal); }
+  .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 760px; margin: 0 auto; }
+  .mission-stat { text-align: center; padding: 24px 16px; }
+  .mission-stat .num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--crimson); line-height: 1; margin-bottom: 12px; }
+  .mission-stat .label { font-size: 0.95rem; color: var(--gray); line-height: 1.5; }
+  .mission-stat .label strong { color: var(--charcoal); }
+
+  /* SCHOLARS */
+  .scholar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .scholar-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; }
+  .scholar-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .scholar-photo { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center top; display: block; background: var(--cream); }
+  .scholar-body { padding: 18px 18px 22px; }
+  .scholar-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 900; color: var(--charcoal); line-height: 1.25; margin-bottom: 4px; }
+  .scholar-school { font-size: 0.78rem; color: var(--crimson); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .scholar-quote { font-size: 0.85rem; color: var(--gray); line-height: 1.55; font-style: italic; }
+  .scholar-card.featured { border: 2px solid var(--crimson); }
+  .scholar-card.featured .scholar-name { color: var(--crimson); }
+  .scholar-footer-note { text-align: center; margin: 36px auto 0; font-size: 0.88rem; color: var(--gray); max-width: 640px; line-height: 1.65; }
+
+  /* SPONSOR CTA */
+  .sponsor-cta { background: var(--charcoal); color: #fff; text-align: center; padding: 64px 24px; position: relative; overflow: hidden; }
+  .sponsor-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(197,165,90,0.12) 0%, transparent 65%); pointer-events: none; }
+  .sponsor-cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+  .sponsor-cta .eyebrow { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .sponsor-cta h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 16px; }
+  .sponsor-cta p { color: rgba(255,255,255,0.78); font-size: 1.05rem; line-height: 1.65; margin-bottom: 28px; }
+  .sponsor-cta .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .sponsor-cta a.btn { display: inline-block; padding: 15px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
+  .sponsor-cta a.gold { background: var(--gold); color: var(--charcoal); }
+  .sponsor-cta a.gold:hover { background: #d8bd78; transform: translateY(-1px); }
+  .sponsor-cta a.ghost { border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+  .sponsor-cta a.ghost:hover { border-color: var(--gold); color: var(--gold); }
+  @media (max-width: 880px) { .scholar-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+  @media (max-width: 720px) { .mission-grid { grid-template-columns: 1fr; gap: 8px; } .sponsor-cta h2 { font-size: 1.7rem; } }
+  @media (max-width: 480px) { .scholar-grid { grid-template-columns: 1fr; } }
+
   /* FOOTER */
   footer { background: var(--charcoal); color: rgba(255,255,255,0.6); text-align: center; padding: 40px 24px; font-size: 0.85rem; }
   footer strong { color: #fff; }
@@ -191,6 +230,79 @@
         <div class="included-icon">🎓</div>
         <div><h4>Scholarship Mission</h4><p>Every ticket helps fund scholarships for Bay Area students through Bay Area Community Projects.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE CAUSE -->
+<section class="section" id="cause">
+  <div class="section-header">
+    <div class="eyebrow">Where your dollars go</div>
+    <h2>This is bigger than a clinic.</h2>
+  </div>
+  <p class="cause-intro">The Crimson &amp; Cream Classic is the flagship fundraiser of <strong>Bay Area Community Project Inc.</strong>, a 501(c)(3) nonprofit. Together with the Berkeley Alumni Chapter of Kappa Alpha Psi and the Oakland East Bay Alumnae Chapter of Delta Sigma Theta, it funds scholarships for Bay Area students &mdash; <strong>100% of net proceeds go to scholarships.</strong></p>
+  <div class="mission-grid">
+    <div class="mission-stat"><div class="num">$147K</div><div class="label"><strong>Awarded over 4 years</strong><br>to Bay Area students</div></div>
+    <div class="mission-stat"><div class="num">25</div><div class="label"><strong>Scholarships in Year 5</strong><br>our biggest goal yet</div></div>
+    <div class="mission-stat"><div class="num">100%</div><div class="label"><strong>Net proceeds</strong><br>to student scholarships</div></div>
+  </div>
+</section>
+
+<!-- SCHOLARS -->
+<section class="section-cream" id="scholars">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Meet the scholars</div>
+      <h2>Real students. Real stories.</h2>
+      <p>Every year these dollars send Bay Area students to schools like Stanford, Brown, Berkeley, and Temple. These are some of them.</p>
+    </div>
+    <div class="scholar-grid">
+      <div class="scholar-card featured">
+        <img src="photos/scholar_leilani.jpg" alt="Leilani Harris with her scholarship check" class="scholar-photo">
+        <div class="scholar-body">
+          <div class="scholar-name">Leilani Harris</div>
+          <div class="scholar-school">Crimson Classic Recipient</div>
+          <div class="scholar-quote">Pictured receiving her scholarship at the Crimson &amp; Cream Classic &mdash; the kind of moment your support makes possible.</div>
+        </div>
+      </div>
+      <div class="scholar-card">
+        <img src="photos/scholar_grad2025.png" alt="2025 scholarship recipient" class="scholar-photo">
+        <div class="scholar-body">
+          <div class="scholar-name">2025 Recipient</div>
+          <div class="scholar-school">Brown &middot; Mech. Engineering</div>
+          <div class="scholar-quote">"Studying mechanical engineering to develop medical devices that support women of color and their maternal health."</div>
+        </div>
+      </div>
+      <div class="scholar-card">
+        <img src="photos/scholar_headshot.png" alt="2025 scholarship recipient" class="scholar-photo">
+        <div class="scholar-body">
+          <div class="scholar-name">2025 Recipient</div>
+          <div class="scholar-school">Temple &middot; Public Health</div>
+          <div class="scholar-quote">"A degree in public health will prepare me for a career working to end the disparities resulting in avoidable deaths of Black mothers."</div>
+        </div>
+      </div>
+      <div class="scholar-card">
+        <img src="photos/scholar_alexander_college.jpeg" alt="Alexander Wiley, San Jos&eacute; State University graduation" class="scholar-photo">
+        <div class="scholar-body">
+          <div class="scholar-name">Alexander Wiley</div>
+          <div class="scholar-school">San Jos&eacute; State University &middot; '25</div>
+          <div class="scholar-quote">From Kappa League youth mentee to college graduate &mdash; the full arc of what scholarship and mentorship can build.</div>
+        </div>
+      </div>
+    </div>
+    <p class="scholar-footer-note">In 2025 alone, the Oakland East Bay Alumnae Chapter of Delta Sigma Theta awarded <strong>$14,500 across three scholarships</strong> to students at Brown, Temple, and Stanford &mdash; every dollar made possible by supporters like you.</p>
+  </div>
+</section>
+
+<!-- SPONSOR CTA -->
+<section class="sponsor-cta">
+  <div class="sponsor-cta-inner">
+    <div class="eyebrow">Want to do more than attend?</div>
+    <h2>Put your name on a scholarship.</h2>
+    <p>Beyond a ticket, you can sponsor the event &mdash; a marketing investment that doubles as a tax-deductible gift, putting your name in front of 100+ Bay Area guests while funding students for years to come.</p>
+    <div class="btn-row">
+      <a class="btn gold" href="https://crimsonclassic.org/#sponsor">Explore Sponsorships &rarr;</a>
+      <a class="btn ghost" href="https://crimsonclassic.org/sponsor-v2.html">See All Tiers</a>
     </div>
   </div>
 </section>
