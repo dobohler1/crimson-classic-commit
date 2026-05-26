@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinic + Banquet Registration — Crimson & Cream Classic × West Coast Golf Babes</title>
+<meta name="description" content="Register for the golf clinic led by West Coast Golf Babes plus the evening banquet and Black art auction. Monday, October 19, 2026 at Stonebrae Country Club, Hayward CA. No golf experience required.">
+<meta property="og:title" content="Clinic + Banquet — Crimson & Cream Classic × West Coast Golf Babes">
+<meta property="og:description" content="A golf clinic led by West Coast Golf Babes + the evening banquet and Black art auction. Monday, October 19, 2026 · Stonebrae CC. No golf required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crimsonclassic.org/wcgb-clinic.html">
+<link rel="canonical" href="https://crimsonclassic.org/wcgb-clinic.html">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #C41E3A;
+    --crimson-dark: #8B0000;
+    --cream: #FAF6EE;
+    --gold: #C5A55A;
+    --gold-dark: #a8893e;
+    --charcoal: #1E1E1E;
+    --gray: #555;
+    --light-gray: #999;
+    --border: #e8e2d6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: var(--charcoal); line-height: 1.5; }
+  a { color: inherit; }
+
+  .topbar { height: 4px; background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%); }
+
+  /* HERO */
+  .hero { background: var(--charcoal); color: #fff; padding: 80px 24px 88px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center top, rgba(196, 30, 58, 0.18) 0%, transparent 60%); pointer-events: none; }
+  .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero .eyebrow { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); background: rgba(197, 165, 90, 0.1); border: 1px solid rgba(197, 165, 90, 0.35); padding: 7px 18px; border-radius: 20px; margin-bottom: 28px; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 3.2rem; line-height: 1.05; margin-bottom: 22px; }
+  .hero h1 .amp { color: var(--gold); font-style: italic; }
+  .hero .lede { font-size: 1.15rem; line-height: 1.65; color: rgba(255,255,255,0.78); max-width: 580px; margin: 0 auto 18px; }
+  .hero .when-where { font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-bottom: 8px; letter-spacing: 0.2px; }
+  .hero .when-where strong { color: #fff; font-weight: 600; }
+  .hero .when-where .sep { margin: 0 14px; color: var(--gold); }
+
+  /* SECTION */
+  .section { max-width: 980px; margin: 0 auto; padding: 72px 24px; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header .eyebrow { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); margin-bottom: 14px; }
+  .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+  .section-header p { font-size: 1.05rem; color: var(--gray); max-width: 600px; margin: 0 auto; line-height: 1.65; }
+
+  /* PRICING CARDS */
+  .reg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 760px; margin: 0 auto; }
+  .play-card { background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 32px 28px; display: flex; flex-direction: column; transition: all 0.2s; }
+  .play-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+  .play-card.featured { border-color: var(--crimson); border-width: 2px; position: relative; }
+  .play-card.featured::before { content: 'LIMITED SEATS'; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--crimson); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; padding: 4px 14px; border-radius: 12px; }
+  .play-card .label { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 12px; }
+  .play-card.featured .label { color: var(--crimson); }
+  .play-card .price { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+  .play-card.featured .price { color: var(--crimson); }
+  .play-card .price-sub { font-size: 0.8rem; color: var(--light-gray); margin-bottom: 18px; }
+  .play-card .desc { font-size: 0.95rem; color: var(--gray); line-height: 1.6; margin-bottom: 22px; flex-grow: 1; }
+  .play-card ul { list-style: none; margin-bottom: 28px; }
+  .play-card ul li { font-size: 0.88rem; line-height: 1.5; padding: 5px 0 5px 22px; position: relative; color: var(--charcoal); }
+  .play-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--crimson); font-weight: 700; }
+  .play-card .cta { display: block; width: 100%; padding: 14px; border-radius: 8px; text-align: center; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; border: 2px solid var(--charcoal); color: var(--charcoal); background: #fff; }
+  .play-card .cta:hover { background: var(--charcoal); color: #fff; }
+  .play-card.featured .cta { background: var(--crimson); color: #fff; border-color: var(--crimson); }
+  .play-card.featured .cta:hover { background: var(--crimson-dark); border-color: var(--crimson-dark); }
+
+  .seats-banner { background: var(--cream); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 8px; padding: 16px 20px; margin: 36px auto 0; max-width: 760px; text-align: center; font-size: 0.9rem; color: var(--gray); }
+  .seats-banner strong { color: var(--crimson); }
+
+  /* INCLUDED */
+  .section-cream { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-cream .section-inner { max-width: 980px; margin: 0 auto; padding: 72px 24px; }
+  .included-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 760px; margin: 0 auto; }
+  .included-item { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .included-icon { font-size: 1.7rem; flex-shrink: 0; }
+  .included-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .included-item p { font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+
+  /* PARTNER STRIP */
+  .partner-strip { text-align: center; padding: 48px 24px; }
+  .partner-strip .eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+  .partner-strip p { max-width: 640px; margin: 0 auto; color: var(--gray); font-size: 1rem; line-height: 1.65; }
+  .partner-strip strong { color: var(--charcoal); }
+
+  /* FOOTER */
+  footer { background: var(--charcoal); color: rgba(255,255,255,0.6); text-align: center; padding: 40px 24px; font-size: 0.85rem; }
+  footer strong { color: #fff; }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer .row { margin-top: 6px; }
+
+  @media (max-width: 720px) {
+    .hero { padding: 56px 20px 64px; }
+    .hero h1 { font-size: 2.3rem; }
+    .hero .lede { font-size: 1rem; }
+    .section, .section-cream .section-inner { padding: 56px 20px; }
+    .section-header h2 { font-size: 1.85rem; }
+    .reg-grid, .included-grid { grid-template-columns: 1fr; gap: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">West Coast Golf Babes &times; Crimson &amp; Cream Classic</div>
+    <h1>Clinic <span class="amp">+</span> Banquet</h1>
+    <p class="lede">Spend the afternoon learning the game with the West Coast Golf Babes, then join us for the evening banquet and Black art auction. No golf experience required — just bring the energy.</p>
+    <div class="when-where"><strong>Monday, October 19, 2026</strong><span class="sep">&middot;</span>Stonebrae Country Club<span class="sep">&middot;</span>Hayward, CA</div>
+  </div>
+</header>
+
+<!-- REGISTER -->
+<section class="section" id="register">
+  <div class="section-header">
+    <div class="eyebrow">Reserve your spot</div>
+    <h2>Register for the Clinic + Banquet</h2>
+    <p>One ticket covers the full afternoon — the golf clinic and the evening banquet, dinner, and live art auction. Every ticket helps fund scholarships for Bay Area students.</p>
+  </div>
+
+  <div class="reg-grid">
+
+    <!-- Early Access -->
+    <div class="play-card featured">
+      <div class="label">Early Access</div>
+      <div class="price">$175</div>
+      <div class="price-sub">Limited early-access seats</div>
+      <p class="desc">Lock in the best rate while early-access seats last. Clinic plus the full banquet and art auction.</p>
+      <ul>
+        <li>~90-minute golf clinic with WCGB pros</li>
+        <li>All skill levels welcome</li>
+        <li>Evening banquet &amp; dinner</li>
+        <li>Live Black art auction</li>
+        <li>Scholar recognition program</li>
+      </ul>
+      <a href="https://buy.stripe.com/9B69AT18OdlG7GA8hi0Jq0a" class="cta">Register — $175 &rarr;</a>
+    </div>
+
+    <!-- Standard -->
+    <div class="play-card">
+      <div class="label">Standard</div>
+      <div class="price">$225</div>
+      <div class="price-sub">After early access sells out</div>
+      <p class="desc">The same full experience — clinic, banquet, and art auction — at standard pricing.</p>
+      <ul>
+        <li>~90-minute golf clinic with WCGB pros</li>
+        <li>All skill levels welcome</li>
+        <li>Evening banquet &amp; dinner</li>
+        <li>Live Black art auction</li>
+        <li>Scholar recognition program</li>
+      </ul>
+      <a href="https://buy.stripe.com/5kQ8wPeZE5Tef92eFG0Jq0b" class="cta">Register — $225 &rarr;</a>
+    </div>
+
+  </div>
+
+  <div class="seats-banner">
+    <strong>Seats are limited.</strong> &nbsp; The clinic is capped at 40 participants — early-access pricing is first-come, first-served.
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section-cream">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="eyebrow">What's included</div>
+      <h2>Your afternoon, start to finish</h2>
+    </div>
+    <div class="included-grid">
+      <div class="included-item">
+        <div class="included-icon">🏌🏾‍♀️</div>
+        <div><h4>The Clinic</h4><p>A ~90-minute golf clinic led by the West Coast Golf Babes' own professionals. Open to all skill levels — first-timers welcome.</p></div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🍽️</div>
+        <div><h4>The Banquet</h4><p>Cocktail hour and a full dinner at Stonebrae Country Club as the tournament wraps up.</p></div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🎨</div>
+        <div><h4>Black Art Auction</h4><p>A live auction of work by Black artists — the heart of the evening and a centerpiece of the fundraiser.</p></div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🎓</div>
+        <div><h4>Scholarship Mission</h4><p>Every ticket helps fund scholarships for Bay Area students through Bay Area Community Projects.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER STRIP -->
+<section class="partner-strip">
+  <div class="eyebrow">A partnership</div>
+  <p>The clinic is led in partnership with <strong>West Coast Golf Babes</strong>, bringing more players into the game. The <strong>Crimson &amp; Cream Golf Classic</strong> is hosted by Bay Area Community Projects with the Berkeley Alumni Chapter of Kappa Alpha Psi and the Oakland East Bay Alumnae Chapter of Delta Sigma Theta. <strong>Open to all.</strong></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>5th Annual Crimson &amp; Cream Golf Classic</strong>
+  <div class="row">Monday, October 19, 2026 &middot; Stonebrae Country Club &middot; Hayward, CA</div>
+  <div class="row">Questions? <a href="mailto:dbohler@scienceonthecourt.com?subject=Clinic%20%2B%20Banquet%20%E2%80%94%20Crimson%20Classic">dbohler@scienceonthecourt.com</a> &middot; <a href="https://crimsonclassic.org/">crimsonclassic.org</a></div>
+</footer>
+
+</body>
+</html>
