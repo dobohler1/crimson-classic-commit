@@ -69,6 +69,12 @@
   .play-card .cta:hover { background: var(--charcoal); color: #fff; }
   .play-card.featured .cta { background: var(--crimson); color: #fff; border-color: var(--crimson); }
   .play-card.featured .cta:hover { background: var(--crimson-dark); border-color: var(--crimson-dark); }
+  .seats-left { font-size: 0.8rem; font-weight: 700; color: var(--crimson); margin-bottom: 16px; min-height: 1.1em; letter-spacing: 0.2px; }
+  .seats-left .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--crimson); margin-right: 7px; vertical-align: middle; animation: seatpulse 1.6s infinite; }
+  @keyframes seatpulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .play-card.soldout { opacity: 0.7; }
+  .play-card .cta.disabled { background: #c9c4ba; border-color: #c9c4ba; color: #fff; pointer-events: none; cursor: default; }
+  .play-card.featured .cta.disabled { background: #c9c4ba; border-color: #c9c4ba; }
 
   .seats-banner { background: var(--cream); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: 8px; padding: 16px 20px; margin: 36px auto 0; max-width: 760px; text-align: center; font-size: 0.9rem; color: var(--gray); }
   .seats-banner strong { color: var(--crimson); }
@@ -168,10 +174,11 @@
   <div class="reg-grid">
 
     <!-- Early Access -->
-    <div class="play-card featured">
+    <div class="play-card featured" id="card-early">
       <div class="label">Early Access</div>
       <div class="price">$175</div>
       <div class="price-sub">Limited early-access seats</div>
+      <div class="seats-left" id="seats-early">&nbsp;</div>
       <p class="desc">Lock in the best rate while early-access seats last. Clinic plus the full banquet and art auction.</p>
       <ul>
         <li>~90-minute golf clinic with WCGB pros</li>
@@ -180,14 +187,15 @@
         <li>Live Black art auction</li>
         <li>Scholar recognition program</li>
       </ul>
-      <a href="https://buy.stripe.com/9B69AT18OdlG7GA8hi0Jq0a" class="cta">Register — $175 &rarr;</a>
+      <a href="https://buy.stripe.com/9B69AT18OdlG7GA8hi0Jq0a" class="cta" id="cta-early">Register — $175 &rarr;</a>
     </div>
 
     <!-- Standard -->
-    <div class="play-card">
+    <div class="play-card" id="card-standard">
       <div class="label">Standard</div>
       <div class="price">$225</div>
       <div class="price-sub">After early access sells out</div>
+      <div class="seats-left" id="seats-standard">&nbsp;</div>
       <p class="desc">The same full experience — clinic, banquet, and art auction — at standard pricing.</p>
       <ul>
         <li>~90-minute golf clinic with WCGB pros</li>
@@ -196,7 +204,7 @@
         <li>Live Black art auction</li>
         <li>Scholar recognition program</li>
       </ul>
-      <a href="https://buy.stripe.com/5kQ8wPeZE5Tef92eFG0Jq0b" class="cta">Register — $225 &rarr;</a>
+      <a href="https://buy.stripe.com/5kQ8wPeZE5Tef92eFG0Jq0b" class="cta" id="cta-standard">Register — $225 &rarr;</a>
     </div>
 
   </div>
@@ -319,6 +327,30 @@
   <div class="row">Monday, October 19, 2026 &middot; Stonebrae Country Club &middot; Hayward, CA</div>
   <div class="row">Questions? <a href="mailto:dbohler@scienceonthecourt.com?subject=Clinic%20%2B%20Banquet%20%E2%80%94%20Crimson%20Classic">dbohler@scienceonthecourt.com</a> &middot; <a href="https://crimsonclassic.org/">crimsonclassic.org</a></div>
 </footer>
+
+<script>
+(function () {
+  function render(key, info) {
+    var el = document.getElementById('seats-' + key);
+    var card = document.getElementById('card-' + key);
+    var btn = document.getElementById('cta-' + key);
+    if (!el || !info || info.remaining == null) { if (el) el.innerHTML = '&nbsp;'; return; }
+    var n = info.remaining;
+    if (n <= 0) {
+      el.textContent = 'Sold out';
+      el.style.color = 'var(--gray)';
+      if (card) card.classList.add('soldout');
+      if (btn) { btn.classList.add('disabled'); btn.textContent = 'Sold Out'; btn.removeAttribute('href'); }
+    } else {
+      el.innerHTML = '<span class="dot"></span>' + n + ' of ' + info.limit + ' seats left';
+    }
+  }
+  fetch('availability.json?t=' + Date.now())
+    .then(function (r) { return r.json(); })
+    .then(function (d) { render('early', d.earlybird); render('standard', d.standard); })
+    .catch(function () { /* leave counters blank if the file can't be read */ });
+})();
+</script>
 
 </body>
 </html>
