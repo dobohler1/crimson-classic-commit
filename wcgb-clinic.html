@@ -176,13 +176,13 @@
 
   <div class="reg-grid">
 
-    <!-- Early Access -->
+    <!-- Clinic + Banquet -->
     <div class="play-card featured" id="card-early">
-      <div class="label">Early Access</div>
+      <div class="label">Clinic + Banquet</div>
       <div class="price">$175</div>
-      <div class="price-sub">Early-access rate · while seats last</div>
+      <div class="price-sub">The full experience, one ticket</div>
       <div class="seats-left" id="seats-early">&nbsp;</div>
-      <p class="desc">Lock in the best rate while early-access seats last. Clinic plus the full banquet and art auction.</p>
+      <p class="desc">A day-of golf clinic at Stonebrae, then straight into the evening banquet and art auction.</p>
       <ul>
         <li>~90-minute golf clinic with WCGB pros</li>
         <li>All skill levels welcome</li>
@@ -193,27 +193,27 @@
       <a href="https://buy.stripe.com/9B69AT18OdlG7GA8hi0Jq0a" class="cta" id="cta-early">Register — $175 &rarr;</a>
     </div>
 
-    <!-- Standard -->
+    <!-- VIP -->
     <div class="play-card" id="card-standard">
-      <div class="label">Standard</div>
+      <div class="label">VIP</div>
       <div class="price">$225</div>
-      <div class="price-sub">After early access sells out</div>
+      <div class="price-sub">Everything in Clinic + Banquet, plus</div>
       <div class="seats-left" id="seats-standard">&nbsp;</div>
-      <p class="desc">The same full experience — clinic, banquet, and art auction — at standard pricing.</p>
+      <p class="desc">The same full day, upgraded for the evening — arrive as a guest, land in the best seats in the room.</p>
       <ul>
-        <li>~90-minute golf clinic with WCGB pros</li>
-        <li>All skill levels welcome</li>
-        <li>Evening banquet &amp; dinner</li>
-        <li>Live Black art auction</li>
-        <li>Scholar recognition program</li>
+        <li>Everything in Clinic + Banquet</li>
+        <li>Premium banquet seating</li>
+        <li>Welcome drink ticket</li>
+        <li>Swag bag</li>
+        <li>Free raffle prize ticket</li>
       </ul>
-      <a href="https://buy.stripe.com/5kQ8wPeZE5Tef92eFG0Jq0b" class="cta" id="cta-standard">Register — $225 &rarr;</a>
+      <a href="https://buy.stripe.com/5kQ8wPeZE5Tef92eFG0Jq0b" class="cta" id="cta-standard">Register VIP — $225 &rarr;</a>
     </div>
 
   </div>
 
   <div class="seats-banner">
-    <strong>Seats are limited.</strong> &nbsp; The clinic is capped at 40 participants — early-access pricing is first-come, first-served.
+    <strong>Seats are limited</strong> &nbsp;&middot;&nbsp; first come, first served.
   </div>
 </section>
 
@@ -345,7 +345,7 @@
       if (card) card.classList.add('soldout');
       if (btn) { btn.classList.add('disabled'); btn.textContent = 'Sold Out'; btn.removeAttribute('href'); }
     } else {
-      el.innerHTML = '<span class="dot"></span>' + n + ' of ' + info.limit + ' seats left';
+      el.innerHTML = '&nbsp;';
     }
   }
   fetch('availability.json?t=' + Date.now())
