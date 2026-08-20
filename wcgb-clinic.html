@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://crimsonclassic.org/wcgb-clinic.html">
 <link rel="canonical" href="https://crimsonclassic.org/wcgb-clinic.html">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --crimson: #C41E3A;
@@ -26,7 +26,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: var(--charcoal); line-height: 1.5; }
+  body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: var(--charcoal); line-height: 1.5; }
   a { color: inherit; }
 
   .topbar { height: 4px; background: linear-gradient(90deg, var(--crimson) 0%, var(--gold) 100%); }
@@ -147,6 +147,128 @@
     .section-header h2 { font-size: 1.85rem; }
     .reg-grid, .included-grid { grid-template-columns: 1fr; gap: 18px; }
   }
+
+  /* =========================================================
+     WCGB LUXURY REDESIGN
+     Keeps existing registration, scholar, sponsor, footer,
+     analytics and availability behavior intact.
+     ========================================================= */
+
+  :root {
+    --wcgb-pink: #ef5f8d;
+    --wcgb-pink-dark: #d9366d;
+    --wcgb-pink-pale: #fff4f7;
+    --wcgb-blush: #fff9fa;
+    --wcgb-ink: #171414;
+  }
+
+  body { color: var(--wcgb-ink); -webkit-font-smoothing: antialiased; }
+
+  .hero {
+    min-height: 610px; padding: 0; text-align: left; color: #111;
+    display: flex; align-items: stretch; background: #f9ecef; position: relative;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(255,244,247,.98) 0%, rgba(255,244,247,.94) 33%, rgba(255,244,247,.72) 48%, rgba(255,244,247,.16) 68%, rgba(255,244,247,0) 100%),
+      url("photos/wcgb-hero.jpg") 72% center / cover no-repeat;
+    pointer-events: none;
+  }
+  .hero-inner { width: min(1120px, calc(100% - 48px)); max-width: none; margin: 0 auto; padding: 78px 0 68px; position: relative; z-index: 1; }
+  .hero .eyebrow { display: inline-block; color: var(--wcgb-pink-dark); background: transparent; border: 0; border-radius: 0; padding: 0; margin-bottom: 24px; font-size: .75rem; font-weight: 700; letter-spacing: 2.4px; }
+  .hero h1 { max-width: 690px; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3.5rem, 7vw, 5.9rem); font-weight: 700; line-height: .96; letter-spacing: -.035em; margin-bottom: 22px; color: #181414; }
+  .hero h1 .pink-line { display: block; color: var(--wcgb-pink); font-style: italic; }
+  .hero .lede { max-width: 640px; margin: 0 0 24px; color: #2c2929; font-size: 1.12rem; line-height: 1.7; font-weight: 600; }
+  .hero .when-where { color: #403b39; font-size: .98rem; line-height: 1.55; margin-bottom: 26px; }
+  .hero .when-where strong { color: #181414; }
+  .hero .when-where .sep { color: var(--wcgb-pink-dark); }
+  .hero-register-btn { display: inline-block; background: var(--wcgb-pink-dark); color: #fff; text-decoration: none; padding: 15px 26px; border-radius: 4px; font-weight: 700; font-size: .92rem; letter-spacing: .02em; transition: .2s ease; }
+  .hero-register-btn:hover { background: #bf295d; transform: translateY(-1px); }
+
+  #register.section { max-width: 1040px; padding-top: 76px; padding-bottom: 72px; }
+  #register .section-header { margin-bottom: 42px; }
+  #register .section-header h2 { font-size: clamp(2.6rem, 5vw, 3.8rem); letter-spacing: -.025em; }
+  #register .section-header p { max-width: 690px; font-size: 1.02rem; font-weight: 600; }
+  #register .section-header .eyebrow { color: var(--wcgb-pink-dark); }
+  .reg-grid { max-width: 820px; gap: 28px; }
+  .play-card { border-radius: 6px; padding: 34px 30px 30px; box-shadow: none; }
+  .play-card.featured { border-color: var(--wcgb-pink-dark); }
+  .play-card.featured::before { content: "BEST VALUE"; background: var(--wcgb-pink-dark); border-radius: 3px; }
+  .play-card.featured .label, .play-card.featured .price, .seats-left { color: var(--wcgb-pink-dark); }
+  .play-card .price { font-size: 3.4rem; }
+  .play-card .desc, .play-card ul li { font-weight: 600; color: #2c2929; }
+  .play-card.featured .cta { background: var(--wcgb-pink-dark); border-color: var(--wcgb-pink-dark); border-radius: 4px; }
+  .play-card.featured .cta:hover { background: #bd285b; border-color: #bd285b; }
+  .play-card:not(.featured) .price, .play-card:not(.featured) .label { color: var(--gold-dark); }
+  .play-card:not(.featured) .cta { background: var(--gold); color: #fff; border-color: var(--gold); border-radius: 4px; }
+  .play-card:not(.featured) .cta:hover { background: var(--gold-dark); color: #fff; }
+  .play-card ul li::before { color: var(--wcgb-pink-dark); }
+  .play-card:not(.featured) ul li::before { color: var(--gold-dark); }
+  .seats-banner { max-width: 820px; background: #fff1f5; border: 0; border-left: 0; color: #443d3d; font-weight: 600; }
+  .seats-banner strong { color: var(--wcgb-pink-dark); }
+
+  .experience-section { background: linear-gradient(90deg, #fff9fa 0%, #fff5f7 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .experience-inner { max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: 240px 1fr; gap: 50px; align-items: start; }
+  .experience-eyebrow { color: var(--wcgb-pink-dark); font-size: .72rem; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; margin-bottom: 12px; }
+  .experience-intro h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.55rem; line-height: 1.02; letter-spacing: -.02em; margin-bottom: 18px; }
+  .experience-intro h2::after { content: ""; display: block; width: 48px; height: 3px; background: var(--wcgb-pink); margin-top: 18px; }
+  .experience-intro p { color: #4e4846; font-size: .96rem; line-height: 1.7; font-weight: 600; }
+  .experience-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-left: 1px solid var(--border); }
+  .experience-item { padding: 0 22px; border-right: 1px solid var(--border); }
+  .experience-icon { width: 38px; height: 38px; margin-bottom: 12px; color: var(--wcgb-pink-dark); }
+  .experience-icon svg { width: 100%; height: 100%; }
+  .experience-number { font-family: 'Playfair Display', Georgia, serif; color: var(--wcgb-pink); font-size: 1.45rem; margin-bottom: 6px; }
+  .experience-item h3 { color: #bb214f; text-transform: uppercase; font-size: .75rem; letter-spacing: .85px; margin-bottom: 10px; }
+  .experience-item p { color: #282424; font-size: .86rem; line-height: 1.55; font-weight: 600; }
+
+  .video-section { background: #171414; color: #fff; padding: 72px 24px; }
+  .video-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 42px; align-items: center; }
+  .video-kicker { color: #ff8eb0; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.2px; margin-bottom: 12px; }
+  .video-copy h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.7rem; line-height: 1.05; margin-bottom: 16px; }
+  .video-copy h2 em { color: #ff7fa5; font-style: italic; }
+  .video-copy p { color: rgba(255,255,255,.76); font-size: .98rem; line-height: 1.7; font-weight: 600; }
+  .video-frame { overflow: hidden; border: 1px solid rgba(255,255,255,.12); background: #0f0d0d; }
+  .video-frame video { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+
+  .wcgb-intro { background: var(--wcgb-pink-pale); overflow: hidden; }
+  .wcgb-intro-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: .95fr 1.15fr; min-height: 430px; }
+  .wcgb-photo { min-height: 430px; background: linear-gradient(rgba(0,0,0,.04), rgba(0,0,0,.04)), url("photos/wcgb-group.jpg") center 35% / cover no-repeat; }
+  .wcgb-copy { padding: 62px 62px 56px; position: relative; }
+  .wcgb-copy::after { content: ""; position: absolute; width: 280px; height: 280px; right: -130px; bottom: -130px; border: 30px solid rgba(239,95,141,.08); border-radius: 50%; }
+  .wcgb-copy .eyebrow { color: var(--wcgb-pink-dark); margin-bottom: 10px; }
+  .wcgb-copy h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -.025em; margin-bottom: 8px; }
+  .wcgb-copy .signature { font-family: 'Playfair Display', Georgia, serif; color: var(--wcgb-pink-dark); font-style: italic; font-size: 1.3rem; margin-bottom: 20px; }
+  .wcgb-copy p { max-width: 650px; color: #252121; font-size: 1.01rem; line-height: 1.72; font-weight: 600; }
+  .wcgb-values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; position: relative; z-index: 1; }
+  .wcgb-value { background: rgba(255,255,255,.74); border: 1px solid rgba(217,54,109,.22); color: var(--wcgb-pink-dark); border-radius: 999px; padding: 8px 13px; font-size: .78rem; font-weight: 700; }
+
+  #cause .section-header .eyebrow, #scholars .section-header .eyebrow { color: var(--wcgb-pink-dark); }
+  #cause .section-header h2, #scholars .section-header h2 { font-size: clamp(2.4rem, 5vw, 3.5rem); }
+  .mission-stat .num { color: var(--wcgb-pink-dark); }
+  .scholar-card.featured { border-color: var(--wcgb-pink-dark); }
+  .scholar-card.featured .scholar-name, .scholar-school { color: var(--wcgb-pink-dark); }
+  .sponsor-cta { background: #181414; }
+  .sponsor-cta .eyebrow { color: #e2ba66; }
+  .partner-strip .eyebrow { color: var(--wcgb-pink-dark); }
+
+  @media (max-width: 900px) {
+    .hero { min-height: 720px; }
+    .hero::before { background: linear-gradient(180deg, rgba(255,244,247,.20) 0%, rgba(255,244,247,.42) 40%, rgba(255,244,247,.96) 72%, rgba(255,244,247,1) 100%), url("photos/wcgb-hero.jpg") 58% top / cover no-repeat; }
+    .hero-inner { min-height: 720px; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 52px; }
+    .experience-inner, .video-inner, .wcgb-intro-inner { grid-template-columns: 1fr; }
+    .experience-grid { grid-template-columns: repeat(2, 1fr); border-left: 0; }
+    .experience-item { padding: 24px; border-top: 1px solid var(--border); }
+    .wcgb-photo { min-height: 380px; }
+  }
+  @media (max-width: 620px) {
+    .hero h1 { font-size: 3.25rem; }
+    .experience-grid { grid-template-columns: 1fr; }
+    .experience-item { border-right: 0; }
+    .wcgb-copy { padding: 44px 24px 48px; }
+    .video-section { padding: 56px 20px; }
+  }
+
 </style>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3640823439c24b819255d84cf1f261b4"}'></script>
@@ -160,9 +282,10 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="eyebrow">West Coast Golf Babes &times; Crimson &amp; Cream Classic</div>
-    <h1>Clinic <span class="amp">+</span> Banquet</h1>
-    <p class="lede">Spend the afternoon learning the game with the West Coast Golf Babes, then join us for the evening banquet and Black art auction. No golf experience required — just bring the energy.</p>
+    <h1>Learn the Game.<span class="pink-line">Join the Celebration.</span></h1>
+    <p class="lede">A beginner-friendly golf clinic, elevated evening, and purpose-driven experience in one day. Learn alongside West Coast Golf Babes, then transition into the banquet and Black art auction at Stonebrae Country Club.</p>
     <div class="when-where"><strong>Monday, October 19, 2026</strong><span class="sep">&middot;</span>Stonebrae Country Club<span class="sep">&middot;</span>Hayward, CA</div>
+    <a href="#register" class="hero-register-btn">Reserve Your Spot &rarr;</a>
   </div>
 </header>
 
@@ -218,29 +341,65 @@
 </section>
 
 <!-- WHAT'S INCLUDED -->
-<section class="section-cream">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="eyebrow">What's included</div>
-      <h2>Your afternoon, start to finish</h2>
+<section class="experience-section">
+  <div class="experience-inner">
+    <div class="experience-intro">
+      <div class="experience-eyebrow">Your day includes</div>
+      <h2>A day designed<br>for connection.</h2>
+      <p>Every part of the experience is intentional — from learning the game to connecting over dinner, culture, and community.</p>
     </div>
-    <div class="included-grid">
-      <div class="included-item">
-        <div class="included-icon">🏌🏾‍♀️</div>
-        <div><h4>The Clinic</h4><p>A ~90-minute golf clinic led by the West Coast Golf Babes' own professionals. Open to all skill levels — first-timers welcome.</p></div>
+    <div class="experience-grid">
+      <div class="experience-item">
+        <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 21V4m0 1l10-2v7L6 12"/><path d="M4 21h4"/></svg></div>
+        <div class="experience-number">01</div><h3>The Clinic</h3><p>A ~90-minute clinic led by WCGB professionals. Open to all skill levels.</p>
       </div>
-      <div class="included-item">
-        <div class="included-icon">🍽️</div>
-        <div><h4>The Banquet</h4><p>Cocktail hour and a full dinner at Stonebrae Country Club as the tournament wraps up.</p></div>
+      <div class="experience-item">
+        <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h4l-1 7a3 3 0 01-6 0L3 3h4z"/><path d="M17 3h4l-1 7a3 3 0 01-6 0l-1-7h4z"/><path d="M7 13v8M17 13v8M4 21h6M14 21h6"/></svg></div>
+        <div class="experience-number">02</div><h3>The Banquet</h3><p>Cocktail hour followed by a full dinner at Stonebrae Country Club.</p>
       </div>
-      <div class="included-item">
-        <div class="included-icon">🎨</div>
-        <div><h4>Black Art Auction</h4><p>A live auction of work by Black artists — the heart of the evening and a centerpiece of the fundraiser.</p></div>
+      <div class="experience-item">
+        <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 17l3-5 2 3 2-2 2 4"/><circle cx="10" cy="8" r="1.2"/></svg></div>
+        <div class="experience-number">03</div><h3>Black Art Auction</h3><p>A live auction featuring work by Black artists — a centerpiece of the evening.</p>
       </div>
-      <div class="included-item">
-        <div class="included-icon">🎓</div>
-        <div><h4>Scholarship Mission</h4><p>Every ticket helps fund scholarships for Bay Area students through Bay Area Community Projects.</p></div>
+      <div class="experience-item">
+        <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5L2 9z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></div>
+        <div class="experience-number">04</div><h3>Scholarship Mission</h3><p>Every ticket helps fund scholarships for Bay Area students.</p>
       </div>
+      <div class="experience-item">
+        <div class="experience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-4 2.5-6 6-6s6 2 6 6"/><path d="M12 20c0-4 2-6 4-6 3.5 0 6 2 6 6"/></svg></div>
+        <div class="experience-number">05</div><h3>Community &amp; Impact</h3><p>Connect, celebrate, and leave with a deeper sense of community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="video-inner">
+    <div class="video-copy">
+      <div class="video-kicker">See the experience</div>
+      <h2>More than a clinic.<br><em>It&rsquo;s a movement.</em></h2>
+      <p>A glimpse into the community, energy, and confidence WCGB brings on and off the course.</p>
+    </div>
+    <div class="video-frame">
+      <video controls playsinline poster="photos/wcgb-video-poster.jpg">
+        <source src="videos/wcgb-clinic.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- INTRODUCING WCGB -->
+<section class="wcgb-intro">
+  <div class="wcgb-intro-inner">
+    <div class="wcgb-photo" role="img" aria-label="West Coast Golf Babes community on the golf course"></div>
+    <div class="wcgb-copy">
+      <div class="eyebrow">Meet your clinic partner</div>
+      <h2>West Coast Golf Babes</h2>
+      <div class="signature">Making space for more women in golf.</div>
+      <p>WCGB is a Bay Area-based community creating welcoming, inclusive golf experiences for women of all backgrounds and skill levels. Our events are built around access, confidence, connection, and making the game feel less intimidating.</p>
+      <div class="wcgb-values"><span class="wcgb-value">Beginner Friendly</span><span class="wcgb-value">Community First</span><span class="wcgb-value">Curated Experiences</span><span class="wcgb-value">Open to All</span></div>
     </div>
   </div>
 </section>
