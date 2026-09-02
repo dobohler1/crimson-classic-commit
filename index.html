@@ -2813,7 +2813,8 @@
 </footer>
 
 <script>
-  // Live clinic seat count (same availability.json the clinic page reads; refreshed by cron).
+  // Clinic sold-out state (same availability.json the clinic page reads; refreshed by cron).
+  // Matches the clinic page: no public seat counts — only flip to "Sold out" when nothing is left.
   (function () {
     var el = document.getElementById('clinic-seats');
     if (!el) return;
@@ -2822,11 +2823,13 @@
       .then(function (d) {
         var e = (d.earlybird && d.earlybird.remaining) || 0;
         var s = (d.standard && d.standard.remaining) || 0;
-        var left = e + s;
-        if (left <= 0) { el.innerHTML = 'Clinic is sold out — join the waitlist on the clinic page.'; return; }
-        el.innerHTML = '<span class="dot"></span>' + left + ' of 40 seats left' + (s > 0 ? ' · ' + s + ' VIP' : '');
+        if (e + s <= 0) {
+          el.textContent = 'Sold out';
+          var btn = document.querySelector('#clinic .cta-play');
+          if (btn) { btn.textContent = 'Clinic Sold Out'; btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; }
+        }
       })
-      .catch(function () { el.innerHTML = 'Seats are limited — reserve early.'; });
+      .catch(function () {});
   })();
 </script>
 </body>
