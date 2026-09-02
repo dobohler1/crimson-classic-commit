@@ -431,6 +431,39 @@
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1363619072641621');fbq('track', 'PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1363619072641621&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
+<!-- Meta Pixel: Purchase/Donate conversion from Stripe redirect params (sku, v, session_id) -->
+<script>
+(function () {
+  try {
+    var p = new URLSearchParams(location.search);
+    var sid = p.get('session_id');
+    var sku = p.get('sku');
+    var val = parseFloat(p.get('v'));
+    var isDonation = p.get('type') === 'donation';
+    if (!sku && !isDonation) return;
+
+    // Don't re-fire on refresh/revisit: remember recent session ids locally,
+    // and pass eventID so Meta dedupes on its side too.
+    var seen = [];
+    try { seen = JSON.parse(localStorage.getItem('cc_px_seen') || '[]'); } catch (_) {}
+    if (sid && seen.indexOf(sid) > -1) return;
+
+    var opts = sid ? { eventID: sid } : undefined;
+    if (isDonation) {
+      fbq('track', 'Donate', {}, opts);
+    } else {
+      var params = { content_name: sku, currency: 'USD' };
+      if (!isNaN(val) && val > 0) params.value = val;
+      fbq('track', 'Purchase', params, opts);
+    }
+
+    if (sid) {
+      seen.push(sid);
+      try { localStorage.setItem('cc_px_seen', JSON.stringify(seen.slice(-20))); } catch (_) {}
+    }
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 
