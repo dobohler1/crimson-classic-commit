@@ -440,8 +440,8 @@
   <div class="check">✓</div>
 
   <div class="eyebrow">Confirmation</div>
-  <h1>You're <span class="gold">in.</span></h1>
-  <p class="lede">Thank you for committing to the 5th Annual Crimson &amp; Cream Golf Classic. Your contribution funds scholarships for Bay Area students — and we couldn't do this without you.</p>
+  <h1 id="thanks-h1">You're <span class="gold">in.</span></h1>
+  <p class="lede" id="thanks-lede">Thank you for committing to the 5th Annual Crimson &amp; Cream Golf Classic. Your contribution funds scholarships for Bay Area students — and we couldn't do this without you.</p>
 
   <!-- Impact -->
   <div class="impact">
@@ -842,5 +842,22 @@
   });
 </script>
 
+<script>
+  // Donation checkouts land here with ?type=donation — swap the registration copy for donor copy.
+  (function () {
+    try {
+      if (new URLSearchParams(location.search).get('type') !== 'donation') return;
+      var up = document.getElementById('uploadCard'); if (up) up.hidden = true;
+      var h = document.getElementById('thanks-h1');
+      var l = document.getElementById('thanks-lede');
+      if (h) h.innerHTML = 'Thank <span class="gold">you.</span>';
+      if (l) l.textContent = 'Your gift to the Crimson & Cream Golf Classic scholarship fund is in. Every dollar goes to Bay Area Community Project scholarships for Black students — and it counts toward the 25 we\'re awarding this year.';
+      document.querySelectorAll('.next-steps li').forEach(function (li, i) {
+        if (i === 1) li.innerHTML = '<strong>A note from Dorian.</strong> You\'ll get a personal thank-you from <a href="mailto:dbohler@scienceonthecourt.com">Dorian Bohler</a>, and we\'ll let you know who your gift helped once scholarships are awarded.';
+        if (i === 2) li.innerHTML = '<strong>Want to be there?</strong> October 19, 2026 at Stonebrae Country Club. <a href="index.html#banquet">Banquet tickets</a> and <a href="index.html#clinic">clinic seats</a> are still open.';
+      });
+    } catch (e) {}
+  })();
+</script>
 </body>
 </html>

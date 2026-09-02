@@ -246,6 +246,231 @@
     .twin-cta a { min-width: 0; width: 100%; padding: 16px 24px; }
   }
 
+  /* ===== HERO: clinic + donate secondary links ===== */
+  .hero .twin-cta { margin-bottom: 22px; }
+  .hero-alt {
+    display: flex;
+    justify-content: center;
+    gap: 12px 28px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+    font-size: 0.92rem;
+  }
+  .hero-alt a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .hero-alt a strong { color: #fff; }
+  .hero-alt a:hover { color: #fff; border-color: var(--gold); }
+  .hero-alt .pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-right: 8px;
+    vertical-align: 2px;
+  }
+
+  /* ===== CLINIC FEATURE ===== */
+  .clinic-feature {
+    background: var(--charcoal);
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .clinic-feature .section-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .clinic-feature .photo {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  }
+  .clinic-feature .photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+  .clinic-feature .photo .tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--crimson);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 7px 12px;
+    border-radius: 6px;
+  }
+  .clinic-feature .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .clinic-feature h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .clinic-feature h2 em { color: var(--gold); font-style: italic; }
+  .clinic-feature p { color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 18px; font-size: 1.02rem; }
+  .clinic-feature ul { list-style: none; margin: 0 0 26px; }
+  .clinic-feature ul li {
+    padding: 7px 0 7px 26px;
+    position: relative;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .clinic-feature ul li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  .clinic-feature .price-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  .clinic-feature .price-chip {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+  }
+  .clinic-feature .price-chip strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .clinic-feature .seats {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.3px;
+    min-height: 1.1em;
+    margin-bottom: 18px;
+  }
+  .clinic-feature .seats .dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--crimson);
+    margin-right: 7px;
+    vertical-align: middle;
+    animation: seatpulse 1.6s infinite;
+  }
+  @keyframes seatpulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .clinic-feature .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .clinic-feature .cta-play { font-size: 1rem; padding: 16px 32px; text-decoration: none; display: inline-block; border-radius: 8px; font-weight: 700; }
+  .clinic-feature .cta-row .more {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+  }
+  .clinic-feature .cta-row .more:hover { color: #fff; }
+  @media (max-width: 880px) {
+    .clinic-feature .section-inner { grid-template-columns: 1fr; gap: 32px; padding: 64px 20px; }
+    .clinic-feature h2 { font-size: 1.9rem; }
+    .clinic-feature .cta-play { width: 100%; text-align: center; }
+  }
+
+  /* ===== DONATE ===== */
+  .donate-section {
+    background: linear-gradient(135deg, #fdfaf2 0%, #f5ecd8 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .donate-section .section-inner { max-width: 1040px; margin: 0 auto; padding: 80px 24px; }
+  .donate-box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(197,165,90,0.18);
+  }
+  .donate-box .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 14px;
+  }
+  .donate-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+  .donate-box h2 em { color: var(--crimson); font-style: italic; }
+  .donate-box p { color: var(--gray); line-height: 1.65; max-width: 560px; margin: 0 auto 26px; }
+  .donate-amounts {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+  .donate-amounts span {
+    border: 1px solid var(--border);
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .donate-amounts span.any { border-color: var(--gold); color: var(--gold-dark); }
+  .cta-donate {
+    display: inline-block;
+    background: var(--crimson);
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 20px rgba(196, 30, 58, 0.3);
+    transition: all 0.2s;
+  }
+  .cta-donate:hover { background: var(--crimson-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,30,58,0.45); }
+  .donate-box .fine { font-size: 0.8rem; color: var(--light-gray); margin: 18px 0 0; line-height: 1.6; }
+  @media (max-width: 720px) {
+    .donate-box { padding: 36px 22px; }
+    .donate-box h2 { font-size: 1.75rem; }
+    .cta-donate { width: 100%; }
+  }
+
+  .final-cta .alt-link { margin-top: 22px; font-size: 0.95rem; }
+  .final-cta .alt-link a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(197,165,90,0.4); }
+  .final-cta .alt-link a:hover { border-color: var(--gold); }
+
   /* ===== PHOTO STRIP ===== */
   .photo-strip {
     display: grid;
@@ -1882,9 +2107,10 @@
     <a href="#top" class="nav-brand">Crimson <span class="amp">&amp;</span> Cream Classic</a>
     <ul class="nav-links">
       <li><a href="#play">Play</a></li>
+      <li><a href="#clinic">Clinic</a></li>
       <li><a href="#sponsor">Sponsor</a></li>
       <li><a href="#scholars">Scholars</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#donate">Donate</a></li>
       <li><a href="#play" class="nav-cta">Register</a></li>
     </ul>
   </div>
@@ -1901,6 +2127,10 @@
     <div class="twin-cta">
       <a href="#play" class="cta-play">I want to PLAY →</a>
       <a href="#sponsor" class="cta-sponsor">I want to SPONSOR →</a>
+    </div>
+    <div class="hero-alt">
+      <a href="#clinic"><span class="pill">New to golf?</span><strong>Golf Clinic + Banquet</strong> · from $175 →</a>
+      <a href="#donate">Can't make it? <strong>Donate any amount</strong> →</a>
     </div>
 
     <div class="hero-stats">
@@ -2006,19 +2236,19 @@
       <a href="https://buy.stripe.com/fZu3cvbNs0yUf9269a0Jq0d" class="cta">Register Solo →</a>
     </div>
 
-    <!-- Banquet only -->
+    <!-- Golf clinic + banquet -->
     <div class="play-card">
-      <div class="label">Don't Golf? Come Anyway.</div>
-      <div class="price">$125</div>
-      <div class="price-sub">Banquet &amp; auction · evening only</div>
-      <p class="desc">The post-tournament banquet is the heart of the day — dinner, art auction, and the scholarship celebration.</p>
+      <div class="label">New to Golf? Start Here.</div>
+      <div class="price">$175</div>
+      <div class="price-sub">Golf Clinic + Banquet · VIP $225 · 40 seats</div>
+      <p class="desc">Learn the game day-of with West Coast Golf Babes, then walk straight into the banquet and Black art auction.</p>
       <ul>
-        <li>Cocktail hour reception</li>
-        <li>Dinner at Stonebrae</li>
-        <li>Live art auction</li>
-        <li>Scholar recognition program</li>
+        <li>Coached clinic · all skill levels</li>
+        <li>Clubs provided · no experience needed</li>
+        <li>Banquet, auction &amp; awards included</li>
+        <li>VIP adds premium seating + swag</li>
       </ul>
-      <a href="#banquet" class="cta">See Banquet Tickets →</a>
+      <a href="wcgb-clinic.html" class="cta">Reserve a Clinic Spot →</a>
     </div>
   </div>
 
@@ -2027,7 +2257,7 @@
   </div>
 
   <div class="early-bird-banner">
-    ⛳ <strong>Prefer a clinic to 18 holes?</strong> The <a href="wcgb-clinic.html">Golf Clinic + Banquet ticket</a> ($175 · VIP $225) includes a day-of clinic at Stonebrae — all skill levels welcome — plus the evening banquet and Black art auction. Seats are limited.
+    🥂 <strong>Just want the evening?</strong> <a href="#banquet">Banquet &amp; auction tickets</a> start at $125 — dinner, the live Black art auction, and the scholarship celebration. No golf required.
   </div>
 
   <div class="pricing-schedule">
@@ -2057,6 +2287,36 @@
           <strong>$450</strong> / single<br>
           <strong>$1,700</strong> / foursome
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CLINIC FEATURE ============= -->
+<section id="clinic" class="clinic-feature">
+  <div class="section-inner">
+    <div class="photo">
+      <img src="photos/wcgb-hero.jpg" alt="West Coast Golf Babes clinic group on the course" loading="lazy">
+      <div class="tag">Run by West Coast Golf Babes</div>
+    </div>
+    <div>
+      <div class="eyebrow">Golf Clinic + Banquet · October 19</div>
+      <h2>Never swung a club?<br><em>This is your way in.</em></h2>
+      <p>A coached, beginner-friendly clinic the afternoon of the tournament — then you join the golfers for the banquet, the Black art auction, and the scholarship awards. One ticket, the whole day.</p>
+      <ul>
+        <li>12:30 PM clinic led by West Coast Golf Babes coaches</li>
+        <li>All skill levels · clubs provided · come as you are</li>
+        <li>Evening banquet, live art auction &amp; awards included</li>
+        <li>Capped at 40 seats so everyone gets real coaching</li>
+      </ul>
+      <div class="price-row">
+        <div class="price-chip"><strong>$175</strong>Clinic + Banquet</div>
+        <div class="price-chip"><strong>$225</strong>VIP · premium seating, welcome drink, swag bag</div>
+      </div>
+      <div class="seats" id="clinic-seats">&nbsp;</div>
+      <div class="cta-row">
+        <a href="wcgb-clinic.html" class="cta-play">Reserve a Clinic Spot →</a>
+        <a href="wcgb-clinic.html" class="more">Full clinic details</a>
       </div>
     </div>
   </div>
@@ -2311,6 +2571,22 @@
   </p>
 </section>
 
+<!-- ============= DONATE ============= -->
+<section id="donate" class="donate-section">
+  <div class="section-inner">
+    <div class="donate-box">
+      <div class="eyebrow">Can't make it on October 19?</div>
+      <h2>Fund a scholar <em>anyway.</em></h2>
+      <p>Every dollar goes to the Bay Area Community Project scholarship fund. Pick any amount — a few dollars or a few thousand — and you'll be part of the 25 scholarships we're awarding this year.</p>
+      <div class="donate-amounts">
+        <span>$50</span><span>$100</span><span>$250</span><span>$500</span><span>$1,000</span><span class="any">Any amount you choose</span>
+      </div>
+      <a href="https://donate.stripe.com/cNi3cvcRw3L68KE9lm0Jq0m" class="cta-donate">Donate — Choose Your Amount →</a>
+      <p class="fine">Secure checkout by Stripe. Bay Area Community Project Inc. is a 501(c)(3) nonprofit — your gift is tax-deductible to the full extent allowed by law. A receipt is emailed instantly.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============= VENUE ============= -->
 <section class="section-cream">
   <div class="section-inner">
@@ -2513,6 +2789,7 @@
     <a href="#play" class="cta-play">Register to Play →</a>
     <a href="#sponsor" class="cta-sponsor">Become a Sponsor →</a>
   </div>
+  <p class="alt-link">New to golf? <a href="#clinic">Join the clinic</a> &nbsp;·&nbsp; Can't attend? <a href="https://donate.stripe.com/cNi3cvcRw3L68KE9lm0Jq0m">Donate any amount</a></p>
 </section>
 
 <!-- ============= FOOTER ============= -->
@@ -2521,8 +2798,10 @@
   <div>5th Annual · Monday, October 19, 2026 · Stonebrae Country Club</div>
   <div class="footer-links">
     <a href="#play">Play</a> ·
+    <a href="#clinic">Clinic</a> ·
     <a href="#sponsor">Sponsor</a> ·
     <a href="#banquet">Banquet</a> ·
+    <a href="#donate">Donate</a> ·
     <a href="commit.html">Commit</a> ·
     <a href="mailto:dbohler@scienceonthecourt.com">Contact</a>
   </div>
@@ -2533,5 +2812,22 @@
   </div>
 </footer>
 
+<script>
+  // Live clinic seat count (same availability.json the clinic page reads; refreshed by cron).
+  (function () {
+    var el = document.getElementById('clinic-seats');
+    if (!el) return;
+    fetch('availability.json?t=' + Date.now())
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var e = (d.earlybird && d.earlybird.remaining) || 0;
+        var s = (d.standard && d.standard.remaining) || 0;
+        var left = e + s;
+        if (left <= 0) { el.innerHTML = 'Clinic is sold out — join the waitlist on the clinic page.'; return; }
+        el.innerHTML = '<span class="dot"></span>' + left + ' of 40 seats left' + (s > 0 ? ' · ' + s + ' VIP' : '');
+      })
+      .catch(function () { el.innerHTML = 'Seats are limited — reserve early.'; });
+  })();
+</script>
 </body>
 </html>
