@@ -524,6 +524,7 @@
   <!-- End Cloudflare Web Analytics -->
 <!-- Meta Pixel Code -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1363619072641621');fbq('track', 'PageView');</script>
+<script src="/cc-src.js?v=1"></script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1363619072641621&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 </head>
@@ -815,7 +816,8 @@
       fd.append('_captcha', 'false');
       fd.append('_template', 'table');
       fetch('https://formsubmit.co/ajax/dbohler@scienceonthecourt.com', { method: 'POST', body: fd }).catch(() => {});
-      window.location.href = STRIPE_LINKS[tier] || STRIPE_LINKS['Featured Sponsor'];
+      var stripeUrl = STRIPE_LINKS[tier] || STRIPE_LINKS['Featured Sponsor'];
+      window.location.href = window.ccStripeUrl ? window.ccStripeUrl(stripeUrl) : stripeUrl;
     } catch (e) {
       console.error(e);
       btn.disabled = false;
