@@ -487,9 +487,9 @@
 
   <!-- Upload materials -->
   <div class="upload-card" id="uploadCard">
-    <div class="eyebrow">One last step</div>
+    <div class="eyebrow">Sponsors only</div>
     <h2>Upload Your Logo &amp; Materials</h2>
-    <p class="sub">Send us everything we need to get your brand on signage, in the program, and across our emails — right here, no email back-and-forth.</p>
+    <p class="sub">If you've taken a sponsorship, send us everything we need to get your brand on signage, in the program, and across our emails — right here, no email back-and-forth. Registered golfers and ticket holders have nothing to upload.</p>
 
     <div class="upload-identify" id="identifyBox">
       <span id="identifyText">Linking your upload to your sponsorship&hellip;</span>
@@ -875,6 +875,33 @@
     wireFileInput('logoFile', 'logoDrop', 'logoName', 'Click to upload your logo');
     wireFileInput('extraFile', 'extraDrop', 'extraName', 'Click to upload (optional)');
   });
+</script>
+
+<script>
+  // Sponsor-materials gate. The upload card is for SPONSORS ONLY.
+  // Golfers, banquet and clinic buyers were being shown it and promised signage
+  // they had not bought (two orphan uploads on 2026-09-22). Every live payment
+  // link carries ?sku=, so gate on that.
+  //
+  // DENY-list, deliberately, not a sponsor allow-list: bespoke sponsor links
+  // (Tamesa's foursome+hole, Oakland Tobacco's lounge, The Source's station)
+  // carry one-off skus, and an allow-list would lock real sponsors out of
+  // uploading. Anything unrecognised still sees the card.
+  // NOTE: banquet_sponsor is a $7,500 TIER and must keep the card - do not add it.
+  (function () {
+    var NOT_SPONSORS = [
+      'foursome_regular','foursome_alumni','foursome_friends','three_golfers_750',
+      'single_regular','single_sponsor_rate','single_earlybird',
+      'banquet_ga','banquet_vip','banquet_volunteer',
+      'wcgb_clinic_earlybird','wcgb_clinic_standard','ricka_white_vip_upgrade'
+    ];
+    try {
+      var sku = new URLSearchParams(location.search).get('sku');
+      if (!sku || NOT_SPONSORS.indexOf(sku) === -1) return;
+      var up = document.getElementById('uploadCard');
+      if (up) up.hidden = true;
+    } catch (e) {}
+  })();
 </script>
 
 <script>
