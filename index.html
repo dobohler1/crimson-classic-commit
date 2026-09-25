@@ -882,6 +882,7 @@
   .play-card.featured.soldout::before { display: none; }
   .play-card.soldout .cta { background: var(--ink, #1a1a1a); color: #fff; }
   .play-card.soldout .cta:hover { background: var(--crimson); }
+  .play-card.soldout .cta.disabled { background: #6b6b6b; cursor: default; pointer-events: none; }
   #play h2 .amp { color: var(--gold); font-style: italic; }
   .soldout-badge { display: inline-block; align-self: flex-start; width: auto; background: var(--crimson); color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; }
   .early-bird-banner {
@@ -2140,7 +2141,7 @@
       <a href="#sponsor" class="cta-sponsor">I want to SPONSOR →</a>
     </div>
     <div class="hero-alt">
-      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20golf%20waitlist&body=Please%20add%20me%20to%20the%20golf%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0AFoursome%20or%20single%3A%20%0A"><span class="pill">Sold out</span><strong>Golf is full</strong> · join the waitlist →</a>
+      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20single%20golfer%20waitlist&body=Please%20add%20me%20to%20the%20single-golfer%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0A"><span class="pill">Sold out</span><strong>Golf is full</strong> · join the waitlist →</a>
       <a href="#donate">Can't make it? <strong>Donate any amount</strong> →</a>
     </div>
 
@@ -2213,7 +2214,7 @@
   <div class="section-header">
     <div class="eyebrow">Golf registration</div>
     <h2>The field is full.<br>Golf is <span class="amp">sold out</span>.</h2>
-    <p>Thank you, Bay Area — every golf seat for Monday, October 19 is spoken for. Join the waitlist below and we'll call you the moment a seat opens. You can still be part of the day: join the golf clinic, or put your name on the course as a sponsor.</p>
+    <p>Thank you, Bay Area — every golf seat for Monday, October 19 is spoken for. Single golfers can join the waitlist below and we'll call you the moment a seat opens. You can still be part of the day: join the golf clinic, or put your name on the course as a sponsor.</p>
   </div>
 
   <div class="play-grid">
@@ -2222,15 +2223,15 @@
       <div class="soldout-badge">Sold out</div>
       <div class="label">Team Captain</div>
       <div class="price">$1,300</div>
-      <div class="price-sub">Sold out · waitlist open at this rate</div>
-      <p class="desc">Cancellations happen. Join the waitlist and we fill open foursomes in order, at the $1,300 rate.</p>
+      <div class="price-sub">Sold out · no foursomes remaining</div>
+      <p class="desc">Every team slot is spoken for. Thank you, captains — see you on the tee.</p>
       <ul>
         <li>4 golfers · greens fees + cart</li>
         <li>Range balls &amp; on-course lunch</li>
         <li>4 banquet tickets included</li>
         <li>Team prizes &amp; longest drive</li>
       </ul>
-      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20golf%20waitlist&body=Please%20add%20me%20to%20the%20golf%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0AFoursome%20or%20single%3A%20%0A" class="cta">Join the Waitlist →</a>
+      <span class="cta disabled" aria-disabled="true">Sold Out</span>
     </div>
 
     <!-- Single -->
@@ -2239,14 +2240,14 @@
       <div class="label">Single Golfer</div>
       <div class="price">$350</div>
       <div class="price-sub">Sold out · waitlist open at this rate</div>
-      <p class="desc">Cancellations happen. Join the waitlist and we fill open seats in order, at the $350 rate.</p>
+      <p class="desc">Cancellations happen. Join the single-golfer waitlist and we fill open seats in order, at the $350 rate.</p>
       <ul>
         <li>1 spot in a foursome</li>
         <li>Greens fees, cart, range</li>
         <li>On-course lunch</li>
         <li>1 banquet ticket included</li>
       </ul>
-      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20golf%20waitlist&body=Please%20add%20me%20to%20the%20golf%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0AFoursome%20or%20single%3A%20%0A" class="cta">Join the Waitlist →</a>
+      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20single%20golfer%20waitlist&body=Please%20add%20me%20to%20the%20single-golfer%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0A" class="cta">Join the Waitlist →</a>
     </div>
 
     <!-- Golf clinic + banquet -->
@@ -2266,7 +2267,7 @@
   </div>
 
   <div class="early-bird-banner">
-    <strong>⛳ Golf is sold out — the waitlist is open.</strong> We get cancellations and fill seats from the waitlist in order, at the current rate ($350 single · $1,300 foursome). <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20golf%20waitlist&body=Please%20add%20me%20to%20the%20golf%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0AFoursome%20or%20single%3A%20%0A">Join the waitlist</a> and we'll reach out the moment a seat opens.
+    <strong>⛳ Golf is sold out — the single-golfer waitlist is open.</strong> We get cancellations and fill single seats from the waitlist in order, at the current $350 rate. <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20single%20golfer%20waitlist&body=Please%20add%20me%20to%20the%20single-golfer%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0A">Join the waitlist</a> and we'll reach out the moment a seat opens.
   </div>
 
   <div class="early-bird-banner">
@@ -2294,10 +2295,10 @@
       </div>
       <div class="pricing-tier current">
         <div class="pricing-tier-label">Waitlist</div>
-        <div class="pricing-tier-dates">Open now · seats fill in order</div>
+        <div class="pricing-tier-dates">Single golfers only · seats fill in order</div>
         <div class="pricing-tier-prices">
           <strong>$350</strong> / single<br>
-          <strong>$1,300</strong> / foursome
+          <span style="opacity:.6">Foursomes closed</span>
         </div>
         <div class="now-badge">You are here</div>
       </div>
