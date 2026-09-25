@@ -1695,7 +1695,7 @@
   .banquet-card .cta:hover { background: #333; }
   .banquet-card.soldout .price { text-decoration: line-through; opacity: 0.55; }
   .banquet-card.soldout .soldout-badge { margin-bottom: 8px; }
-  .banquet-card.soldout .cta:hover { background: var(--crimson); }
+  .banquet-card.soldout .cta.disabled { background: #6b6b6b; color: #fff; cursor: default; pointer-events: none; }
 
   @media (max-width: 540px) {
     .banquet-row { grid-template-columns: 1fr; }
@@ -2136,11 +2136,11 @@
     <p class="when-where"><strong>Stonebrae Country Club</strong><span class="sep">·</span><strong>Hayward, CA</strong></p>
 
     <div class="twin-cta">
-      <a href="#clinic" class="cta-play">Golf &amp; Banquet SOLD OUT · Join the CLINIC →</a>
+      <a href="#clinic" class="cta-play">Join the GOLF CLINIC →</a>
       <a href="#sponsor" class="cta-sponsor">I want to SPONSOR →</a>
     </div>
     <div class="hero-alt">
-      <a href="#clinic"><span class="pill">New to golf?</span><strong>Golf Clinic + Banquet</strong> · from $175 →</a>
+      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20golf%20waitlist&body=Please%20add%20me%20to%20the%20golf%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0AFoursome%20or%20single%3A%20%0A"><span class="pill">Sold out</span><strong>Golf is full</strong> · join the waitlist →</a>
       <a href="#donate">Can't make it? <strong>Donate any amount</strong> →</a>
     </div>
 
@@ -2213,7 +2213,7 @@
   <div class="section-header">
     <div class="eyebrow">Golf registration</div>
     <h2>The field is full.<br>Golf is <span class="amp">sold out</span>.</h2>
-    <p>Thank you, Bay Area — every golf seat for Monday, October 19 is spoken for. Join the waitlist below and we'll call you the moment a seat opens. You can still be part of the day either way: join the golf clinic (which includes your banquet seat), or put your name on the course as a sponsor.</p>
+    <p>Thank you, Bay Area — every golf seat for Monday, October 19 is spoken for. Join the waitlist below and we'll call you the moment a seat opens. You can still be part of the day: join the golf clinic, or put your name on the course as a sponsor.</p>
   </div>
 
   <div class="play-grid">
@@ -2270,7 +2270,7 @@
   </div>
 
   <div class="early-bird-banner">
-    🥂 <strong>Banquet-only tickets are sold out too.</strong> The last way into the evening is the <a href="#clinic">Golf Clinic + Banquet</a> ticket ($175) — or <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20banquet%20waitlist&body=Please%20add%20me%20to%20the%20banquet%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0ANumber%20of%20seats%3A%20%0A">join the banquet waitlist</a> and we'll reach out if a seat opens.
+    🥂 <strong>Banquet-only tickets are sold out too.</strong> The last way into the evening is the <a href="#clinic">Golf Clinic + Banquet</a> ticket ($175).
   </div>
 
   <div class="pricing-schedule">
@@ -2504,7 +2504,7 @@
   <div class="section-header">
     <div class="eyebrow">Banquet &amp; auction</div>
     <h2>The evening that ties it all together.</h2>
-    <p>Dinner, drinks, the live art auction, and a room full of people funding the next class of Bay Area scholars. <strong>Banquet-only tickets are sold out.</strong> The Golf Clinic + Banquet ticket is the last way in — or join the waitlist and we'll reach out if a seat opens.</p>
+    <p>Dinner, drinks, the live art auction, and a room full of people funding the next class of Bay Area scholars. <strong>Banquet-only tickets are sold out.</strong> The Golf Clinic + Banquet ticket is the last way in.</p>
   </div>
 
   <div class="banquet-row">
@@ -2512,15 +2512,15 @@
       <div class="soldout-badge">Sold out</div>
       <div class="label">General Admission</div>
       <div class="price">$125</div>
-      <p class="desc">Cocktail hour, dinner, the live art auction, and the evening program. Cancellations are filled from the waitlist in order.</p>
-      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20banquet%20waitlist&body=Please%20add%20me%20to%20the%20banquet%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0ANumber%20of%20seats%3A%20%0A" class="cta">Join the Waitlist</a>
+      <p class="desc">Cocktail hour, dinner, the live art auction, and the evening program.</p>
+      <span class="cta disabled" aria-disabled="true">Sold Out</span>
     </div>
     <div class="banquet-card vip soldout">
       <div class="soldout-badge">Sold out</div>
       <div class="label">VIP Experience</div>
       <div class="price">$175</div>
-      <p class="desc">Premium seating, VIP reception, and everything in General Admission. Cancellations are filled from the waitlist in order.</p>
-      <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20banquet%20waitlist&body=Please%20add%20me%20to%20the%20banquet%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0ANumber%20of%20seats%3A%20%0A" class="cta">Join the Waitlist</a>
+      <p class="desc">Premium seating, VIP reception, and everything in General Admission.</p>
+      <span class="cta disabled" aria-disabled="true">Sold Out</span>
     </div>
     <div class="banquet-card">
       <div class="label">Golf Clinic + Banquet</div>
@@ -2635,7 +2635,7 @@
     </details>
     <details>
       <summary>I'm not a golfer — can I still come?</summary>
-      <p>Yes — though banquet-only tickets are now sold out. The <a href="#clinic">Golf Clinic + Banquet</a> ticket ($175) still gets you into the evening, no experience needed, or you can <a href="mailto:dbohler@crimsonclassic.org?subject=Crimson%20%26%20Cream%20Classic%20%E2%80%94%20banquet%20waitlist&body=Please%20add%20me%20to%20the%20banquet%20waitlist.%0A%0AName%3A%20%0APhone%3A%20%0ANumber%20of%20seats%3A%20%0A">join the banquet waitlist</a>. Many of our biggest supporters are people who never set foot on the course.</p>
+      <p>Yes — though banquet-only tickets are now sold out. The <a href="#clinic">Golf Clinic + Banquet</a> ticket ($175) still gets you into the evening, no experience needed. Many of our biggest supporters are people who never set foot on the course.</p>
     </details>
     <details>
       <summary>I want to play but don't have a foursome.</summary>
