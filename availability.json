@@ -10,9 +10,9 @@
     "remaining": 4
   },
   "cocktail": {
-    "sold": 0,
+    "sold": 1,
     "limit": 10,
-    "remaining": 10
+    "remaining": 9
   },
-  "updated": "2026-10-02T20:50:05Z"
+  "updated": "2026-10-05T01:04:49Z"
 }
