@@ -1,7 +1,7 @@
 {
   "earlybird": {
-    "sold": 8,
-    "limit": 12,
+    "sold": 9,
+    "limit": 13,
     "remaining": 4
   },
   "standard": {
@@ -11,8 +11,8 @@
   },
   "cocktail": {
     "sold": 1,
-    "limit": 10,
-    "remaining": 9
+    "limit": 20,
+    "remaining": 19
   },
-  "updated": "2026-10-05T01:04:49Z"
+  "updated": "2026-10-10T20:12:28Z"
 }
