@@ -11,8 +11,8 @@
   },
   "cocktail": {
     "sold": 1,
-    "limit": 20,
-    "remaining": 19
+    "limit": 1,
+    "remaining": 0
   },
-  "updated": "2026-10-14T04:30:06Z"
+  "updated": "2026-10-15T05:42:56Z"
 }
