@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clinic + Banquet Registration — Crimson & Cream Classic × West Coast Golf Babes</title>
-<meta name="description" content="Register for the golf clinic led by West Coast Golf Babes plus the evening banquet and Black art auction. Monday, October 19, 2026 at Stonebrae Country Club, Hayward CA. No golf experience required.">
+<meta name="description" content="The golf clinic led by West Coast Golf Babes at the Crimson & Cream Classic is sold out. Monday, October 19, 2026 at Stonebrae Country Club, Hayward CA. Sponsor or donate to fund scholarships for Bay Area students.">
 <meta property="og:title" content="Clinic + Banquet — Crimson & Cream Classic × West Coast Golf Babes">
-<meta property="og:description" content="A golf clinic led by West Coast Golf Babes + the evening banquet and Black art auction. Monday, October 19, 2026 · Stonebrae CC. No golf required.">
+<meta property="og:description" content="The West Coast Golf Babes clinic at the Crimson & Cream Classic is sold out. Monday, October 19, 2026 · Stonebrae CC. Sponsor or donate to fund scholarships.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://crimsonclassic.org/wcgb-clinic.html">
 <link rel="canonical" href="https://crimsonclassic.org/wcgb-clinic.html">
@@ -300,7 +300,7 @@
   <div class="section-header">
     <div class="eyebrow">Reserve your spot</div>
     <h2>Register for the Clinic</h2>
-    <p>Clinic + Banquet and VIP are sold out — every dinner seat at Stonebrae is spoken for. Clinic + Cocktail Hour is still open: the golf clinic and the 3:30 cocktail hour with the silent art auction, without a dinner seat. Every ticket helps fund scholarships for Bay Area students.</p>
+    <p>The clinic is sold out — all three tickets, Clinic + Banquet, VIP and Clinic + Cocktail Hour, are spoken for. Thank you, Bay Area. You can still be part of October 19 as a <a href="index.html#sponsor">sponsor</a>, or <a href="https://donate.stripe.com/cNi3cvcRw3L68KE9lm0Jq0m">donate any amount</a> toward scholarships for Bay Area students.</p>
   </div>
 
   <div class="reg-grid">
@@ -340,11 +340,11 @@
     </div>
 
     <!-- Clinic + Cocktail Hour (no dinner seat) -->
-    <div class="play-card featured" id="card-cocktail">
+    <div class="play-card soldout" id="card-cocktail">
       <div class="label">Clinic + Cocktail Hour</div>
       <div class="price">$125</div>
-      <div class="price-sub">The clinic and the cocktail hour, no dinner seat</div>
-      <div class="seats-left" id="seats-cocktail">&nbsp;</div>
+      <div class="price-sub">Sold out</div>
+      <div class="seats-left" id="seats-cocktail">Sold out</div>
       <p class="desc">Take the clinic, then join the 3:30 cocktail hour and silent art auction in the members&rsquo; lounge. You head out before the seated banquet.</p>
       <ul>
         <li>~90-minute golf clinic with WCGB pros</li>
@@ -353,13 +353,13 @@
         <li>Silent Black art auction</li>
         <li>Banquet dinner not included</li>
       </ul>
-      <a href="https://buy.stripe.com/14A5kD4l0dlG4uo69a0Jq0t" class="cta" id="cta-cocktail">Register &mdash; $125 &rarr;</a>
+      <span class="cta disabled" id="cta-cocktail" aria-disabled="true">Sold Out</span>
     </div>
 
   </div>
 
   <div class="seats-banner" id="seats-banner">
-    <strong>Clinic + Banquet is sold out</strong> &nbsp;&middot;&nbsp; Clinic + Cocktail Hour seats are still open above.
+    <strong>The clinic is sold out</strong> &nbsp;&middot;&nbsp; <a href="index.html#sponsor">Sponsor</a> or <a href="https://donate.stripe.com/cNi3cvcRw3L68KE9lm0Jq0m">donate</a> to be part of the day.
   </div>
 </section>
 
@@ -538,7 +538,7 @@
       render('early', d.earlybird); render('standard', d.standard); render('cocktail', d.cocktail);
       var e = (d.earlybird && d.earlybird.remaining) || 0, v = (d.standard && d.standard.remaining) || 0;
       var b = document.getElementById('seats-banner');
-      if (b && e + v <= 0) b.innerHTML = '<strong>Clinic + Banquet is sold out</strong> &nbsp;&middot;&nbsp; Clinic + Cocktail Hour seats may still be open above.';
+      /* 2026-10-14: all clinic tiers sold out — banner is static now. */
     })
     .catch(function () { /* leave counters blank if the file can't be read */ });
 })();
